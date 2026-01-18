@@ -16,7 +16,7 @@ param powerPlatformSubnetPrefix string = '10.10.20.0/24'
 var vnetName = '${namePrefix}-hub-vnet'
 
 // AVM VNet module (pin the version once you decide)
-module vnet 'br/public:avm/res/network/virtual-network:0.9.0' = {
+module vnet 'br/public:avm/res/network/virtual-network:0.7.1' = {
   name: 'hubVnet'
   params: {
     name: vnetName
