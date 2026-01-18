@@ -1,0 +1,20 @@
+{
+  "name": "Azure Bicep + AVM",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/azure-cli:1": {},
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-bicep",
+        "github.vscode-github-actions"
+      ],
+      "settings": {
+        "bicep.enableLinting": true
+      }
+    }
+  },
+  "postCreateCommand": "az bicep version || az bicep install"
+}
