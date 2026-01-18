@@ -16,7 +16,7 @@ param powerPlatformSubnetPrefix string = '10.10.20.0/24'
 var vnetName = '${namePrefix}-hub-vnet'
 
 // AVM VNet module (pin the version once you decide)
-module vnet 'br/avm/res/network/virtual-network:0.9.0' = {
+module vnet 'br/public:avm/res/network/virtual-network:0.9.0' = {
   name: 'hubVnet'
   params: {
     name: vnetName
@@ -48,7 +48,8 @@ resource kvPrivateDns 'Microsoft.Network/privateDnsZones@2020-06-01' = {
 }
 
 resource kvPrivateDnsLink 'Microsoft.Network/privateDnsZones/virtualNetworkLinks@2020-06-01' = {
-  name: '${kvPrivateDns.name}/${vnetName}-link'
+  parent: kvPrivateDns
+  name: '${vnetName}-link'
   location: 'global'
   properties: {
     virtualNetwork: {
@@ -56,4 +57,7 @@ resource kvPrivateDnsLink 'Microsoft.Network/privateDnsZones/virtualNetworkLinks
     }
     registrationEnabled: false
   }
+  dependsOn: [
+    vnet
+  ]
 }
