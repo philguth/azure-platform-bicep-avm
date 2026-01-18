@@ -57,7 +57,4 @@ resource kvPrivateDnsLink 'Microsoft.Network/privateDnsZones/virtualNetworkLinks
     }
     registrationEnabled: false
   }
-  dependsOn: [
-    vnet
-  ]
 }
