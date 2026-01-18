@@ -70,9 +70,12 @@ resource kvPrivateDnsLink 'Microsoft.Network/privateDnsZones/virtualNetworkLinks
 }
 var kvPrivateEndpointName = '${namePrefix}-kv-pe'
 
-var resolvedKeyVaultResourceId = !empty(keyVaultResourceId)
+var hasDirectId = !empty(keyVaultResourceId)
+var hasNameAndRg = !empty(keyVaultName) && !empty(keyVaultResourceGroupName)
+
+var resolvedKeyVaultResourceId = hasDirectId
   ? keyVaultResourceId
-  : resourceId(subscription().subscriptionId, keyVaultResourceGroupName, 'Microsoft.KeyVault/vaults', keyVaultName)
+  : resourceId(keyVaultResourceGroupName, 'Microsoft.KeyVault/vaults', keyVaultName)
 
 // Get the subnet ID (same VNet you created)
 var peSubnetId = resourceId(

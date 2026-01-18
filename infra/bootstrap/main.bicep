@@ -41,7 +41,7 @@ module kv 'br/public:avm/res/key-vault/vault:0.12.0' = {
 
     // Start conservative: deny public access can break you until private endpoints/DNS exist.
     // We'll lock this down after platform network is in place.
-    publicNetworkAccess: 'Enabled'
+    publicNetworkAccess: 'Disabled'
   }
 }
 
