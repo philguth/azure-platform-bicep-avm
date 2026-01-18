@@ -99,7 +99,10 @@
             }
           }
         ]
-      }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Resources/deployments', 'hubVnet')]"
+      ]
     },
     {
       "type": "Microsoft.Network/privateEndpoints/privateDnsZoneGroups",
