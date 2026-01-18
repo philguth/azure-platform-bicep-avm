@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.39.26.7824",
-      "templateHash": "15209441283644560957"
+      "templateHash": "11012903082720414797"
     }
   },
   "parameters": {
@@ -23,8 +23,23 @@
     },
     "keyVaultResourceId": {
       "type": "string",
+      "defaultValue": "",
       "metadata": {
-        "description": "Resource ID of the Key Vault to connect via Private Endpoint."
+        "description": "Resource ID of the Key Vault to connect via Private Endpoint. Optional: if not provided, set keyVaultName + keyVaultResourceGroupName."
+      }
+    },
+    "keyVaultName": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Name of the Key Vault to connect via Private Endpoint (used when keyVaultResourceId is not provided)."
+      }
+    },
+    "keyVaultResourceGroupName": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Resource group name of the Key Vault (used when keyVaultResourceId is not provided)."
       }
     },
     "hubAddressSpace": {
@@ -52,6 +67,7 @@
   "variables": {
     "vnetName": "[format('{0}-hub-vnet', parameters('namePrefix'))]",
     "kvPrivateEndpointName": "[format('{0}-kv-pe', parameters('namePrefix'))]",
+    "resolvedKeyVaultResourceId": "[if(not(empty(parameters('keyVaultResourceId'))), parameters('keyVaultResourceId'), resourceId(subscription().subscriptionId, parameters('keyVaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('keyVaultName')))]",
     "peSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetName'), 'snet-private-endpoints')]"
   },
   "resources": [
@@ -92,22 +108,19 @@
           {
             "name": "keyvault-connection",
             "properties": {
-              "privateLinkServiceId": "[parameters('keyVaultResourceId')]",
+              "privateLinkServiceId": "[variables('resolvedKeyVaultResourceId')]",
               "groupIds": [
                 "vault"
               ]
             }
           }
         ]
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Resources/deployments', 'hubVnet')]"
-      ]
+      }
     },
     {
       "type": "Microsoft.Network/privateEndpoints/privateDnsZoneGroups",
       "apiVersion": "2023-05-01",
-      "name": "[format('{0}/default', variables('kvPrivateEndpointName'))]",
+      "name": "[format('{0}/{1}', variables('kvPrivateEndpointName'), 'default')]",
       "properties": {
         "privateDnsZoneConfigs": [
           {
