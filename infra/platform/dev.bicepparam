@@ -6,4 +6,6 @@ param tags = {
   Env: 'dev'
   Owner: 'Philip'
 }
+param keyVaultResourceId = 'https://demo-kv-3ulptvvptoz46.vault.azure.net/'
+
 
