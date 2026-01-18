@@ -4,6 +4,10 @@ param location string = resourceGroup().location
 param namePrefix string = 'demo'
 param tags object = {}
 
+@description('Resource ID of the Key Vault to connect via Private Endpoint.')
+param keyVaultResourceId string
+
+
 @description('Address space for the hub VNet')
 param hubAddressSpace string = '10.10.0.0/16'
 
@@ -56,5 +60,52 @@ resource kvPrivateDnsLink 'Microsoft.Network/privateDnsZones/virtualNetworkLinks
       id: vnet.outputs.resourceId
     }
     registrationEnabled: false
+  }
+}
+var kvPrivateEndpointName = '${namePrefix}-kv-pe'
+
+// Get the subnet ID (same VNet you created)
+var peSubnetId = resourceId(
+  'Microsoft.Network/virtualNetworks/subnets',
+  vnetName,
+  'snet-private-endpoints'
+)
+
+resource kvPrivateEndpoint 'Microsoft.Network/privateEndpoints@2023-05-01' = {
+  name: kvPrivateEndpointName
+  location: location
+  tags: tags
+  properties: {
+    subnet: {
+      id: peSubnetId
+    }
+    privateLinkServiceConnections: [
+      {
+        name: 'keyvault-connection'
+        properties: {
+          privateLinkServiceId: keyVaultResourceId
+          groupIds: [
+            // Key Vault groupId
+            'vault'
+          ]
+        }
+      }
+    ]
+  }
+}
+
+// Attach the private endpoint to your existing Private DNS zone
+resource kvPeDnsZoneGroup 'Microsoft.Network/privateEndpoints/privateDnsZoneGroups@2023-05-01' = {
+  name: 'default'
+  parent: kvPrivateEndpoint
+  properties: {
+    privateDnsZoneConfigs: [
+      {
+        name: 'kv-dns'
+        properties: {
+          privateDnsZoneId: kvPrivateDns.id
+        }
+      }
+    ]
   }
 }

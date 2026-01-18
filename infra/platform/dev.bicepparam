@@ -6,4 +6,6 @@ param tags = {
   Env: 'dev'
   Owner: 'Philip'
 }
+param keyVaultResourceId = '/subscriptions/3ccbc197-dce8-4b23-b103-074c85029fa9/resourceGroups/philguth-dev-rg/providers/Microsoft.KeyVault/vaults/demo-kv-3ulptvvptoz46'
+
 
