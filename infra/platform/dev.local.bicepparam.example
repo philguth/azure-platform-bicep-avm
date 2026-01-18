@@ -1,0 +1,18 @@
+using './main.bicep'
+
+// Copy this file to dev.local.bicepparam and customize.
+// The *.local.bicepparam pattern is gitignored.
+
+param namePrefix = 'philguth-dev'
+param tags = {
+  Project: 'AzurePlatformLearning'
+  Env: 'dev'
+  Owner: 'Philip'
+}
+
+// Option A (portable across subscriptions):
+param keyVaultName = 'demo-kv-3ulptvvptoz46'
+param keyVaultResourceGroupName = 'rg-philguth-bootstrap-dev'
+
+// Option B (explicit):
+// param keyVaultResourceId = '/subscriptions/<subId>/resourceGroups/<rg>/providers/Microsoft.KeyVault/vaults/<name>'

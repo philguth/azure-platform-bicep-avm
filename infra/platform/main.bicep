@@ -4,8 +4,14 @@ param location string = resourceGroup().location
 param namePrefix string = 'demo'
 param tags object = {}
 
-@description('Resource ID of the Key Vault to connect via Private Endpoint.')
-param keyVaultResourceId string
+@description('Resource ID of the Key Vault to connect via Private Endpoint. Optional: if not provided, set keyVaultName + keyVaultResourceGroupName.')
+param keyVaultResourceId string = ''
+
+@description('Name of the Key Vault to connect via Private Endpoint (used when keyVaultResourceId is not provided).')
+param keyVaultName string = ''
+
+@description('Resource group name of the Key Vault (used when keyVaultResourceId is not provided).')
+param keyVaultResourceGroupName string = ''
 
 
 @description('Address space for the hub VNet')
@@ -64,6 +70,10 @@ resource kvPrivateDnsLink 'Microsoft.Network/privateDnsZones/virtualNetworkLinks
 }
 var kvPrivateEndpointName = '${namePrefix}-kv-pe'
 
+var resolvedKeyVaultResourceId = !empty(keyVaultResourceId)
+  ? keyVaultResourceId
+  : resourceId(subscription().subscriptionId, keyVaultResourceGroupName, 'Microsoft.KeyVault/vaults', keyVaultName)
+
 // Get the subnet ID (same VNet you created)
 var peSubnetId = resourceId(
   'Microsoft.Network/virtualNetworks/subnets',
@@ -83,7 +93,7 @@ resource kvPrivateEndpoint 'Microsoft.Network/privateEndpoints@2023-05-01' = {
       {
         name: 'keyvault-connection'
         properties: {
-          privateLinkServiceId: keyVaultResourceId
+          privateLinkServiceId: resolvedKeyVaultResourceId
           groupIds: [
             // Key Vault groupId
             'vault'

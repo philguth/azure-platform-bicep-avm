@@ -1,1 +1,4 @@
 .github/workflows/zxcv
+
+# Local-only parameter files (do not commit subscription-specific values)
+**/*.local.bicepparam
