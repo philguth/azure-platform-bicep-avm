@@ -4,8 +4,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.39.26.7824",
-      "templateHash": "11012903082720414797"
+      "version": "0.40.2.10011",
+      "templateHash": "12074200310214998142"
     }
   },
   "parameters": {
@@ -67,7 +67,8 @@
   "variables": {
     "vnetName": "[format('{0}-hub-vnet', parameters('namePrefix'))]",
     "kvPrivateEndpointName": "[format('{0}-kv-pe', parameters('namePrefix'))]",
-    "resolvedKeyVaultResourceId": "[if(not(empty(parameters('keyVaultResourceId'))), parameters('keyVaultResourceId'), resourceId(subscription().subscriptionId, parameters('keyVaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('keyVaultName')))]",
+    "hasDirectId": "[not(empty(parameters('keyVaultResourceId')))]",
+    "resolvedKeyVaultResourceId": "[if(variables('hasDirectId'), parameters('keyVaultResourceId'), resourceId(parameters('keyVaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('keyVaultName')))]",
     "peSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetName'), 'snet-private-endpoints')]"
   },
   "resources": [

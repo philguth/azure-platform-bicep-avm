@@ -71,7 +71,6 @@ resource kvPrivateDnsLink 'Microsoft.Network/privateDnsZones/virtualNetworkLinks
 var kvPrivateEndpointName = '${namePrefix}-kv-pe'
 
 var hasDirectId = !empty(keyVaultResourceId)
-var hasNameAndRg = !empty(keyVaultName) && !empty(keyVaultResourceGroupName)
 
 var resolvedKeyVaultResourceId = hasDirectId
   ? keyVaultResourceId

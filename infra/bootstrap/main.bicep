@@ -15,13 +15,17 @@ param tags object = {
   IaC: 'Bicep-AVM'
 }
 
+var effectiveTags = union(tags, {
+  environmentName: environmentName
+})
+
 var uamiName = '${namePrefix}-deploy-uami'
 var kvName = toLower(replace('${namePrefix}-kv-${uniqueString(resourceGroup().id)}', '_', ''))
 
 resource uami 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
   name: uamiName
   location: location
-  tags: tags
+  tags: effectiveTags
 }
 
 // AVM Key Vault module (pick a pinned version once you choose one from the AVM index)
@@ -30,7 +34,7 @@ module kv 'br/public:avm/res/key-vault/vault:0.12.0' = {
   params: {
     name: kvName
     location: location
-    tags: tags
+    tags: effectiveTags
 
     // RBAC authorization (recommended over access policies for modern setups)
     enableRbacAuthorization: true

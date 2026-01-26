@@ -1,0 +1,18 @@
+using './main.bicep'
+
+// Keep these consistent with your platform deployment
+param namePrefix = 'philguth-dev'
+param vnetName = '${namePrefix}-hub-vnet'
+param subnetName = 'snet-powerplatform'
+
+// Add your own public key (NOT a private key)
+param sshPublicKey = 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... yourkeycomment'
+
+param tags = {
+  ProjectCode: 'POC'
+  Purpose: 'learning'
+  RunId: 'run-001'
+  Owner: 'Philip'
+  Env: 'dev'
+  managedBy: 'bicep'
+}
