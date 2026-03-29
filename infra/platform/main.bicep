@@ -13,6 +13,13 @@ param keyVaultName string = ''
 @description('Resource group name of the Key Vault (used when keyVaultResourceId is not provided).')
 param keyVaultResourceGroupName string = ''
 
+var hasKeyVaultResourceId = !empty(keyVaultResourceId)
+var hasKeyVaultName = !empty(keyVaultName)
+var hasKeyVaultResourceGroupName = !empty(keyVaultResourceGroupName)
+
+assert validKeyVaultReference = hasKeyVaultResourceId || (hasKeyVaultName && hasKeyVaultResourceGroupName)
+assert exclusiveKeyVaultReference = !hasKeyVaultResourceId || (!hasKeyVaultName && !hasKeyVaultResourceGroupName)
+
 
 @description('Address space for the hub VNet')
 param hubAddressSpace string = '10.10.0.0/16'
@@ -70,7 +77,7 @@ resource kvPrivateDnsLink 'Microsoft.Network/privateDnsZones/virtualNetworkLinks
 }
 var kvPrivateEndpointName = '${namePrefix}-kv-pe'
 
-var resolvedKeyVaultResourceId = !empty(keyVaultResourceId)
+var resolvedKeyVaultResourceId = hasKeyVaultResourceId
   ? keyVaultResourceId
   : resourceId(subscription().subscriptionId, keyVaultResourceGroupName, 'Microsoft.KeyVault/vaults', keyVaultName)
 

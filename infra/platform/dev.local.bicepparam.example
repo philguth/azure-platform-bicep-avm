@@ -3,6 +3,7 @@ using './main.bicep'
 // Copy this file to dev.local.bicepparam and customize.
 // The *.local.bicepparam pattern is gitignored.
 
+param location = 'eastus'
 param namePrefix = 'philguth-dev'
 param tags = {
   Project: 'AzurePlatformLearning'
@@ -11,7 +12,8 @@ param tags = {
 }
 
 // Option A (portable across subscriptions):
-param keyVaultName = 'demo-kv-3ulptvvptoz46'
+// Keep this aligned with the bootstrap output for the same environment.
+param keyVaultName = 'philguth-dev-kv-3ulptvvptoz46'
 param keyVaultResourceGroupName = 'rg-philguth-bootstrap-dev'
 
 // Option B (explicit):
