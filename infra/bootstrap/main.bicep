@@ -15,22 +15,37 @@ param tags object = {
   IaC: 'Bicep-AVM'
 }
 
+@description('Optional: resource ID of an existing Key Vault to reuse. When provided, this template will not create a new Key Vault.')
+param existingKeyVaultResourceId string = ''
+
+var mergedTags = union(tags, {
+  Environment: environmentName
+})
+
 var uamiName = '${namePrefix}-deploy-uami'
-var kvName = toLower(replace('${namePrefix}-kv-${uniqueString(resourceGroup().id)}', '_', ''))
+var kvSuffix = substring(uniqueString(resourceGroup().id), 0, 6)
+var kvPrefixMaxLength = 14 // 24 - length('-kv-') (4) - length(kvSuffix) (6)
+var kvPrefixSanitized = toLower(replace(namePrefix, '_', ''))
+var kvPrefix = length(kvPrefixSanitized) > kvPrefixMaxLength
+  ? substring(kvPrefixSanitized, 0, kvPrefixMaxLength)
+  : kvPrefixSanitized
+var kvName = '${kvPrefix}-kv-${kvSuffix}'
+
+var useExistingKeyVault = !empty(existingKeyVaultResourceId)
 
 resource uami 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
   name: uamiName
   location: location
-  tags: tags
+  tags: mergedTags
 }
 
 // AVM Key Vault module (pick a pinned version once you choose one from the AVM index)
-module kv 'br/public:avm/res/key-vault/vault:0.12.0' = {
+module kv 'br/public:avm/res/key-vault/vault:0.12.0' = if (!useExistingKeyVault) {
   name: 'kv'
   params: {
     name: kvName
     location: location
-    tags: tags
+    tags: mergedTags
 
     // RBAC authorization (recommended over access policies for modern setups)
     enableRbacAuthorization: true
@@ -48,5 +63,5 @@ module kv 'br/public:avm/res/key-vault/vault:0.12.0' = {
 output uamiClientId string = uami.properties.clientId
 output uamiPrincipalId string = uami.properties.principalId
 output uamiResourceId string = uami.id
-output keyVaultName string = kv.outputs.name
-output keyVaultResourceId string = kv.outputs.resourceId
+output keyVaultName string = !useExistingKeyVault ? kvName : last(split(existingKeyVaultResourceId, '/'))
+output keyVaultResourceId string = !useExistingKeyVault ? resourceId('Microsoft.KeyVault/vaults', kvName) : existingKeyVaultResourceId

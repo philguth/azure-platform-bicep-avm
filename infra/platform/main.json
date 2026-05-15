@@ -1,11 +1,16 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.1-experimental",
   "contentVersion": "1.0.0.0",
   "metadata": {
+    "_EXPERIMENTAL_WARNING": "This template uses ARM features that are experimental. Experimental features should be enabled for testing purposes only, as there are no guarantees about the quality or stability of these features. Do not enable these settings for any production usage, or your production environment may be subject to breaking.",
+    "_EXPERIMENTAL_FEATURES_ENABLED": [
+      "Asserts"
+    ],
     "_generator": {
       "name": "bicep",
-      "version": "0.39.26.7824",
-      "templateHash": "11012903082720414797"
+      "version": "0.41.2.15936",
+      "templateHash": "3034942918654048119"
     }
   },
   "parameters": {
@@ -65,36 +70,39 @@
     }
   },
   "variables": {
+    "hasKeyVaultResourceId": "[not(empty(parameters('keyVaultResourceId')))]",
+    "hasKeyVaultName": "[not(empty(parameters('keyVaultName')))]",
+    "hasKeyVaultResourceGroupName": "[not(empty(parameters('keyVaultResourceGroupName')))]",
     "vnetName": "[format('{0}-hub-vnet', parameters('namePrefix'))]",
     "kvPrivateEndpointName": "[format('{0}-kv-pe', parameters('namePrefix'))]",
-    "resolvedKeyVaultResourceId": "[if(not(empty(parameters('keyVaultResourceId'))), parameters('keyVaultResourceId'), resourceId(subscription().subscriptionId, parameters('keyVaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('keyVaultName')))]",
+    "resolvedKeyVaultResourceId": "[if(variables('hasKeyVaultResourceId'), parameters('keyVaultResourceId'), resourceId(subscription().subscriptionId, parameters('keyVaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('keyVaultName')))]",
     "peSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetName'), 'snet-private-endpoints')]"
   },
-  "resources": [
-    {
+  "resources": {
+    "kvPrivateDns": {
       "type": "Microsoft.Network/privateDnsZones",
       "apiVersion": "2020-06-01",
       "name": "privatelink.vaultcore.azure.net",
       "location": "global",
       "tags": "[parameters('tags')]"
     },
-    {
+    "kvPrivateDnsLink": {
       "type": "Microsoft.Network/privateDnsZones/virtualNetworkLinks",
       "apiVersion": "2020-06-01",
       "name": "[format('{0}/{1}', 'privatelink.vaultcore.azure.net', format('{0}-link', variables('vnetName')))]",
       "location": "global",
       "properties": {
         "virtualNetwork": {
-          "id": "[reference(resourceId('Microsoft.Resources/deployments', 'hubVnet'), '2025-04-01').outputs.resourceId.value]"
+          "id": "[reference('vnet').outputs.resourceId.value]"
         },
         "registrationEnabled": false
       },
       "dependsOn": [
-        "[resourceId('Microsoft.Network/privateDnsZones', 'privatelink.vaultcore.azure.net')]",
-        "[resourceId('Microsoft.Resources/deployments', 'hubVnet')]"
+        "kvPrivateDns",
+        "vnet"
       ]
     },
-    {
+    "kvPrivateEndpoint": {
       "type": "Microsoft.Network/privateEndpoints",
       "apiVersion": "2023-05-01",
       "name": "[variables('kvPrivateEndpointName')]",
@@ -117,7 +125,7 @@
         ]
       }
     },
-    {
+    "kvPeDnsZoneGroup": {
       "type": "Microsoft.Network/privateEndpoints/privateDnsZoneGroups",
       "apiVersion": "2023-05-01",
       "name": "[format('{0}/{1}', variables('kvPrivateEndpointName'), 'default')]",
@@ -132,11 +140,11 @@
         ]
       },
       "dependsOn": [
-        "[resourceId('Microsoft.Network/privateDnsZones', 'privatelink.vaultcore.azure.net')]",
-        "[resourceId('Microsoft.Network/privateEndpoints', variables('kvPrivateEndpointName'))]"
+        "kvPrivateDns",
+        "kvPrivateEndpoint"
       ]
     },
-    {
+    "vnet": {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2025-04-01",
       "name": "hubVnet",
@@ -1807,5 +1815,9 @@
         }
       }
     }
-  ]
+  },
+  "asserts": {
+    "validKeyVaultReference": "[or(variables('hasKeyVaultResourceId'), and(variables('hasKeyVaultName'), variables('hasKeyVaultResourceGroupName')))]",
+    "exclusiveKeyVaultReference": "[or(not(variables('hasKeyVaultResourceId')), and(not(variables('hasKeyVaultName')), not(variables('hasKeyVaultResourceGroupName'))))]"
+  }
 }

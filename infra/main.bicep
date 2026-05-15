@@ -3,6 +3,12 @@ targetScope = 'subscription'
 @description('Location for resource groups and resources')
 param location string = deployment().location
 
+@description('Location for the bootstrap resource group and its resources. Defaults to location.')
+param bootstrapLocation string = location
+
+@description('Location for the platform resource group and its resources. Defaults to location.')
+param platformLocation string = location
+
 @description('Environment name (e.g., dev, test, prod)')
 param environmentName string
 
@@ -21,6 +27,9 @@ param resourceGroupTags object = {}
 @description('Tags applied to bootstrap resources')
 param bootstrapTags object = {}
 
+@description('Optional: resource ID of an existing Key Vault to reuse (bootstrap will skip creating a new vault).')
+param bootstrapExistingKeyVaultResourceId string = ''
+
 @description('Tags applied to platform resources')
 param platformTags object = {}
 
@@ -35,13 +44,13 @@ param powerPlatformSubnetPrefix string = '10.10.20.0/24'
 
 resource bootstrapResourceGroup 'Microsoft.Resources/resourceGroups@2024-03-01' = {
   name: bootstrapResourceGroupName
-  location: location
+  location: bootstrapLocation
   tags: resourceGroupTags
 }
 
 resource platformResourceGroup 'Microsoft.Resources/resourceGroups@2024-03-01' = {
   name: platformResourceGroupName
-  location: location
+  location: platformLocation
   tags: resourceGroupTags
 }
 
@@ -50,9 +59,10 @@ module bootstrap './bootstrap/main.bicep' = {
   scope: bootstrapResourceGroup
   params: {
     environmentName: environmentName
-    location: location
+    location: bootstrapLocation
     namePrefix: namePrefix
     tags: bootstrapTags
+    existingKeyVaultResourceId: bootstrapExistingKeyVaultResourceId
   }
 }
 
@@ -60,7 +70,7 @@ module platform './platform/main.bicep' = {
   name: 'platform-${environmentName}'
   scope: platformResourceGroup
   params: {
-    location: location
+    location: platformLocation
     namePrefix: namePrefix
     tags: platformTags
     keyVaultResourceId: bootstrap.outputs.keyVaultResourceId

@@ -1,4 +1,7 @@
 {
+  "experimentalFeaturesEnabled": {
+    "assertions": true
+  },
   "moduleAliases": {
     "br": {
       "avm": {

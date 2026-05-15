@@ -1,6 +1,6 @@
 using './main.bicep'
 
-param location = 'eastus'
+param location = 'northcentralus'
 param namePrefix = 'philguth-dev'
 param tags = {
   Project: 'AzurePlatformLearning'

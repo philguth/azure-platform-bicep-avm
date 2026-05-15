@@ -17,5 +17,5 @@
       }
     }
   },
-  "postCreateCommand": "az bicep version || az bicep install"
+  "postCreateCommand": "az bicep version || az bicep install; az bicep upgrade || true"
 }
