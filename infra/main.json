@@ -9,8 +9,8 @@
     ],
     "_generator": {
       "name": "bicep",
-      "version": "0.41.2.15936",
-      "templateHash": "1374532233411096494"
+      "version": "0.45.15.27210",
+      "templateHash": "16247021318588400860"
     }
   },
   "parameters": {
@@ -19,6 +19,20 @@
       "defaultValue": "[deployment().location]",
       "metadata": {
         "description": "Location for resource groups and resources"
+      }
+    },
+    "bootstrapLocation": {
+      "type": "string",
+      "defaultValue": "[parameters('location')]",
+      "metadata": {
+        "description": "Location for the bootstrap resource group and its resources. Defaults to location."
+      }
+    },
+    "platformLocation": {
+      "type": "string",
+      "defaultValue": "[parameters('location')]",
+      "metadata": {
+        "description": "Location for the platform resource group and its resources. Defaults to location."
       }
     },
     "environmentName": {
@@ -59,6 +73,13 @@
         "description": "Tags applied to bootstrap resources"
       }
     },
+    "bootstrapExistingKeyVaultResourceId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Optional: resource ID of an existing Key Vault to reuse (bootstrap will skip creating a new vault)."
+      }
+    },
     "platformTags": {
       "type": "object",
       "defaultValue": {},
@@ -93,14 +114,14 @@
       "type": "Microsoft.Resources/resourceGroups",
       "apiVersion": "2024-03-01",
       "name": "[parameters('bootstrapResourceGroupName')]",
-      "location": "[parameters('location')]",
+      "location": "[parameters('bootstrapLocation')]",
       "tags": "[parameters('resourceGroupTags')]"
     },
     "platformResourceGroup": {
       "type": "Microsoft.Resources/resourceGroups",
       "apiVersion": "2024-03-01",
       "name": "[parameters('platformResourceGroupName')]",
-      "location": "[parameters('location')]",
+      "location": "[parameters('platformLocation')]",
       "tags": "[parameters('resourceGroupTags')]"
     },
     "bootstrap": {
@@ -118,13 +139,16 @@
             "value": "[parameters('environmentName')]"
           },
           "location": {
-            "value": "[parameters('location')]"
+            "value": "[parameters('bootstrapLocation')]"
           },
           "namePrefix": {
             "value": "[parameters('namePrefix')]"
           },
           "tags": {
             "value": "[parameters('bootstrapTags')]"
+          },
+          "existingKeyVaultResourceId": {
+            "value": "[parameters('bootstrapExistingKeyVaultResourceId')]"
           }
         },
         "template": {
@@ -138,8 +162,8 @@
             ],
             "_generator": {
               "name": "bicep",
-              "version": "0.41.2.15936",
-              "templateHash": "1861087070085571252"
+              "version": "0.45.15.27210",
+              "templateHash": "3634227326399803030"
             }
           },
           "parameters": {
@@ -172,11 +196,24 @@
               "metadata": {
                 "description": "Tags applied to resources"
               }
+            },
+            "existingKeyVaultResourceId": {
+              "type": "string",
+              "defaultValue": "",
+              "metadata": {
+                "description": "Optional: resource ID of an existing Key Vault to reuse. When provided, this template will not create a new Key Vault."
+              }
             }
           },
           "variables": {
+            "mergedTags": "[union(parameters('tags'), createObject('Environment', parameters('environmentName')))]",
             "uamiName": "[format('{0}-deploy-uami', parameters('namePrefix'))]",
-            "kvName": "[toLower(replace(format('{0}-kv-{1}', parameters('namePrefix'), uniqueString(resourceGroup().id)), '_', ''))]"
+            "kvSuffix": "[substring(uniqueString(resourceGroup().id), 0, 6)]",
+            "kvPrefixMaxLength": 14,
+            "kvPrefixSanitized": "[toLower(replace(parameters('namePrefix'), '_', ''))]",
+            "kvPrefix": "[if(greater(length(variables('kvPrefixSanitized')), variables('kvPrefixMaxLength')), substring(variables('kvPrefixSanitized'), 0, variables('kvPrefixMaxLength')), variables('kvPrefixSanitized'))]",
+            "kvName": "[format('{0}-kv-{1}', variables('kvPrefix'), variables('kvSuffix'))]",
+            "useExistingKeyVault": "[not(empty(parameters('existingKeyVaultResourceId')))]"
           },
           "resources": {
             "uami": {
@@ -184,9 +221,10 @@
               "apiVersion": "2023-01-31",
               "name": "[variables('uamiName')]",
               "location": "[parameters('location')]",
-              "tags": "[parameters('tags')]"
+              "tags": "[variables('mergedTags')]"
             },
             "kv": {
+              "condition": "[not(variables('useExistingKeyVault'))]",
               "type": "Microsoft.Resources/deployments",
               "apiVersion": "2025-04-01",
               "name": "kv",
@@ -203,7 +241,7 @@
                     "value": "[parameters('location')]"
                   },
                   "tags": {
-                    "value": "[parameters('tags')]"
+                    "value": "[variables('mergedTags')]"
                   },
                   "enableRbacAuthorization": {
                     "value": true
@@ -3351,11 +3389,11 @@
             },
             "keyVaultName": {
               "type": "string",
-              "value": "[reference('kv').outputs.name.value]"
+              "value": "[if(not(variables('useExistingKeyVault')), variables('kvName'), last(split(parameters('existingKeyVaultResourceId'), '/')))]"
             },
             "keyVaultResourceId": {
               "type": "string",
-              "value": "[reference('kv').outputs.resourceId.value]"
+              "value": "[if(not(variables('useExistingKeyVault')), resourceId('Microsoft.KeyVault/vaults', variables('kvName')), parameters('existingKeyVaultResourceId'))]"
             }
           }
         }
@@ -3376,7 +3414,7 @@
         "mode": "Incremental",
         "parameters": {
           "location": {
-            "value": "[parameters('location')]"
+            "value": "[parameters('platformLocation')]"
           },
           "namePrefix": {
             "value": "[parameters('namePrefix')]"
@@ -3408,8 +3446,8 @@
             ],
             "_generator": {
               "name": "bicep",
-              "version": "0.41.2.15936",
-              "templateHash": "3034942918654048119"
+              "version": "0.45.15.27210",
+              "templateHash": "4905086962605724773"
             }
           },
           "parameters": {

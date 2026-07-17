@@ -24,7 +24,7 @@ var mergedTags = union(tags, {
 
 var uamiName = '${namePrefix}-deploy-uami'
 var kvSuffix = substring(uniqueString(resourceGroup().id), 0, 6)
-var kvPrefixMaxLength = 14 // 24 - length('-kv-') (4) - length(kvSuffix) (6)
+var kvPrefixMaxLength = 14
 var kvPrefixSanitized = toLower(replace(namePrefix, '_', ''))
 var kvPrefix = length(kvPrefixSanitized) > kvPrefixMaxLength
   ? substring(kvPrefixSanitized, 0, kvPrefixMaxLength)
@@ -39,7 +39,6 @@ resource uami 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
   tags: mergedTags
 }
 
-// AVM Key Vault module (pick a pinned version once you choose one from the AVM index)
 module kv 'br/public:avm/res/key-vault/vault:0.12.0' = if (!useExistingKeyVault) {
   name: 'kv'
   params: {

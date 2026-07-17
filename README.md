@@ -1,5 +1,24 @@
 # azure-platform-bicep-avm
 
+This repository is a lean, application-focused landing-zone baseline built with Bicep and Azure Verified Modules.
+
+- Use it to stand up repeatable shared platform services and test customer-aligned deployment scenarios.
+- Keep it lighter than the full Azure Landing Zones accelerator while preserving enterprise-friendly layering and deployment patterns.
+
+## Architecture phases
+
+The codebase follows a simplified set of landing-zone phases that mirrors the Azure Landing Zones mental model without adopting the full accelerator.
+
+1. Landing zone: define the tenant-level hierarchy and subscription placement in `infra/landingzone/main.bicep`.
+2. Subscription orchestration: coordinate shared deployments into a target subscription from `infra/main.bicep`.
+3. Bootstrap: provision foundational prerequisites such as identity and Key Vault in `infra/bootstrap/main.bicep`.
+4. Platform: deploy shared networking and private connectivity in `infra/platform/main.bicep`.
+5. Application onboarding: layer future workload-specific patterns on top of the shared baseline rather than changing the foundation for each scenario.
+
+These phases are intended to make the deployment model easier to understand, easier to extend, and safer to re-run.
+
+See `infra/README.md` for the folder-to-phase mapping inside the infrastructure tree.
+
 ## Deployment flow
 
 The recommended entrypoint is the subscription-scope wrapper in `infra/main.bicep` with the dev parameters in `infra/dev.bicepparam`.
@@ -65,8 +84,33 @@ Using `infra/main.bicep` gives you a better redeploy path because bootstrap outp
 - This improves idempotency by removing the manual copy step for Key Vault identifiers.
 - It does not create transactional behavior across all Azure resource providers, but it does give you the normal desired-state behavior expected from ARM/Bicep deployments.
 
-Practical note: “no regression” depends on drift.
+Practical note: `no regression` depends on drift.
 
 - ARM/Bicep deployments are incremental by default and will not delete resources unless you explicitly deploy in complete mode.
-- If the live state has drifted from what your templates/parameters now declare, a redeploy will modify resources to converge back to the declared state.
-- Use `what-if` on every change to see exactly what will be created/modified before running `create`.
+- If the live state has drifted from what your templates or parameters now declare, a redeploy will modify resources to converge back to the declared state.
+- Use `what-if` on every change to see exactly what will be created or modified before running `create`.
+
+## Landing-zone pattern
+
+The repository now also includes a tenant-scope landing-zone entrypoint at `infra/landingzone/main.bicep` for a Well-Architected-style hierarchy.
+
+- It creates or updates platform and application management groups.
+- It creates subscription aliases that can be used as the foundation for future application subscriptions.
+- It can place existing subscriptions into those management groups and then deploy the shared platform stack into them.
+- It is intended to serve as a reusable baseline for application-oriented customer environments rather than a full enterprise platform factory.
+
+Example deployment flow:
+
+1. Deploy the landing-zone template at tenant scope to create the management groups and subscription aliases.
+2. Use the returned subscription alias names or supplied subscription IDs to place subscriptions under the intended management groups.
+3. Re-run the landing-zone deployment with the concrete subscription IDs to deploy the shared bootstrap and platform stacks into those subscriptions.
+
+A sample parameter file is available at `infra/landingzone/dev.bicepparam`.
+
+## Repository direction
+
+The long-term direction for this codebase is to remain a reusable landing-zone baseline for application deployments into existing enterprise estates.
+
+- Preserve the current layering of landing zone, subscription wrapper, bootstrap, and platform modules.
+- Prefer patterns that are reusable across customer scenarios instead of one-off environment customizations.
+- Treat idempotent redeployment as a standing design requirement for future changes.

@@ -1,7 +1,4 @@
 {
-  "experimentalFeaturesEnabled": {
-    "assertions": true
-  },
   "moduleAliases": {
     "br": {
       "avm": {
@@ -9,5 +6,8 @@
         "modulePath": "bicep/avm"
       }
     }
+  },
+  "experimentalFeaturesEnabled": {
+    "assertions": true
   }
 }

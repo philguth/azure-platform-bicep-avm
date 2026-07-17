@@ -1,10 +1,7 @@
 {
   "name": "Azure Bicep + AVM",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "features": {
-    "ghcr.io/devcontainers/features/azure-cli:1": {},
-    "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/devcontainers/features/git-lfs:1": {}
+  "build": {
+    "dockerfile": "Dockerfile"
   },
   "customizations": {
     "vscode": {
@@ -17,5 +14,5 @@
       }
     }
   },
-  "postCreateCommand": "az bicep version || az bicep install; az bicep upgrade || true"
+  "postCreateCommand": "bicep --version"
 }
