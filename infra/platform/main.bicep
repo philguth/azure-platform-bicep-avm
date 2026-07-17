@@ -32,28 +32,36 @@ param powerPlatformSubnetPrefix string = '10.10.20.0/24'
 
 var vnetName = '${namePrefix}-hub-vnet'
 
-// AVM VNet module (pin the version once you decide)
-module vnet 'br/public:avm/res/network/virtual-network:0.7.1' = {
-  name: 'hubVnet'
-  params: {
-    name: vnetName
-    location: location
-    addressPrefixes: [
-      hubAddressSpace
-    ]
-    subnets: [
-      {
-        name: 'snet-private-endpoints'
-        addressPrefix: privateEndpointSubnetPrefix
-        // Private endpoint subnet must have network policies disabled
-        privateEndpointNetworkPolicies: 'Disabled'
-      }
-      {
-        name: 'snet-powerplatform'
-        addressPrefix: powerPlatformSubnetPrefix
-      }
-    ]
-    tags: tags
+resource vnet 'Microsoft.Network/virtualNetworks@2024-05-01' = {
+  name: vnetName
+  location: location
+  tags: tags
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        hubAddressSpace
+      ]
+    }
+    privateEndpointVNetPolicies: 'Disabled'
+  }
+}
+
+resource privateEndpointSubnet 'Microsoft.Network/virtualNetworks/subnets@2024-05-01' = {
+  parent: vnet
+  name: 'snet-private-endpoints'
+  properties: {
+    addressPrefix: privateEndpointSubnetPrefix
+    // Private endpoint subnet must have network policies disabled.
+    privateEndpointNetworkPolicies: 'Disabled'
+  }
+}
+
+resource powerPlatformSubnet 'Microsoft.Network/virtualNetworks/subnets@2024-05-01' = {
+  parent: vnet
+  name: 'snet-powerplatform'
+  properties: {
+    addressPrefix: powerPlatformSubnetPrefix
+    privateEndpointNetworkPolicies: 'Disabled'
   }
 }
 
@@ -70,7 +78,7 @@ resource kvPrivateDnsLink 'Microsoft.Network/privateDnsZones/virtualNetworkLinks
   location: 'global'
   properties: {
     virtualNetwork: {
-      id: vnet.outputs.resourceId
+      id: vnet.id
     }
     registrationEnabled: false
   }
@@ -82,11 +90,7 @@ var resolvedKeyVaultResourceId = hasKeyVaultResourceId
   : resourceId(subscription().subscriptionId, keyVaultResourceGroupName, 'Microsoft.KeyVault/vaults', keyVaultName)
 
 // Get the subnet ID (same VNet you created)
-var peSubnetId = resourceId(
-  'Microsoft.Network/virtualNetworks/subnets',
-  vnetName,
-  'snet-private-endpoints'
-)
+var peSubnetId = privateEndpointSubnet.id
 
 resource kvPrivateEndpoint 'Microsoft.Network/privateEndpoints@2023-05-01' = {
   name: kvPrivateEndpointName

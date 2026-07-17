@@ -9,7 +9,7 @@ param tags = {
 }
 // Prefer name + resource group so this file stays portable across subscriptions.
 // This should match the bootstrap deployment output for the same environment.
-param keyVaultName = 'philguth-dev-kv-3ulptvvptoz46'
+param keyVaultName = 'philguth-dev-kv-3ulptv'
 param keyVaultResourceGroupName = 'rg-philguth-bootstrap-dev'
 
 
