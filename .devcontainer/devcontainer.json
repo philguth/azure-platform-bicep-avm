@@ -3,6 +3,11 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
+  "features": {
+    "ghcr.io/devcontainers/features/azure-cli:1": {},
+    "ghcr.io/devcontainers/features/git-lfs:1": {},
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -14,5 +19,5 @@
       }
     }
   },
-  "postCreateCommand": "bicep --version"
+  "postCreateCommand": "export PATH=\"$HOME/.local/bin:$PATH\" && bicep --version && dotnet --list-sdks && az version && uv tool install --reinstall graphifyy==0.9.51 && command -v graphify && command -v graphify-mcp"
 }
