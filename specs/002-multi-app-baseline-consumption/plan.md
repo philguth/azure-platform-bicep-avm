@@ -42,7 +42,9 @@ for most reviews
 **Constraints**: Preserve landing-zone -> subscription -> bootstrap -> platform
 layering; keep shared foundation reusable; maintain safe re-run behavior; avoid
 embedding identity- or platform-owned concerns into application-owned
-deployments; prepare for separate deployment stacks where ownership differs
+deployments; prepare for separate deployment stacks where ownership differs;
+support least-privilege RBAC modeling with explicit ownership-domain security
+principals and scoped role assignments where principal IDs are supplied
 
 **Scale/Scope**: Multiple applications across shared or dedicated subscriptions,
 each with one or more environments, all consuming a common enterprise baseline
@@ -117,6 +119,14 @@ per-application deployment units under `apps/`. The feature will define a new
 application baseline contract and future onboarding pattern that can introduce a
 shared application onboarding layer without collapsing shared platform concerns
 into individual application templates.
+
+**Security Decision**: Treat Entra group definitions, minimum roles, and scoped
+Azure role assignments as part of the onboarding contract. Where the repo can
+legally and safely create role assignments at subscription or resource-group
+scope, implementation should accept principal IDs as inputs and create the
+required assignments declaratively in Bicep. Tenant-level group lifecycle may
+remain external, but the contract and deployment surfaces must not leave RBAC
+requirements implicit.
 
 ## Complexity Tracking
 

@@ -60,6 +60,26 @@ The `apps/` folder is for application-focused deployments that reuse the shared 
 - Each app should have a resourceGroup-scope template (deploys the app resources).
 - Each app should also have an optional subscription-scope “vend” template that creates an app resource group and deploys the app into it.
 
+## Deployment stack direction
+
+Deployment stacks are not configured in this repo yet. The current implementation uses plain ARM/Bicep deployment layering and keeps stack boundaries as a design requirement for future implementation.
+
+The intended divider is ownership and lifecycle, not just file layout.
+
+- Shared foundation stack: tenant landing zone, subscription orchestration, bootstrap, and platform-owned shared services.
+- Application stack: one independently deployable stack per application onboarding unit.
+- Optional later split: separate identity-owned and platform-owned stacks when RBAC, deny settings, or lifecycle justify a stricter boundary.
+
+This means the current folders map cleanly to future stack ownership without requiring every folder to become its own stack:
+
+- `infra/landingzone/` remains the tenant-scope hierarchy surface.
+- `infra/` remains the subscription-scope shared foundation orchestration surface.
+- `apps/<app>/vend.bicep` remains the subscription-scope application onboarding surface.
+- `apps/<app>/main.bicep` remains the resource-group-scope workload surface.
+- `deploy/` remains an end-to-end composition entrypoint rather than the owner of shared or app-specific lifecycle boundaries.
+
+Operationally, stack boundaries are intended to support clearer RBAC, safer delete behavior, and better separation of platform versus application ownership. Cost management still depends on tagging, management-group or subscription alignment, and Azure budgets. A deployment stack can have tags on the stack resource itself, but application and platform resources should still be tagged explicitly in their own Bicep modules rather than relying on the stack to apply tags for them.
+
 Current sample app:
 
 - `apps/fabric-capacity/main.bicep` (resource group scope)

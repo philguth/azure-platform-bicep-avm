@@ -140,6 +140,14 @@ onboarding outputs remain safe to re-run with the same inputs.
 - **FR-010**: The system SHOULD represent independently owned shared foundation
 and application deployment surfaces with separate deployment stacks or
 equivalent deployment boundaries when lifecycle or access control differs.
+- **FR-011**: The system MUST define the expected Microsoft Entra security
+groups or equivalent identity principals for identity, platform, and
+application ownership domains, along with the minimum Azure role assignments
+required for each domain at the intended deployment scope.
+- **FR-012**: The system SHOULD support implementation of subscription-scope or
+resource-group-scope Azure role assignments in Bicep when principal identifiers
+are provided and the assignment belongs to the shared foundation or application
+deployment unit being onboarded.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -155,6 +163,9 @@ approval expectations.
 - **Shared Capability Reference**: Represents a reusable platform-provided
 service or dependency that an application may consume without redefining the
 shared foundation.
+- **Security Principal Mapping**: Represents the expected Entra groups,
+principal identifiers, scopes, and minimum roles associated with each
+ownership domain.
 
 ## Success Criteria *(mandatory)*
 
@@ -172,6 +183,9 @@ ownership or lifecycle boundaries.
 - **SC-004**: All onboarding definitions clearly state whether deployment is at
 resource-group scope, subscription scope, or both, without changing the
 governance model applied to the deployment.
+- **SC-005**: Reviewers can identify the required security groups or principals,
+their target scopes, and their minimum Azure roles for a proposed onboarding
+definition without consulting external design notes.
 
 ## Assumptions
 
@@ -185,3 +199,5 @@ experimentation.
 - Deployment stacks are an intended future control boundary for independently
 owned deployment surfaces, even if some initial onboarding flows begin without
 full stack separation.
+- Some security groups may be provisioned outside this repository, but the
+required principals, scopes, and role assignments must still be defined here.
