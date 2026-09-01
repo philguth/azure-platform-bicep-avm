@@ -1,11 +1,11 @@
 <!--
 Sync Impact Report
-- Version change: none -> 1.0.0
+- Version change: 1.0.0 -> 1.1.0
 - Modified principles:
 	- Principle 1 -> I. Layered Landing-Zone Architecture
 	- Principle 2 -> II. Idempotent Desired-State Deployments
 	- Principle 3 -> III. AVM-First Modular Composition
-	- Principle 4 -> IV. Secure-by-Default Platform Boundaries
+	- Principle 4 -> IV. Secure-by-Default Platform Boundaries and Ownership Isolation
 	- Principle 5 -> V. Validate Before Merge and Deploy
 - Added sections:
 	- Repository Constraints
@@ -43,14 +43,21 @@ practices, keep public parameters intentional, and avoid unnecessary abstraction
 Rationale: this repository is explicitly built around Bicep and AVM, so reuse and
 minimal customization reduce maintenance cost and improve correctness.
 
-### IV. Secure-by-Default Platform Boundaries
+### IV. Secure-by-Default Platform Boundaries and Ownership Isolation
 Networking, identity, secret-management, and private connectivity changes MUST be
 designed for least privilege, clear scope boundaries, and private access by
 default where the platform pattern supports it. Contributors MUST treat Key Vault,
 RBAC, managed identity, VNets, subnets, private endpoints, and DNS as shared
-platform concerns that require explicit review for blast radius. Rationale:
-security defects in the bootstrap or platform layers affect every downstream
-application workload that inherits the baseline.
+platform concerns that require explicit review for blast radius. Where lifecycle
+or access boundaries differ across identity, platform, and application teams,
+deployments MUST preserve that separation in the orchestration model and SHOULD
+be represented by separate deployment stacks or equivalent deployment boundaries.
+Contributors MUST NOT collapse independently owned concerns into a single
+deployment surface when doing so weakens RBAC isolation, deny-setting strategy,
+or operational ownership. Rationale: security defects in the bootstrap or
+platform layers affect every downstream application workload that inherits the
+baseline, and enterprise governance requires boundaries that are enforceable in
+deployment ownership as well as in template structure.
 
 ### V. Validate Before Merge and Deploy
 Infrastructure changes MUST be validated with the narrowest relevant executable
@@ -69,6 +76,9 @@ environment-specific forks.
 - The default subscription entrypoint is `infra/main.bicep`.
 - The default tenant entrypoint is `infra/landingzone/main.bicep`.
 - Bootstrap and platform modules MUST remain separately deployable.
+- Identity, platform, and application concerns SHOULD remain independently
+	deployable where team ownership or lifecycle differs, and future deployment
+	stack boundaries SHOULD follow those ownership domains.
 - Application onboarding patterns MUST build on the shared baseline instead of
 	rewriting shared platform concerns per app.
 - Regional defaults MAY evolve, but same-region placement for tightly coupled
@@ -112,4 +122,4 @@ Compliance review expectations:
 	SHOULD align with this constitution and may provide implementation detail, but
 	they do not override it.
 
-**Version**: 1.0.0 | **Ratified**: 2026-08-27 | **Last Amended**: 2026-08-27
+**Version**: 1.1.0 | **Ratified**: 2026-08-27 | **Last Amended**: 2026-08-31
