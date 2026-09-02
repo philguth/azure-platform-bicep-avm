@@ -19,5 +19,5 @@
       }
     }
   },
-  "postCreateCommand": "export PATH=\"$HOME/.local/bin:$PATH\" && bicep --version && dotnet --list-sdks && az version && uv tool install --reinstall graphifyy==0.9.51 && graphify copilot install && command -v graphify && command -v graphify-mcp"
+  "postCreateCommand": "export PATH=\"$HOME/.local/bin:$PATH\" && bicep --version && dotnet --list-sdks && az version && uv tool install --reinstall graphifyy==0.9.53 && graphify copilot install && command -v graphify && command -v graphify-mcp"
 }

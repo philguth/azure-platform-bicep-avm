@@ -27,7 +27,7 @@ This workspace now includes a repo-scoped MCP configuration at `.vscode/mcp.json
 - The dev container installs the .NET 10 SDK so `dotnet` and `dnx` are available when the workspace starts.
 - The dev container also declares the Azure CLI feature so deployment and what-if commands work inside the workspace.
 - The dev container post-create step installs the `graphifyy` UV tool so the `graphify` and `graphify-mcp` commands are available after rebuild.
-- The dev container post-create step also runs `graphify copilot install` so the Graphify Copilot skill is restored after container rebuilds and defaults to querying the saved graph output when one already exists.
+- The dev container post-create step also runs `graphify copilot install` so the Graphify Copilot skill is restored after container rebuilds and defaults to querying the saved graph output when one already exis- The dev container currently pins `graphifyy==0.9.53`.
 - The dev container pins its core tool versions on purpose so rebuilds stay reproducible instead of drifting with `latest` downloads.
 - After pulling this change, rebuild the dev container once so VS Code can launch the MCP server from this workspace.
 
@@ -36,6 +36,26 @@ To verify it in VS Code:
 1. Rebuild and reopen the dev container.
 2. Open Copilot Chat in Agent mode.
 3. Use the tools picker and confirm the `Bicep` MCP server is available.
+
+## Graphify workflow
+
+Graphify is useful in this repo, but it is not the only source of truth.
+
+- Use Graphify for repo-shape questions, spec and README relationships, generated ARM JSON relationships, and broad architecture navigation.
+- Use the Bicep MCP and direct Bicep file review for native `.bicep` authoring, parameter flow, resource schemas, and template debugging.
+- Use direct file reads for the exact local slice being edited, even when Graphify helps identify where to look first.
+
+Current limitation:
+
+- The Graphify support matrix does not currently list native `.bicep` as a supported code format, so treat Graphify as complementary to Bicep MCP rather than a replacement for it in this repository.
+
+Recommended maintenance routine:
+
+1. Run `graphify hook install` once per clone, and re-run it after upgrading or reinstalling Graphify.
+2. Let normal `git commit` and `git switch` activity refresh the graph when hooks are installed.
+3. Run `graphify update .` after `git pull` or `git merge`.
+4. When documentation-heavy changes matter, use `/graphify . --update` in an IDE-backed flow or a configured backend so semantic doc extraction can refresh successfully.
+5. If you only need an offline structural refresh, use `graphify extract . --code-only`, but expect that to emphasize supported code formats and generated JSON rather than native Bicep.
 
 ## Deployment flow
 

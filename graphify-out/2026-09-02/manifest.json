@@ -7,9 +7,9 @@
   },
   ".devcontainer/devcontainer.json": {
     "mtime": 1788292845.5211015,
-    "seen": 1788382445.132834,
+    "seen": 1788382422.142536,
     "ast_hash": "08f58df19b646524a63cb6bfb775ffc5",
-    "semantic_hash": "08f58df19b646524a63cb6bfb775ffc5"
+    "semantic_hash": ""
   },
   ".specify/init-options.json": {
     "mtime": 1787861569.9332457,
