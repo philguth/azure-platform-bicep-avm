@@ -6,11 +6,11 @@
 
 ## Summary
 - 1133 nodes · 1332 edges · 111 communities
-- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 27 edges (avg confidence: 0.8)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 27 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4e319869`
+- Built from commit: `7006e49a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -130,8 +130,8 @@
 ## God Nodes (most connected - your core abstractions)
 1. `parameters` - 23 edges
 2. `parameters` - 19 edges
-3. `builtInRoleNames` - 16 edges
-4. `variables` - 16 edges
+3. `variables` - 16 edges
+4. `builtInRoleNames` - 16 edges
 5. `parameters` - 15 edges
 6. `parameters` - 15 edges
 7. `definitions` - 14 edges
@@ -606,19 +606,19 @@ Cohesion: 0.50
 Nodes (4): apiVersion, name, type, privateEndpointSubnet
 
 ## Knowledge Gaps
-- **682 isolated node(s):** `common.sh script`, `$schema`, `languageVersion`, `contentVersion`, `_EXPERIMENTAL_WARNING` (+677 more)
+- **682 isolated node(s):** `contentVersion`, `name`, `templateHash`, `version`, `type` (+677 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 688 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `template` connect `template` to `resources`, `builtInRoleNames`, `parameters`, `parameters`, `definitions`?**
-  _High betweenness centrality (0.069) - this node is a cross-community bridge._
+  _High betweenness centrality (0.040) - this node is a cross-community bridge._
 - **Why does `parameters` connect `parameters` to `diagnosticSettings`, `enableRbacAuthorization`, `enableSoftDelete`, `enableVaultForDiskEncryption`, `template`, `enableVaultForTemplateDeployment`, `lock`, `networkAcls`, `tags`, `roleAssignments`, `softDeleteRetentionInDays`, `sku`, `parameters`, `name`, `publicNetworkAccess`, `enableVaultForDeployment`, `accessPolicies`?**
-  _High betweenness centrality (0.055) - this node is a cross-community bridge._
-- **Why does `resources` connect `resources` to `template`, `keyVault`, `keyVault_diagnosticSettings`, `keyVault_accessPolicies`, `keyVault_keys`, `keyVault_lock`, `keyVault_roleAssignments`, `keyVault_secrets`, `keyVault_privateEndpoints`?**
-  _High betweenness centrality (0.041) - this node is a cross-community bridge._
-- **What connects `common.sh script`, `$schema`, `languageVersion` to the rest of the system?**
+  _High betweenness centrality (0.033) - this node is a cross-community bridge._
+- **Why does `template` connect `parameters` to `infra/main.json`, `outputs`, `variables`, `parameters`, `resources`?**
+  _High betweenness centrality (0.032) - this node is a cross-community bridge._
+- **What connects `contentVersion`, `name`, `templateHash` to the rest of the system?**
   _682 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `variables` be split into smaller, more focused modules?**
   _Cohesion score 0.04081632653061224 - nodes in this community are weakly interconnected._

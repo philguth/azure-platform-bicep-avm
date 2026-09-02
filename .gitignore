@@ -2,3 +2,11 @@
 
 # Local-only parameter files (do not commit subscription-specific values)
 **/*.local.bicepparam
+
+# Graphify: keep only canonical shared artifacts at the top level.
+graphify-out/**
+!graphify-out/
+!graphify-out/graph.json
+!graphify-out/manifest.json
+!graphify-out/GRAPH_REPORT.md
+!graphify-out/graph.html

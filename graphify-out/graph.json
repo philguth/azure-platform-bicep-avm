@@ -1,4 +1,53 @@
 {
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "infrastructure_phase_sequence",
+        "label": "Infrastructure Phase Sequence",
+        "nodes": [
+          "infra_readme_landing_zone_phase",
+          "infra_readme_subscription_orchestration_phase",
+          "infra_readme_bootstrap_phase",
+          "infra_readme_platform_phase",
+          "infra_readme_application_onboarding_phase"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "infra/README.md"
+      },
+      {
+        "id": "standardized_onboarding_review_artifacts",
+        "label": "Standardized Onboarding Review Artifacts",
+        "nodes": [
+          "specs_001_standardize_app_onboarding_spec_onboarding_request",
+          "specs_001_standardize_app_onboarding_spec_baseline_alignment_result",
+          "specs_001_standardize_app_onboarding_spec_review_summary"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "specs/001-standardize-app-onboarding/spec.md"
+      },
+      {
+        "id": "speckit_artifact_generation_flow",
+        "label": "Speckit Artifact Generation Flow",
+        "nodes": [
+          "specify_workflows_speckit_workflow_document",
+          "specify_templates_spec_template_document",
+          "specify_templates_plan_template_document",
+          "specify_templates_tasks_template_document",
+          "specify_templates_checklist_template_document"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.75,
+        "source_file": ".specify/workflows/speckit/workflow.yml"
+      }
+    ]
+  },
   "nodes": [
     {
       "id": "infra_bootstrap_main",
@@ -12905,7 +12954,7 @@
       "source_url": null
     }
   ],
-  "edges": [
+  "links": [
     {
       "source": "specify_scripts_bash_check_prerequisites_sh__entry",
       "target": "specify_scripts_bash_common_has_jq",
@@ -27694,6 +27743,5 @@
       "source_file": ".specify/workflows/speckit/workflow.yml"
     }
   ],
-  "input_tokens": 0,
-  "output_tokens": 0
+  "built_at_commit": "7006e49a393120809c446b95e7d71cdce249b926"
 }
