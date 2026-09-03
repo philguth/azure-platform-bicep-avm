@@ -44,10 +44,14 @@ layering; keep shared foundation reusable; maintain safe re-run behavior; avoid
 embedding identity- or platform-owned concerns into application-owned
 deployments; prepare for separate deployment stacks where ownership differs;
 support least-privilege RBAC modeling with explicit ownership-domain security
-principals and scoped role assignments where principal IDs are supplied
+principals and scoped role assignments where principal IDs are supplied; keep
+the onboarding model reusable across provider-hosted PoCs and client-tenant
+deployments without forking the delivery process
 
 **Scale/Scope**: Multiple applications across shared or dedicated subscriptions,
 each with one or more environments, all consuming a common enterprise baseline
+and supporting both provider-owned demonstration environments and client-owned
+delivery environments
 
 ## Constitution Check
 
@@ -127,6 +131,13 @@ scope, implementation should accept principal IDs as inputs and create the
 required assignments declaratively in Bicep. Tenant-level group lifecycle may
 remain external, but the contract and deployment surfaces must not leave RBAC
 requirements implicit.
+
+**Engagement Model Decision**: Treat provider-hosted PoCs, internal learning
+deployments, and client-tenant deployments as different engagement modes of the
+same onboarding contract. The contract should allow provider-owned defaults for
+fast demos, but it must also identify which fields become mandatory client
+inputs, approvals, or access prerequisites when the deployment target moves to a
+client-owned tenant.
 
 ## Complexity Tracking
 

@@ -93,6 +93,37 @@ same ownership model and boundary checks still apply.
 
 ---
 
+### User Story 4 - Reuse the onboarding model across provider and client tenants (Priority: P3)
+
+As a solution provider, I want the same onboarding contract to support both
+provider-hosted proof-of-concept deployments and client-tenant production
+deployments so that I can demo solutions quickly in my own tenant while using a
+similar governed process when deploying into a client environment.
+
+**Why this priority**: This is the commercial operating model behind the
+feature. The platform baseline should support internal learning and sales demos
+without creating a different onboarding method from the one used for client
+delivery.
+
+**Independent Test**: Can be tested independently by reviewing one
+provider-hosted PoC onboarding definition and one client-tenant onboarding
+definition and confirming both use the same contract categories, with only
+tenant ownership, security, and approval inputs varying.
+
+**Acceptance Scenarios**:
+
+1. **Given** a provider-hosted PoC is deployed in the solution provider's own
+tenant, **When** the onboarding contract is prepared, **Then** it captures the
+same application, security, networking, and ownership inputs used for a client
+deployment, while allowing provider-owned defaults where appropriate.
+2. **Given** a client wants the proven PoC deployed into the client's
+production tenant, **When** the onboarding contract is prepared, **Then** the
+same contract structure identifies the client-owned tenant, subscription,
+approval, security, and access prerequisites that must be satisfied before
+deployment.
+
+---
+
 ### Edge Cases
 
 - What happens when two applications request overlapping names, address space,
@@ -106,6 +137,12 @@ remain consistent?
 identity, network, or connectivity posture?
 - What happens when an application deployment is removed or replaced while the
 shared platform baseline remains in use by other applications?
+- How does the onboarding contract distinguish provider-owned demo defaults from
+	client-supplied production values without creating two separate delivery
+	models?
+- What happens when a PoC succeeds in the provider tenant but the client tenant
+	has stricter networking, identity, or policy requirements that require
+	additional approvals?
 
 ## Requirements *(mandatory)*
 
@@ -148,6 +185,17 @@ required for each domain at the intended deployment scope.
 resource-group-scope Azure role assignments in Bicep when principal identifiers
 are provided and the assignment belongs to the shared foundation or application
 deployment unit being onboarded.
+- **FR-013**: The system MUST support a dual operating model in which the same
+application onboarding contract can be used for provider-hosted PoC
+deployments in the solution provider's tenant and for governed deployments in a
+client-owned tenant.
+- **FR-014**: The system MUST distinguish which onboarding fields may use
+provider-owned defaults for internal learning or sales demonstrations and which
+fields MUST be supplied or approved by the client before a client-tenant
+deployment can proceed.
+- **FR-015**: The system MUST define a client-facing intake or readiness view of
+the application baseline contract so required tenant, networking, identity,
+security, access, and operational answers can be collected before deployment.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -166,6 +214,9 @@ shared foundation.
 - **Security Principal Mapping**: Represents the expected Entra groups,
 principal identifiers, scopes, and minimum roles associated with each
 ownership domain.
+- **Deployment Engagement Mode**: Represents whether the onboarding request is a
+provider-hosted PoC, an internal learning deployment, or a client-tenant
+delivery deployment, along with the ownership and approval rules that apply.
 
 ## Success Criteria *(mandatory)*
 
@@ -186,6 +237,10 @@ governance model applied to the deployment.
 - **SC-005**: Reviewers can identify the required security groups or principals,
 their target scopes, and their minimum Azure roles for a proposed onboarding
 definition without consulting external design notes.
+- **SC-006**: A provider-hosted PoC onboarding definition and a client-tenant
+deployment onboarding definition can be completed from the same contract
+structure without ambiguity about which inputs are provider defaults and which
+require client confirmation or approval.
 
 ## Assumptions
 
@@ -201,3 +256,6 @@ owned deployment surfaces, even if some initial onboarding flows begin without
 full stack separation.
 - Some security groups may be provisioned outside this repository, but the
 required principals, scopes, and role assignments must still be defined here.
+- The solution provider may use a personal or internal Azure tenant for rapid
+PoC and learning deployments, but client-tenant delivery must still follow the
+same contract categories and governance model.
