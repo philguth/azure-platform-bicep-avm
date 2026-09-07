@@ -318,9 +318,9 @@
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/tasks.md": {
-    "mtime": 1788804371.893745,
-    "seen": 1788804723.1567636,
-    "ast_hash": "0752345501a8859b3612cd5a1efba7e1",
+    "mtime": 1788804843.0369878,
+    "seen": 1788809207.3577764,
+    "ast_hash": "745d3d9fcf9bbca07e9b0a1cb5f11323",
     "semantic_hash": ""
   },
   "apps/fabric-capacity-alt/vend.json": {
@@ -342,9 +342,9 @@
     "semantic_hash": ""
   },
   "apps/README.md": {
-    "mtime": 1788802916.018053,
-    "seen": 1788803170.66095,
-    "ast_hash": "d94e1aa385fb83f82ca4aee23c046d14",
+    "mtime": 1788804825.829726,
+    "seen": 1788809207.3577373,
+    "ast_hash": "5fca485464435ad286ca1a605b080a26",
     "semantic_hash": ""
   },
   "apps/fabric-capacity-alt/README.md": {

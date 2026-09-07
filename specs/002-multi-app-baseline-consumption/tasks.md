@@ -61,7 +61,7 @@ description: "Task list for feature 002 multi-application baseline consumption"
 - [x] T014 [US1] Wire contract validation and shared defaults into apps/modules/app-vending.bicep
 - [x] T015 [US1] Update apps/fabric-capacity/vend.bicep to consume the shared onboarding interface and contract metadata
 - [x] T016 [US1] Document the platform-to-recipe interface contract, approved shared capabilities, escalation rules, required security principals, and engagement-mode fields in specs/002-multi-app-baseline-consumption/contracts/application-baseline-contract.md
-- [ ] T017 [US1] Validate the Fabric onboarding contract with `az deployment sub what-if` using apps/fabric-capacity/vend.bicep and a non-production parameter set captured in specs/002-multi-app-baseline-consumption/quickstart.md
+- [x] T017 [US1] Validate the Fabric onboarding contract with `az deployment sub what-if` using apps/fabric-capacity/vend.bicep and a non-production parameter set captured in specs/002-multi-app-baseline-consumption/quickstart.md
 
 **Checkpoint**: One application can consume the shared baseline through a documented and reviewable contract
 
@@ -81,7 +81,7 @@ description: "Task list for feature 002 multi-application baseline consumption"
 - [x] T021 [US2] Add a second independently deployable sample onboarding definition in apps/fabric-capacity-alt/vend.bicep
 - [x] T022 [P] [US2] Add the companion workload template for the second sample in apps/fabric-capacity-alt/main.bicep
 - [x] T023 [US2] Update deploy/main.bicep to show the reference two-landing-zone flow where shared platform deployment composes with one selected app recipe without owning all application rollouts
-- [ ] T024 [US2] Validate two independent app onboarding what-if scenarios from specs/002-multi-app-baseline-consumption/quickstart.md using apps/fabric-capacity/vend.bicep and apps/fabric-capacity-alt/vend.bicep
+- [x] T024 [US2] Validate two independent app onboarding what-if scenarios from specs/002-multi-app-baseline-consumption/quickstart.md using apps/fabric-capacity/vend.bicep and apps/fabric-capacity-alt/vend.bicep
 
 **Checkpoint**: Two applications reuse the same baseline and remain independently deployable
 
@@ -117,12 +117,12 @@ description: "Task list for feature 002 multi-application baseline consumption"
 ### Implementation for User Story 4
 
 - [x] T033 [P] [US4] Add engagement-mode fields and provider-default versus client-required markers to apps/contracts/application-baseline.bicep
-- [ ] T034 [US4] Create a client-facing intake template in specs/002-multi-app-baseline-consumption/contracts/client-intake-template.md
-- [ ] T035 [US4] Create a delivery runbook for provider-tenant demos and client-tenant deployments in specs/002-multi-app-baseline-consumption/contracts/deployment-runbook.md
+- [x] T034 [US4] Create a client-facing intake template in specs/002-multi-app-baseline-consumption/contracts/client-intake-template.md
+- [x] T035 [US4] Create a delivery runbook for provider-tenant demos and client-tenant deployments in specs/002-multi-app-baseline-consumption/contracts/deployment-runbook.md
 - [x] T036 [US4] Update specs/002-multi-app-baseline-consumption/contracts/application-baseline-contract.md to align the technical contract with the client-facing intake template
 - [x] T037 [US4] Add quickstart validation steps for provider-hosted PoC and client-tenant readiness in specs/002-multi-app-baseline-consumption/quickstart.md
 - [x] T038 [US4] Validate that the same onboarding contract can support provider-hosted and client-tenant scenarios without changing the ownership model
-- [ ] T042 [US4] Define the external tenant-local application recipe artifacts (`azure.yaml`, app-specific `infra/main.bicep`, and `azd` environment inputs) that consume the shared baseline contract without redeploying shared infrastructure
+- [x] T042 [US4] Define the external tenant-local application recipe artifacts (`azure.yaml`, app-specific `infra/main.bicep`, and `azd` environment inputs) that consume the shared baseline contract without redeploying shared infrastructure
 - [ ] T043 [US4] Validate the external application recipe `azd up` and `azd down` lifecycle in a non-production subscription, confirming cleanup is limited to the application resource group and recipe-owned resources
 
 ---
@@ -132,8 +132,8 @@ description: "Task list for feature 002 multi-application baseline consumption"
 **Purpose**: Finish documentation, consistency, and full-scenario validation
 
 - [x] T039 [P] Align repository narrative with implemented onboarding surfaces in README.md and infra/README.md
-- [ ] T040 [P] Review application folder naming, parameter naming, and tag conventions across apps/ and deploy/
-- [ ] T041 Run the end-to-end validation sequence from specs/002-multi-app-baseline-consumption/quickstart.md and capture any required follow-up notes in specs/002-multi-app-baseline-consumption/plan.md
+- [x] T040 [P] Review application folder naming, parameter naming, and tag conventions across apps/ and deploy/
+- [x] T041 Run the end-to-end validation sequence from specs/002-multi-app-baseline-consumption/quickstart.md and capture any required follow-up notes in specs/002-multi-app-baseline-consumption/plan.md
 
 ---
 

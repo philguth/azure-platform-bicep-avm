@@ -1,0 +1,10 @@
+name: app-recipe
+metadata:
+  template: app-recipe@0.0.1-beta
+infra:
+  provider: bicep
+  path: infra
+services:
+  app:
+    project: ./src
+    host: appservice

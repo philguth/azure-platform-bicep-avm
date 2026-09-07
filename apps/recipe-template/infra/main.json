@@ -1,0 +1,94 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "languageVersion": "2.1-experimental",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_EXPERIMENTAL_WARNING": "This template uses ARM features that are experimental. Experimental features should be enabled for testing purposes only, as there are no guarantees about the quality or stability of these features. Do not enable these settings for any production usage, or your production environment may be subject to breaking.",
+    "_EXPERIMENTAL_FEATURES_ENABLED": [
+      "Asserts"
+    ],
+    "_generator": {
+      "name": "bicep",
+      "version": "0.46.1.21595",
+      "templateHash": "11287288265298536019"
+    }
+  },
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[deployment().location]",
+      "metadata": {
+        "description": "Azure region for the application deployment."
+      }
+    },
+    "sharedBaseline": {
+      "type": "object",
+      "defaultValue": {},
+      "metadata": {
+        "description": "Shared platform baseline consumed by the application recipe."
+      }
+    },
+    "appResourceGroupName": {
+      "type": "string",
+      "defaultValue": "rg-app-dev",
+      "metadata": {
+        "description": "Application resource group name for recipe-owned resources."
+      }
+    },
+    "appName": {
+      "type": "string",
+      "defaultValue": "sample-app",
+      "metadata": {
+        "description": "Application workload name."
+      }
+    },
+    "tags": {
+      "type": "object",
+      "defaultValue": {
+        "Environment": "dev",
+        "ManagedBy": "azd"
+      },
+      "metadata": {
+        "description": "Recipe-owned tags applied to the app resource group and workload resources."
+      }
+    },
+    "securityPrincipals": {
+      "type": "object",
+      "defaultValue": {
+        "identityOwnerObjectId": "",
+        "platformOwnerObjectId": "",
+        "applicationOwnerObjectId": ""
+      },
+      "metadata": {
+        "description": "Security principal IDs for application, platform, and identity ownership review."
+      }
+    }
+  },
+  "resources": {
+    "appResourceGroup": {
+      "type": "Microsoft.Resources/resourceGroups",
+      "apiVersion": "2024-03-01",
+      "name": "[parameters('appResourceGroupName')]",
+      "location": "[parameters('location')]",
+      "tags": "[parameters('tags')]"
+    }
+  },
+  "outputs": {
+    "appResourceGroupId": {
+      "type": "string",
+      "value": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', parameters('appResourceGroupName'))]"
+    },
+    "appName": {
+      "type": "string",
+      "value": "[parameters('appName')]"
+    },
+    "sharedBaseline": {
+      "type": "object",
+      "value": "[parameters('sharedBaseline')]"
+    },
+    "securityPrincipals": {
+      "type": "object",
+      "value": "[parameters('securityPrincipals')]"
+    }
+  }
+}

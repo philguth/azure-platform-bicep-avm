@@ -10,7 +10,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.46.1.21595",
-      "templateHash": "6768433165570101193"
+      "templateHash": "4338540224874464258"
     }
   },
   "parameters": {
@@ -124,7 +124,7 @@
             "_generator": {
               "name": "bicep",
               "version": "0.46.1.21595",
-              "templateHash": "3797945543684389900"
+              "templateHash": "12357698837036389615"
             }
           },
           "parameters": {
@@ -182,7 +182,8 @@
             }
           },
           "variables": {
-            "normalizedSharedBaseline": "[union(createObject('environmentName', 'dev', 'namePrefix', 'demo', 'location', parameters('location'), 'bootstrapResourceGroupId', '', 'platformResourceGroupId', '', 'keyVaultResourceId', '', 'uamiResourceId', '', 'uamiPrincipalId', '', 'tags', createObject()), parameters('sharedBaseline'))]"
+            "applicationOwnerRoleAssignments": "[if(not(empty(parameters('securityPrincipals').applicationOwnerObjectId)), createArray(createObject('resourceGroupName', parameters('appResourceGroupName'), 'principalId', parameters('securityPrincipals').applicationOwnerObjectId, 'roleDefinitionId', 'b24988ac-6180-42a0-ab88-20f7382dd24c')), createArray())]",
+            "platformOwnerRoleAssignments": "[if(not(empty(parameters('securityPrincipals').platformOwnerObjectId)), createArray(createObject('resourceGroupName', parameters('appResourceGroupName'), 'principalId', parameters('securityPrincipals').platformOwnerObjectId, 'roleDefinitionId', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')), createArray())]"
           },
           "resources": {
             "appRg": {
@@ -191,6 +192,239 @@
               "name": "[parameters('appResourceGroupName')]",
               "location": "[parameters('location')]",
               "tags": "[parameters('resourceGroupTags')]"
+            },
+            "appDefaults": {
+              "type": "Microsoft.Resources/deployments",
+              "apiVersion": "2025-04-01",
+              "name": "[format('app-defaults-{0}', parameters('applicationName'))]",
+              "location": "[deployment().location]",
+              "properties": {
+                "expressionEvaluationOptions": {
+                  "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                  "sharedBaseline": {
+                    "value": "[parameters('sharedBaseline')]"
+                  },
+                  "location": {
+                    "value": "[parameters('location')]"
+                  }
+                },
+                "template": {
+                  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+                  "languageVersion": "2.1-experimental",
+                  "contentVersion": "1.0.0.0",
+                  "metadata": {
+                    "_EXPERIMENTAL_WARNING": "This template uses ARM features that are experimental. Experimental features should be enabled for testing purposes only, as there are no guarantees about the quality or stability of these features. Do not enable these settings for any production usage, or your production environment may be subject to breaking.",
+                    "_EXPERIMENTAL_FEATURES_ENABLED": [
+                      "Asserts"
+                    ],
+                    "_generator": {
+                      "name": "bicep",
+                      "version": "0.46.1.21595",
+                      "templateHash": "11791764145077640063"
+                    }
+                  },
+                  "parameters": {
+                    "sharedBaseline": {
+                      "type": "object",
+                      "defaultValue": {},
+                      "metadata": {
+                        "description": "Shared baseline values supplied by the platform deployment."
+                      }
+                    },
+                    "location": {
+                      "type": "string",
+                      "defaultValue": "[deployment().location]",
+                      "metadata": {
+                        "description": "Default location when the shared baseline does not specify one."
+                      }
+                    }
+                  },
+                  "variables": {
+                    "resolvedSharedBaseline": "[union(createObject('environmentName', 'dev', 'namePrefix', 'demo', 'location', parameters('location'), 'bootstrapResourceGroupId', '', 'platformResourceGroupId', '', 'keyVaultResourceId', '', 'uamiResourceId', '', 'uamiPrincipalId', '', 'tags', createObject()), parameters('sharedBaseline'))]"
+                  },
+                  "resources": {},
+                  "outputs": {
+                    "sharedBaseline": {
+                      "type": "object",
+                      "value": "[variables('resolvedSharedBaseline')]"
+                    }
+                  }
+                }
+              }
+            },
+            "scopedRoleAssignments": {
+              "type": "Microsoft.Resources/deployments",
+              "apiVersion": "2025-04-01",
+              "name": "[format('app-role-assignments-{0}', parameters('applicationName'))]",
+              "location": "[deployment().location]",
+              "properties": {
+                "expressionEvaluationOptions": {
+                  "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                  "resourceGroupRoleAssignments": {
+                    "value": "[concat(variables('applicationOwnerRoleAssignments'), variables('platformOwnerRoleAssignments'))]"
+                  }
+                },
+                "template": {
+                  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+                  "languageVersion": "2.1-experimental",
+                  "contentVersion": "1.0.0.0",
+                  "metadata": {
+                    "_EXPERIMENTAL_WARNING": "This template uses ARM features that are experimental. Experimental features should be enabled for testing purposes only, as there are no guarantees about the quality or stability of these features. Do not enable these settings for any production usage, or your production environment may be subject to breaking.",
+                    "_EXPERIMENTAL_FEATURES_ENABLED": [
+                      "Asserts"
+                    ],
+                    "_generator": {
+                      "name": "bicep",
+                      "version": "0.46.1.21595",
+                      "templateHash": "10405884726329607644"
+                    }
+                  },
+                  "parameters": {
+                    "subscriptionRoleAssignments": {
+                      "type": "array",
+                      "defaultValue": [],
+                      "metadata": {
+                        "description": "Role assignments created at the target subscription scope."
+                      }
+                    },
+                    "resourceGroupRoleAssignments": {
+                      "type": "array",
+                      "defaultValue": [],
+                      "metadata": {
+                        "description": "Role assignments created at named resource group scopes in the target subscription."
+                      }
+                    }
+                  },
+                  "resources": {
+                    "subscriptionAssignments": {
+                      "copy": {
+                        "name": "subscriptionAssignments",
+                        "count": "[length(parameters('subscriptionRoleAssignments'))]"
+                      },
+                      "type": "Microsoft.Authorization/roleAssignments",
+                      "apiVersion": "2022-04-01",
+                      "name": "[guid(subscription().id, parameters('subscriptionRoleAssignments')[copyIndex()].principalId, parameters('subscriptionRoleAssignments')[copyIndex()].roleDefinitionId)]",
+                      "properties": {
+                        "principalId": "[parameters('subscriptionRoleAssignments')[copyIndex()].principalId]",
+                        "principalType": "[coalesce(tryGet(parameters('subscriptionRoleAssignments')[copyIndex()], 'principalType'), 'Group')]",
+                        "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', parameters('subscriptionRoleAssignments')[copyIndex()].roleDefinitionId)]"
+                      }
+                    },
+                    "resourceGroupAssignments": {
+                      "copy": {
+                        "name": "resourceGroupAssignments",
+                        "count": "[length(parameters('resourceGroupRoleAssignments'))]"
+                      },
+                      "type": "Microsoft.Resources/deployments",
+                      "apiVersion": "2025-04-01",
+                      "name": "[format('resource-group-role-assignment-{0}', uniqueString(parameters('resourceGroupRoleAssignments')[copyIndex()].resourceGroupName, parameters('resourceGroupRoleAssignments')[copyIndex()].principalId, parameters('resourceGroupRoleAssignments')[copyIndex()].roleDefinitionId))]",
+                      "resourceGroup": "[parameters('resourceGroupRoleAssignments')[copyIndex()].resourceGroupName]",
+                      "properties": {
+                        "expressionEvaluationOptions": {
+                          "scope": "inner"
+                        },
+                        "mode": "Incremental",
+                        "parameters": {
+                          "principalId": {
+                            "value": "[parameters('resourceGroupRoleAssignments')[copyIndex()].principalId]"
+                          },
+                          "principalType": {
+                            "value": "[coalesce(tryGet(parameters('resourceGroupRoleAssignments')[copyIndex()], 'principalType'), 'Group')]"
+                          },
+                          "roleDefinitionId": {
+                            "value": "[parameters('resourceGroupRoleAssignments')[copyIndex()].roleDefinitionId]"
+                          }
+                        },
+                        "template": {
+                          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                          "languageVersion": "2.1-experimental",
+                          "contentVersion": "1.0.0.0",
+                          "metadata": {
+                            "_EXPERIMENTAL_WARNING": "This template uses ARM features that are experimental. Experimental features should be enabled for testing purposes only, as there are no guarantees about the quality or stability of these features. Do not enable these settings for any production usage, or your production environment may be subject to breaking.",
+                            "_EXPERIMENTAL_FEATURES_ENABLED": [
+                              "Asserts"
+                            ],
+                            "_generator": {
+                              "name": "bicep",
+                              "version": "0.46.1.21595",
+                              "templateHash": "2805160574850821606"
+                            }
+                          },
+                          "parameters": {
+                            "principalId": {
+                              "type": "string",
+                              "metadata": {
+                                "description": "Object ID of the Microsoft Entra principal receiving the role assignment."
+                              }
+                            },
+                            "principalType": {
+                              "type": "string",
+                              "defaultValue": "Group",
+                              "allowedValues": [
+                                "Group",
+                                "ServicePrincipal",
+                                "User"
+                              ],
+                              "metadata": {
+                                "description": "Microsoft Entra principal type."
+                              }
+                            },
+                            "roleDefinitionId": {
+                              "type": "string",
+                              "metadata": {
+                                "description": "Built-in or custom role definition GUID."
+                              }
+                            }
+                          },
+                          "resources": {
+                            "assignment": {
+                              "type": "Microsoft.Authorization/roleAssignments",
+                              "apiVersion": "2022-04-01",
+                              "name": "[guid(resourceGroup().id, parameters('principalId'), parameters('roleDefinitionId'))]",
+                              "properties": {
+                                "principalId": "[parameters('principalId')]",
+                                "principalType": "[parameters('principalType')]",
+                                "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]"
+                              }
+                            }
+                          },
+                          "outputs": {
+                            "roleAssignmentId": {
+                              "type": "string",
+                              "value": "[resourceId('Microsoft.Authorization/roleAssignments', guid(resourceGroup().id, parameters('principalId'), parameters('roleDefinitionId')))]"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "outputs": {
+                    "subscriptionRoleAssignmentIds": {
+                      "type": "array",
+                      "copy": {
+                        "count": "[length(parameters('subscriptionRoleAssignments'))]",
+                        "input": "[subscriptionResourceId('Microsoft.Authorization/roleAssignments', guid(subscription().id, parameters('subscriptionRoleAssignments')[copyIndex()].principalId, parameters('subscriptionRoleAssignments')[copyIndex()].roleDefinitionId))]"
+                      }
+                    },
+                    "resourceGroupRoleAssignmentIds": {
+                      "type": "array",
+                      "copy": {
+                        "count": "[length(parameters('resourceGroupRoleAssignments'))]",
+                        "input": "[reference(format('resourceGroupAssignments[{0}]', copyIndex())).outputs.roleAssignmentId.value]"
+                      }
+                    }
+                  }
+                }
+              },
+              "dependsOn": [
+                "appRg"
+              ]
             },
             "baselineContract": {
               "type": "Microsoft.Resources/deployments",
@@ -204,7 +438,7 @@
                 "mode": "Incremental",
                 "parameters": {
                   "sharedBaseline": {
-                    "value": "[variables('normalizedSharedBaseline')]"
+                    "value": "[reference('appDefaults').outputs.sharedBaseline.value]"
                   },
                   "appSettings": {
                     "value": {
@@ -330,6 +564,7 @@
                 }
               },
               "dependsOn": [
+                "appDefaults",
                 "appRg"
               ]
             },
@@ -412,7 +647,11 @@
             },
             "sharedBaseline": {
               "type": "object",
-              "value": "[variables('normalizedSharedBaseline')]"
+              "value": "[reference('appDefaults').outputs.sharedBaseline.value]"
+            },
+            "appRoleAssignmentIds": {
+              "type": "array",
+              "value": "[reference('scopedRoleAssignments').outputs.resourceGroupRoleAssignmentIds.value]"
             }
           }
         }
@@ -549,6 +788,10 @@
     "ownershipBoundary": {
       "type": "object",
       "value": "[reference('appOnboarding').outputs.ownershipBoundary.value]"
+    },
+    "appRoleAssignmentIds": {
+      "type": "array",
+      "value": "[reference('appOnboarding').outputs.appRoleAssignmentIds.value]"
     }
   }
 }
