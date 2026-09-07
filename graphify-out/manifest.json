@@ -318,9 +318,9 @@
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/tasks.md": {
-    "mtime": 1788802563.6087465,
-    "seen": 1788803170.660978,
-    "ast_hash": "8dc00266243c89decab75b87288efecf",
+    "mtime": 1788803348.304303,
+    "seen": 1788803353.3818867,
+    "ast_hash": "7978a6d39c35dc73cba6957c95d0ac83",
     "semantic_hash": ""
   },
   "apps/fabric-capacity-alt/vend.json": {

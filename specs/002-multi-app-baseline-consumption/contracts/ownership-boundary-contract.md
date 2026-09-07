@@ -76,3 +76,18 @@ remain separated during onboarding and deployment review.
 - The target scope changes but the ownership model becomes ambiguous
 - Required security groups or minimum role assignments are undefined for the
   owning identity, platform, or application domain
+
+## Implemented Assignment Boundary
+
+The application vending module accepts existing Entra group object IDs through
+`securityPrincipals`. It creates only application-owned assignments:
+
+- `applicationOwnerObjectId` receives `Contributor` on the application resource
+  group.
+- `platformOwnerObjectId` receives `Reader` on the application resource group.
+
+`identityOwnerObjectId` is intentionally not assigned by application vending.
+Access to shared Key Vault, managed identity, networking, and other shared
+foundation resources is created and approved through the shared infrastructure
+deployment layer. This preserves the rule that app onboarding cannot modify the
+shared foundation.

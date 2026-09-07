@@ -196,6 +196,14 @@ deployment can proceed.
 - **FR-015**: The system MUST define a client-facing intake or readiness view of
 the application baseline contract so required tenant, networking, identity,
 security, access, and operational answers can be collected before deployment.
+- **FR-016**: A tenant-local application recipe that consumes the shared
+baseline contract MUST support `azd up` to deploy application-owned resources
+to a target subscription without redeploying or recreating the shared
+foundation.
+- **FR-017**: The tenant-local application recipe MUST ensure `azd down`
+removes only recipe-owned application resources and never deletes shared
+landing-zone, bootstrap, platform, identity, networking, or Key Vault
+resources.
 
 ### Key Entities *(include if feature involves data)*
 

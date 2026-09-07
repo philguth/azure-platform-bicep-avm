@@ -64,3 +64,4 @@ output capacityResourceId string = fabric.outputs.capacityResourceId
 output capacityName string = fabric.outputs.capacityName
 output applicationBaseline object = appOnboarding.outputs.applicationBaseline
 output ownershipBoundary object = appOnboarding.outputs.ownershipBoundary
+output appRoleAssignmentIds array = appOnboarding.outputs.appRoleAssignmentIds

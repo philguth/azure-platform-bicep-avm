@@ -41,6 +41,32 @@ resource appRg 'Microsoft.Resources/resourceGroups@2024-03-01' = {
   tags: resourceGroupTags
 }
 
+var applicationOwnerRoleAssignments = !empty(securityPrincipals.applicationOwnerObjectId) ? [
+  {
+    resourceGroupName: appResourceGroupName
+    principalId: securityPrincipals.applicationOwnerObjectId
+    roleDefinitionId: 'b24988ac-6180-42a0-ab88-20f7382dd24c'
+  }
+] : []
+
+var platformOwnerRoleAssignments = !empty(securityPrincipals.platformOwnerObjectId) ? [
+  {
+    resourceGroupName: appResourceGroupName
+    principalId: securityPrincipals.platformOwnerObjectId
+    roleDefinitionId: 'acdd72a7-3385-48ef-bd42-f606fba81ae7'
+  }
+] : []
+
+module scopedRoleAssignments './role-assignments.bicep' = {
+  name: 'app-role-assignments-${applicationName}'
+  dependsOn: [
+    appRg
+  ]
+  params: {
+    resourceGroupRoleAssignments: concat(applicationOwnerRoleAssignments, platformOwnerRoleAssignments)
+  }
+}
+
 module baselineContract '../contracts/application-baseline.bicep' = {
   name: 'baseline-contract-${applicationName}'
   scope: appRg
@@ -81,3 +107,4 @@ output applicationBaseline object = baselineContract.outputs.contract
 output ownershipBoundary object = ownershipContract.outputs.ownershipBoundary
 output deploymentScope string = 'subscription'
 output sharedBaseline object = normalizedSharedBaseline
+output appRoleAssignmentIds array = scopedRoleAssignments.outputs.resourceGroupRoleAssignmentIds

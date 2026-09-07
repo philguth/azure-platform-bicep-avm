@@ -18,6 +18,13 @@ param skuName string
 @description('Fabric capacity administrators (UPNs or object IDs, depending on your tenant configuration).')
 param administrators array
 
+@description('Security principal IDs for the application ownership and review model.')
+param securityPrincipals object = {
+  identityOwnerObjectId: ''
+  platformOwnerObjectId: ''
+  applicationOwnerObjectId: ''
+}
+
 @description('Tags applied to the application resource group.')
 param resourceGroupTags object = {}
 
@@ -33,6 +40,7 @@ module appOnboarding '../modules/app-vending.bicep' = {
     appResourceGroupName: appResourceGroupName
     resourceGroupTags: resourceGroupTags
     appTags: tags
+    securityPrincipals: securityPrincipals
   }
 }
 
@@ -56,3 +64,4 @@ output capacityResourceId string = fabric.outputs.capacityResourceId
 output capacityName string = fabric.outputs.capacityName
 output applicationBaseline object = appOnboarding.outputs.applicationBaseline
 output ownershipBoundary object = appOnboarding.outputs.ownershipBoundary
+output appRoleAssignmentIds array = appOnboarding.outputs.appRoleAssignmentIds

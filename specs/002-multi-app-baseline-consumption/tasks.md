@@ -97,10 +97,10 @@ description: "Task list for feature 002 multi-application baseline consumption"
 
 - [x] T025 [P] [US3] Add explicit ownership boundary outputs and annotations to apps/modules/app-vending.bicep
 - [x] T026 [P] [US3] Add subscription-scope ownership boundary guidance to infra/main.bicep outputs or metadata comments where shared foundation handoff occurs
-- [ ] T027 [US3] Create a dedicated ownership-boundary deployment guidance document in docs/deployment-stacks.md
+- [x] T027 [US3] Create a dedicated ownership-boundary deployment guidance document in docs/deployment-stacks.md
 - [x] T028 [US3] Document the future shared-foundation and per-application stack split in specs/002-multi-app-baseline-consumption/contracts/ownership-boundary-contract.md
-- [ ] T029 [US3] Implement shared-foundation and application scoped role assignments in apps/modules/role-assignments.bicep and apps/modules/app-vending.bicep
-- [ ] T030 [US3] Add security-group and role-assignment setup guidance for identity, platform, and application teams in docs/deployment-stacks.md
+- [x] T029 [US3] Implement shared-foundation and application scoped role assignments in apps/modules/role-assignments.bicep and apps/modules/app-vending.bicep
+- [x] T030 [US3] Add security-group and role-assignment setup guidance for identity, platform, and application teams in docs/deployment-stacks.md
 - [x] T031 [US3] Add quickstart validation steps for the reference two-landing-zone flow, including ownership review across RG-scope and subscription-scope app placement, in specs/002-multi-app-baseline-consumption/quickstart.md
 - [x] T032 [US3] Validate stack-boundary and ownership guidance with focused Bicep builds for infra/main.bicep and apps/fabric-capacity/vend.bicep
 
@@ -122,6 +122,8 @@ description: "Task list for feature 002 multi-application baseline consumption"
 - [x] T036 [US4] Update specs/002-multi-app-baseline-consumption/contracts/application-baseline-contract.md to align the technical contract with the client-facing intake template
 - [x] T037 [US4] Add quickstart validation steps for provider-hosted PoC and client-tenant readiness in specs/002-multi-app-baseline-consumption/quickstart.md
 - [x] T038 [US4] Validate that the same onboarding contract can support provider-hosted and client-tenant scenarios without changing the ownership model
+- [ ] T042 [US4] Define the external tenant-local application recipe artifacts (`azure.yaml`, app-specific `infra/main.bicep`, and `azd` environment inputs) that consume the shared baseline contract without redeploying shared infrastructure
+- [ ] T043 [US4] Validate the external application recipe `azd up` and `azd down` lifecycle in a non-production subscription, confirming cleanup is limited to the application resource group and recipe-owned resources
 
 ---
 
