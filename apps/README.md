@@ -23,4 +23,10 @@ Shared onboarding components are defined in:
 - `contracts/ownership-boundaries.bicep`
 - `modules/app-vending.bicep`
 
+Use `shared-template/example.bicepparam` as the starting point for a
+per-application parameter file. Replace the placeholder shared-baseline values
+with outputs from the shared infrastructure deployment. Supply existing Entra
+group object IDs in `securityPrincipals` to create the application and platform
+role assignments; leave them empty when validating the template without RBAC.
+
 See `recipe-template/README.md` for the pattern for a separate, tenant-local application recipe that can consume this contract through `azd`.

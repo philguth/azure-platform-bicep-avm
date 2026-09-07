@@ -1,21 +1,21 @@
 # Graph Report - azure-platform-bicep-avm  (2026-09-07)
 
 ## Corpus Check
-- 57 files · ~99,422 words
+- 58 files · ~99,962 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1683 nodes · 2025 edges · 169 communities (167 shown, 2 thin omitted)
+- 1689 nodes · 2030 edges · 178 communities (176 shown, 2 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 27 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `da1584d3`
+- Built from commit: `2b9627cb`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- variables
+- outputs
 - infra/main.json
 - common.sh
 - parameters
@@ -23,7 +23,7 @@
 - builtInRoleNames
 - landingzone/main.json
 - parameters
-- tags
+- description
 - outputs
 - Feature Specification: Standardized Application Onboarding
 - parameters
@@ -80,7 +80,7 @@
 - definitions
 - accessPolicies
 - diagnosticSettings
-- enableRbacAuthorization
+- variables
 - parameters
 - keyVault
 - capacity
@@ -115,7 +115,7 @@
 - enableVaultForTemplateDeployment
 - outputs
 - networkAcls
-- softDeleteRetentionInDays
+- bootstrap/main.json
 - applicationManagementGroup
 - applicationManagementGroupName
 - applicationBootstrapResourceGroupName
@@ -131,7 +131,7 @@
 - parameters
 - parameters
 - location
-- template
+- _generator
 - parameters
 - outputs
 - parameters
@@ -172,8 +172,8 @@
 - namePrefix
 - platformResourceGroupName
 - sharedBaseline
-- enableTelemetry
-- bootstrapLocation
+- tags
+- kv
 - keyVaultName
 - keyVaultResourceGroupName
 - keyVaultResourceId
@@ -184,6 +184,15 @@
 - bootstrapResourceGroupId
 - ownershipBoundary
 - fabric-capacity-alt/README.md
+- uami
+- Deployment ownership and access control
+- enableSoftDelete
+- roleAssignments
+- lock
+- environmentName
+- platformTags
+- uamiPrincipalId
+- uamiResourceId
 
 ## God Nodes (most connected - your core abstractions)
 1. `parameters` - 23 edges
@@ -193,9 +202,9 @@
 5. `parameters` - 18 edges
 6. `variables` - 16 edges
 7. `builtInRoleNames` - 16 edges
-8. `Contract: Application Baseline Consumption` - 15 edges
+8. `parameters` - 15 edges
 9. `parameters` - 15 edges
-10. `parameters` - 15 edges
+10. `Contract: Application Baseline Consumption` - 15 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Feature Specification Template` --semantically_similar_to--> `Feature Specification: Standardized Application Onboarding`  [INFERRED] [semantically similar]
@@ -217,11 +226,11 @@
 - **Standardized Onboarding Review Artifacts** — specs_001_standardize_app_onboarding_spec_onboarding_request, specs_001_standardize_app_onboarding_spec_baseline_alignment_result, specs_001_standardize_app_onboarding_spec_review_summary [EXTRACTED 1.00]
 - **Speckit Artifact Generation Flow** — specify_workflows_speckit_workflow_document, specify_templates_spec_template_document, specify_templates_plan_template_document, specify_templates_tasks_template_document, specify_templates_checklist_template_document [INFERRED 0.75]
 
-## Communities (169 total, 2 thin omitted)
+## Communities (178 total, 2 thin omitted)
 
-### Community 0 - "variables"
-Cohesion: 0.05
-Nodes (40): contentVersion, type, value, type, value, apiVersion, condition, name (+32 more)
+### Community 0 - "outputs"
+Cohesion: 0.20
+Nodes (10): type, value, type, value, outputs, keyVaultName, keyVaultResourceId, uamiClientId (+2 more)
 
 ### Community 1 - "infra/main.json"
 Cohesion: 0.05
@@ -240,8 +249,8 @@ Cohesion: 0.06
 Nodes (40): copy, items, metadata, nullable, type, maxLength, metadata, type (+32 more)
 
 ### Community 5 - "builtInRoleNames"
-Cohesion: 0.11
-Nodes (18): Contributor, Key Vault Administrator, Key Vault Certificate User, Key Vault Certificates Officer, Key Vault Contributor, Key Vault Crypto Officer, Key Vault Crypto Service Encryption User, Key Vault Crypto User (+10 more)
+Cohesion: 0.09
+Nodes (22): Contributor, Key Vault Administrator, Key Vault Certificate User, Key Vault Certificates Officer, Key Vault Contributor, Key Vault Crypto Officer, Key Vault Crypto Service Encryption User, Key Vault Crypto User (+14 more)
 
 ### Community 6 - "landingzone/main.json"
 Cohesion: 0.07
@@ -251,9 +260,9 @@ Nodes (31): type, value, type, value, type, value, contentVersion, name (+23 mor
 Cohesion: 0.08
 Nodes (31): defaultValue, metadata, type, defaultValue, metadata, defaultValue, metadata, type (+23 more)
 
-### Community 8 - "tags"
-Cohesion: 0.11
-Nodes (21): IaC, Project, metadata, type, defaultValue, metadata, type, description (+13 more)
+### Community 8 - "description"
+Cohesion: 0.16
+Nodes (14): metadata, type, defaultValue, metadata, type, description, defaultValue, metadata (+6 more)
 
 ### Community 9 - "outputs"
 Cohesion: 0.09
@@ -265,7 +274,7 @@ Nodes (26): Application Onboarding Phase, Bootstrap Phase, Infrastructure Phases
 
 ### Community 11 - "parameters"
 Cohesion: 0.09
-Nodes (28): defaultValue, metadata, type, metadata, type, defaultValue, metadata, type (+20 more)
+Nodes (28): defaultValue, metadata, type, defaultValue, metadata, type, metadata, type (+20 more)
 
 ### Community 12 - "metadata"
 Cohesion: 0.25
@@ -288,8 +297,8 @@ Cohesion: 0.19
 Nodes (13): exclusiveKeyVaultReference, validKeyVaultReference, properties, scope, properties, expressionEvaluationOptions, mode, parameters (+5 more)
 
 ### Community 17 - "parameters"
-Cohesion: 0.12
-Nodes (17): metadata, type, value, defaultValue, metadata, defaultValue, metadata, type (+9 more)
+Cohesion: 0.15
+Nodes (13): defaultValue, metadata, defaultValue, metadata, type, defaultValue, metadata, type (+5 more)
 
 ### Community 18 - "kvPrivateEndpoint"
 Cohesion: 0.17
@@ -320,8 +329,8 @@ Cohesion: 0.20
 Nodes (10): kvPrivateDns, kvPrivateEndpoint, dependsOn, apiVersion, dependsOn, location, name, properties (+2 more)
 
 ### Community 25 - "parameters"
-Cohesion: 0.14
-Nodes (14): defaultValue, metadata, type, metadata, nullable, $ref, createMode, lock (+6 more)
+Cohesion: 0.15
+Nodes (13): defaultValue, metadata, type, defaultValue, metadata, type, createMode, enableTelemetry (+5 more)
 
 ### Community 26 - "bootstrap"
 Cohesion: 0.07
@@ -429,7 +438,7 @@ Nodes (7): vnet, apiVersion, location, name, properties, tags, type
 
 ### Community 52 - "Contract: Application Baseline Consumption"
 Cohesion: 0.05
-Nodes (38): Client Intake View, Client-tenant delivery, Consumer Obligations, Contract: Application Baseline Consumption, Current Repository Platform Output Map, Current Repository Recipe Input Map, Engagement Modes, Interface Rules (+30 more)
+Nodes (39): Client Intake View, Client-tenant delivery, Consumer Obligations, Contract: Application Baseline Consumption, Current Repository Platform Output Map, Current Repository Recipe Input Map, Engagement Modes, Interface Rules (+31 more)
 
 ### Community 53 - "resources"
 Cohesion: 0.29
@@ -479,9 +488,9 @@ Nodes (5): items, metadata, nullable, type, accessPolicies
 Cohesion: 0.40
 Nodes (5): items, metadata, nullable, type, diagnosticSettings
 
-### Community 65 - "enableRbacAuthorization"
-Cohesion: 0.40
-Nodes (5): defaultValue, metadata, type, value, enableRbacAuthorization
+### Community 65 - "variables"
+Cohesion: 0.22
+Nodes (9): variables, kvName, kvPrefix, kvPrefixMaxLength, kvPrefixSanitized, kvSuffix, mergedTags, uamiName (+1 more)
 
 ### Community 66 - "parameters"
 Cohesion: 0.09
@@ -619,9 +628,9 @@ Nodes (21): type, value, type, value, type, value, type, value (+13 more)
 Cohesion: 0.50
 Nodes (4): metadata, nullable, type, networkAcls
 
-### Community 100 - "softDeleteRetentionInDays"
-Cohesion: 0.50
-Nodes (4): softDeleteRetentionInDays, defaultValue, metadata, type
+### Community 100 - "bootstrap/main.json"
+Cohesion: 0.25
+Nodes (7): contentVersion, Asserts, languageVersion, metadata, _EXPERIMENTAL_FEATURES_ENABLED, _EXPERIMENTAL_WARNING, $schema
 
 ### Community 101 - "applicationManagementGroup"
 Cohesion: 0.50
@@ -683,9 +692,9 @@ Nodes (14): defaultValue, metadata, type, bootstrapLocation, platformLocation, t
 Cohesion: 0.47
 Nodes (6): defaultValue, metadata, type, value, location, location
 
-### Community 116 - "template"
-Cohesion: 0.14
-Nodes (14): name, templateHash, version, Asserts, metadata, _EXPERIMENTAL_FEATURES_ENABLED, _EXPERIMENTAL_WARNING, _generator (+6 more)
+### Community 116 - "_generator"
+Cohesion: 0.33
+Nodes (6): name, templateHash, version, _generator, name, metadata
 
 ### Community 117 - "parameters"
 Cohesion: 0.18
@@ -847,13 +856,13 @@ Nodes (4): platformResourceGroupName, metadata, type, value
 Cohesion: 0.50
 Nodes (4): sharedBaseline, defaultValue, metadata, type
 
-### Community 157 - "enableTelemetry"
-Cohesion: 0.50
-Nodes (4): defaultValue, metadata, type, enableTelemetry
+### Community 157 - "tags"
+Cohesion: 0.29
+Nodes (7): IaC, Project, tags, defaultValue, nullable, type, value
 
-### Community 158 - "bootstrapLocation"
-Cohesion: 0.50
-Nodes (4): defaultValue, metadata, type, bootstrapLocation
+### Community 158 - "kv"
+Cohesion: 0.33
+Nodes (6): apiVersion, condition, name, type, resources, kv
 
 ### Community 159 - "keyVaultName"
 Cohesion: 0.50
@@ -887,25 +896,61 @@ Nodes (3): type, value, bootstrapResourceGroupId
 Cohesion: 0.67
 Nodes (3): ownershipBoundary, type, value
 
+### Community 169 - "uami"
+Cohesion: 0.33
+Nodes (6): uami, apiVersion, location, name, tags, type
+
+### Community 170 - "Deployment ownership and access control"
+Cohesion: 0.40
+Nodes (4): Deployment boundaries, Deployment ownership and access control, Deployment permissions, Required Microsoft Entra groups
+
+### Community 171 - "enableSoftDelete"
+Cohesion: 0.40
+Nodes (5): defaultValue, metadata, type, value, enableSoftDelete
+
+### Community 172 - "roleAssignments"
+Cohesion: 0.40
+Nodes (5): roleAssignments, items, metadata, nullable, type
+
+### Community 173 - "lock"
+Cohesion: 0.50
+Nodes (4): metadata, nullable, $ref, lock
+
+### Community 174 - "environmentName"
+Cohesion: 0.50
+Nodes (4): metadata, type, value, environmentName
+
+### Community 175 - "platformTags"
+Cohesion: 0.50
+Nodes (4): platformTags, defaultValue, metadata, type
+
+### Community 176 - "uamiPrincipalId"
+Cohesion: 0.67
+Nodes (3): uamiPrincipalId, type, value
+
+### Community 177 - "uamiResourceId"
+Cohesion: 0.67
+Nodes (3): uamiResourceId, type, value
+
 ## Knowledge Gaps
-- **1016 isolated node(s):** `Application layout`, `Fabric Capacity Alt app onboarding`, `$schema`, `languageVersion`, `contentVersion` (+1011 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 1025 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **1020 isolated node(s):** `Deployment boundaries`, `Required Microsoft Entra groups`, `Deployment permissions`, `Purpose`, `Identity Boundary` (+1015 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 1030 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `template` connect `template` to `resources`, `outputs`, `builtInRoleNames`, `parameters`, `parameters`, `definitions`?**
-  _High betweenness centrality (0.022) - this node is a cross-community bridge._
-- **Why does `parameters` connect `parameters` to `diagnosticSettings`, `enableRbacAuthorization`, `enableVaultForDiskEncryption`, `enableVaultForTemplateDeployment`, `outputs`, `networkAcls`, `softDeleteRetentionInDays`, `tags`, `sku`, `location`, `template`, `parameters`, `publicNetworkAccess`, `enableTelemetry`, `enableVaultForDeployment`, `accessPolicies`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
-- **Why does `resources` connect `resources` to `keyVault_accessPolicies`, `keyVault`, `keyVault_diagnosticSettings`, `keyVault_keys`, `keyVault_lock`, `keyVault_roleAssignments`, `keyVault_secrets`, `template`, `keyVault_privateEndpoints`?**
-  _High betweenness centrality (0.013) - this node is a cross-community bridge._
-- **What connects `Application layout`, `Fabric Capacity Alt app onboarding`, `$schema` to the rest of the system?**
-  _1016 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `variables` be split into smaller, more focused modules?**
-  _Cohesion score 0.04878048780487805 - nodes in this community are weakly interconnected._
+- **Why does `template` connect `builtInRoleNames` to `resources`, `outputs`, `_generator`, `parameters`, `parameters`, `definitions`?**
+  _High betweenness centrality (0.025) - this node is a cross-community bridge._
+- **Why does `parameters` connect `parameters` to `diagnosticSettings`, `enableVaultForDiskEncryption`, `enableVaultForTemplateDeployment`, `networkAcls`, `outputs`, `builtInRoleNames`, `enableSoftDelete`, `roleAssignments`, `lock`, `sku`, `location`, `parameters`, `publicNetworkAccess`, `tags`, `enableVaultForDeployment`, `accessPolicies`?**
+  _High betweenness centrality (0.024) - this node is a cross-community bridge._
+- **Why does `template` connect `parameters` to `bootstrap`, `parameters`, `outputs`, `_generator`?**
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
+- **What connects `Deployment boundaries`, `Required Microsoft Entra groups`, `Deployment permissions` to the rest of the system?**
+  _1020 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `infra/main.json` be split into smaller, more focused modules?**
   _Cohesion score 0.05121951219512195 - nodes in this community are weakly interconnected._
 - **Should `common.sh` be split into smaller, more focused modules?**
   _Cohesion score 0.12698412698412698 - nodes in this community are weakly interconnected._
+- **Should `outputs` be split into smaller, more focused modules?**
+  _Cohesion score 0.06025641025641026 - nodes in this community are weakly interconnected._

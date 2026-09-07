@@ -76,7 +76,7 @@ description: "Task list for feature 002 multi-application baseline consumption"
 ### Implementation for User Story 2
 
 - [x] T018 [P] [US2] Create a tenant-local application recipe template in apps/recipe-template/README.md that documents the expected per-app file pattern
-- [ ] T019 [P] [US2] Create a reusable per-application parameter example in apps/shared-template/example.bicepparam
+- [x] T019 [P] [US2] Create a reusable per-application parameter example in apps/shared-template/example.bicepparam
 - [x] T020 [US2] Refactor apps/fabric-capacity/vend.bicep to align with the shared vending module contract and per-app parameter conventions
 - [x] T021 [US2] Add a second independently deployable sample onboarding definition in apps/fabric-capacity-alt/vend.bicep
 - [x] T022 [P] [US2] Add the companion workload template for the second sample in apps/fabric-capacity-alt/main.bicep

@@ -282,9 +282,9 @@
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/contracts/ownership-boundary-contract.md": {
-    "mtime": 1788274873.769525,
-    "seen": 1788382422.424726,
-    "ast_hash": "fbbc0c8e4c07406fe023a1b482030635",
+    "mtime": 1788804355.7189693,
+    "seen": 1788804723.1567516,
+    "ast_hash": "3d7abc75be62fc33a2a069adc1c0257b",
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/data-model.md": {
@@ -312,15 +312,15 @@
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/spec.md": {
-    "mtime": 1788385111.8825445,
-    "seen": 1788466690.677818,
-    "ast_hash": "e2dfdbb74c0677ce8a0b43a777eeefbc",
+    "mtime": 1788803681.275161,
+    "seen": 1788804723.156762,
+    "ast_hash": "5c5ff0ac46717172c03e899b7ca24bbd",
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/tasks.md": {
-    "mtime": 1788803348.304303,
-    "seen": 1788803353.3818867,
-    "ast_hash": "7978a6d39c35dc73cba6957c95d0ac83",
+    "mtime": 1788804371.893745,
+    "seen": 1788804723.1567636,
+    "ast_hash": "0752345501a8859b3612cd5a1efba7e1",
     "semantic_hash": ""
   },
   "apps/fabric-capacity-alt/vend.json": {
@@ -357,6 +357,12 @@
     "mtime": 1788796089.0174901,
     "seen": 1788803170.6609535,
     "ast_hash": "a7fbb254365376b6999355b1151b1479",
+    "semantic_hash": ""
+  },
+  "docs/deployment-stacks.md": {
+    "mtime": 1788804676.505017,
+    "seen": 1788804723.1567376,
+    "ast_hash": "d6ff7ee739b88240affcbfa8fb4aaec6",
     "semantic_hash": ""
   }
 }
