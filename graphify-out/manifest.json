@@ -276,9 +276,9 @@
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/contracts/application-baseline-contract.md": {
-    "mtime": 1788271036.226461,
-    "seen": 1788382422.4247243,
-    "ast_hash": "ce70686430c51ecc34b2b5b85ba9f5de",
+    "mtime": 1788466256.4871495,
+    "seen": 1788466690.6777987,
+    "ast_hash": "d27c67df6635bca5cad39252e2ec1bf2",
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/contracts/ownership-boundary-contract.md": {
@@ -294,15 +294,15 @@
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/plan.md": {
-    "mtime": 1788274949.7361019,
-    "seen": 1788382422.4247289,
-    "ast_hash": "ebc09dd3ac0aa9266e017b20dd9a2a2f",
+    "mtime": 1788385135.5446246,
+    "seen": 1788466690.6778097,
+    "ast_hash": "0d3eacee579b5296a349ab11f74a91ec",
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/quickstart.md": {
-    "mtime": 1788271036.226461,
-    "seen": 1788382422.4247305,
-    "ast_hash": "e1f5214fbbecec81fb4197ef4945df82",
+    "mtime": 1788466412.598815,
+    "seen": 1788466690.6778126,
+    "ast_hash": "34a05f908fe2ad34e892a7838f48fa27",
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/research.md": {
@@ -312,15 +312,15 @@
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/spec.md": {
-    "mtime": 1788274949.7372384,
-    "seen": 1788382422.4247344,
-    "ast_hash": "46c3982cc602d7145eaf1795520f1f4e",
+    "mtime": 1788385111.8825445,
+    "seen": 1788466690.677818,
+    "ast_hash": "e2dfdbb74c0677ce8a0b43a777eeefbc",
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/tasks.md": {
-    "mtime": 1788289166.9525688,
-    "seen": 1788382422.4247358,
-    "ast_hash": "5151b8c26235074cc6ae54905ea0970f",
+    "mtime": 1788385135.5426095,
+    "seen": 1788466690.6778202,
+    "ast_hash": "a172078099e563af0c97856707835854",
     "semantic_hash": ""
   }
 }

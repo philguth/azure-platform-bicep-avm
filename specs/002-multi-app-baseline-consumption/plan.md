@@ -13,6 +13,27 @@ resource-group-scope workloads as complementary patterns, preserves identity,
 platform, and application ownership boundaries, and prepares the repo for
 separate deployment stacks where lifecycle or access control differs.
 
+## Architecture View
+
+```mermaid
+flowchart LR
+    LZ["Landing zone\nManagement groups\nand subscription placement"] --> B["Bootstrap\ninfra/bootstrap/main.bicep\n- managed identity\n- Key Vault\n- shared identity outputs"]
+    LZ --> P["Platform\ninfra/platform/main.bicep\n- hub VNet\n- private endpoints\n- DNS\n- shared network outputs"]
+
+    B --> S["Shared foundation outputs\ninfra/main.bicep\nplatform baseline contract"]
+    P --> S
+
+    S --> A["Application onboarding\napps/modules/app-vending.bicep\napps/contracts/application-baseline.bicep\nsharedBaseline + appSettings"]
+    A --> W["Application workload\napps/fabric-capacity/main.bicep\nFabric capacity / app resources"]
+
+    A -. ownership review .-> O["Ownership boundaries\napps/contracts/ownership-boundaries.bicep\nidentity / platform / application"]
+    O -. approval gate .-> W
+```
+
+The shared foundation owns the platform and bootstrap facts. The application
+layer consumes that approved baseline instead of re-defining the platform and
+identity assumptions for each workload.
+
 ## Technical Context
 
 **Language/Version**: Bicep templates, Bicep parameter files, ARM deployment

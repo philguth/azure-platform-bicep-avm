@@ -58,12 +58,16 @@ Primary entrypoint:
 
 ## Phase 5: Application onboarding
 
-Current state:
-- Not yet implemented as a separate folder.
+Folder or file:
+- `../apps/`
 
-Intended direction:
-- Add workload-specific patterns on top of the shared baseline rather than modifying the foundation for every scenario.
-- Keep onboarding concerns separate from shared platform concerns when this codebase grows.
+Purpose:
+- Deploy workload-specific application resources on top of the shared baseline without modifying the foundation for each scenario.
+- Use a subscription-scope `vend.bicep` template to create an application resource group and deploy the resource-group-scope workload template.
+- Consume the published shared baseline contract rather than recreating shared identity, Key Vault, networking, or connectivity resources.
+
+Primary entrypoint:
+- `../apps/<app>/vend.bicep`
 
 ## Design rule
 

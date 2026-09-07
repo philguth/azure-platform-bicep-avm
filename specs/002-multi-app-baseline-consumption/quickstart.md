@@ -37,18 +37,43 @@ Expected outcome:
 
 1. Review `apps/fabric-capacity/vend.bicep` as the current application recipe
    or app onboarding pattern.
-2. Run a what-if with application-specific values:
+2. Prepare the platform baseline values that the app onboarding layer consumes:
+
+   ```json
+   {
+     "environmentName": "dev",
+     "namePrefix": "sample",
+     "location": "northcentralus",
+     "bootstrapResourceGroupId": "/subscriptions/<sub>/resourceGroups/rg-sample-bootstrap-dev",
+     "platformResourceGroupId": "/subscriptions/<sub>/resourceGroups/rg-sample-platform-dev",
+     "keyVaultResourceId": "/subscriptions/<sub>/resourceGroups/rg-sample-bootstrap-dev/providers/Microsoft.KeyVault/vaults/samplekv123",
+     "uamiResourceId": "/subscriptions/<sub>/resourceGroups/rg-sample-bootstrap-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-deploy-uami",
+     "uamiPrincipalId": "<managed-identity-object-id>",
+     "tags": {
+       "Project": "AzurePlatformLearning",
+       "Environment": "dev"
+     }
+   }
+   ```
+
+3. Run a what-if with both the shared baseline and the app-specific values:
 
    ```sh
    az deployment sub what-if \
      --name app-fabric-whatif \
      --location northcentralus \
      --template-file apps/fabric-capacity/vend.bicep \
-     --parameters location=northcentralus appResourceGroupName=rg-sample-app-dev capacityName=samplefabricdev skuName=F2 administrators='["owner@example.com"]'
+     --parameters \
+       location=northcentralus \
+       appResourceGroupName=rg-sample-app-dev \
+       capacityName=samplefabricdev \
+       skuName=F2 \
+       administrators='["owner@example.com"]' \
+       sharedBaseline='{"environmentName":"dev","namePrefix":"sample","location":"northcentralus","bootstrapResourceGroupId":"/subscriptions/<sub>/resourceGroups/rg-sample-bootstrap-dev","platformResourceGroupId":"/subscriptions/<sub>/resourceGroups/rg-sample-platform-dev","keyVaultResourceId":"/subscriptions/<sub>/resourceGroups/rg-sample-bootstrap-dev/providers/Microsoft.KeyVault/vaults/samplekv123","uamiResourceId":"/subscriptions/<sub>/resourceGroups/rg-sample-bootstrap-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-deploy-uami","uamiPrincipalId":"<managed-identity-object-id>","tags":{"Project":"AzurePlatformLearning","Environment":"dev"}}'
    ```
 
-3. Confirm the deployment creates only the application resource group and
-   workload resources.
+4. Confirm the deployment creates only the application resource group and
+   workload resources while consuming the shared baseline contract.
 
 Expected outcome:
 - Application onboarding can use a subscription-scope wrapper without modifying

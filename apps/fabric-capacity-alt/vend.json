@@ -1,0 +1,554 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "languageVersion": "2.1-experimental",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_EXPERIMENTAL_WARNING": "This template uses ARM features that are experimental. Experimental features should be enabled for testing purposes only, as there are no guarantees about the quality or stability of these features. Do not enable these settings for any production usage, or your production environment may be subject to breaking.",
+    "_EXPERIMENTAL_FEATURES_ENABLED": [
+      "Asserts"
+    ],
+    "_generator": {
+      "name": "bicep",
+      "version": "0.46.1.21595",
+      "templateHash": "6768433165570101193"
+    }
+  },
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[deployment().location]",
+      "metadata": {
+        "description": "Location for the application resource group and Fabric capacity."
+      }
+    },
+    "sharedBaseline": {
+      "type": "object",
+      "defaultValue": {},
+      "metadata": {
+        "description": "Shared baseline values supplied by the platform deployment."
+      }
+    },
+    "appResourceGroupName": {
+      "type": "string",
+      "metadata": {
+        "description": "Application resource group name."
+      }
+    },
+    "capacityName": {
+      "type": "string",
+      "metadata": {
+        "description": "Fabric capacity name (must be lowercase alphanumeric, starting with a letter)."
+      }
+    },
+    "skuName": {
+      "type": "string",
+      "metadata": {
+        "description": "SKU name for the Fabric capacity (example: F2, F4, F8, etc)."
+      }
+    },
+    "administrators": {
+      "type": "array",
+      "metadata": {
+        "description": "Fabric capacity administrators (UPNs or object IDs, depending on your tenant configuration)."
+      }
+    },
+    "securityPrincipals": {
+      "type": "object",
+      "defaultValue": {
+        "identityOwnerObjectId": "",
+        "platformOwnerObjectId": "",
+        "applicationOwnerObjectId": ""
+      },
+      "metadata": {
+        "description": "Security principal IDs for the second app ownership and review model."
+      }
+    },
+    "resourceGroupTags": {
+      "type": "object",
+      "defaultValue": {},
+      "metadata": {
+        "description": "Tags applied to the application resource group."
+      }
+    },
+    "tags": {
+      "type": "object",
+      "defaultValue": {},
+      "metadata": {
+        "description": "Tags applied to the Fabric capacity."
+      }
+    }
+  },
+  "resources": {
+    "appOnboarding": {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "fabric-alt-app-vending",
+      "location": "[deployment().location]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "sharedBaseline": {
+            "value": "[parameters('sharedBaseline')]"
+          },
+          "applicationName": {
+            "value": "fabric-capacity-alt"
+          },
+          "appResourceGroupName": {
+            "value": "[parameters('appResourceGroupName')]"
+          },
+          "resourceGroupTags": {
+            "value": "[parameters('resourceGroupTags')]"
+          },
+          "appTags": {
+            "value": "[parameters('tags')]"
+          },
+          "securityPrincipals": {
+            "value": "[parameters('securityPrincipals')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+          "languageVersion": "2.1-experimental",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_EXPERIMENTAL_WARNING": "This template uses ARM features that are experimental. Experimental features should be enabled for testing purposes only, as there are no guarantees about the quality or stability of these features. Do not enable these settings for any production usage, or your production environment may be subject to breaking.",
+            "_EXPERIMENTAL_FEATURES_ENABLED": [
+              "Asserts"
+            ],
+            "_generator": {
+              "name": "bicep",
+              "version": "0.46.1.21595",
+              "templateHash": "3797945543684389900"
+            }
+          },
+          "parameters": {
+            "location": {
+              "type": "string",
+              "defaultValue": "[deployment().location]",
+              "metadata": {
+                "description": "Location for the application resource group and workload."
+              }
+            },
+            "sharedBaseline": {
+              "type": "object",
+              "defaultValue": {},
+              "metadata": {
+                "description": "Shared platform baseline passed in from the parent deployment."
+              }
+            },
+            "applicationName": {
+              "type": "string",
+              "defaultValue": "app",
+              "metadata": {
+                "description": "Name of the application with a clear platform/application ownership boundary."
+              }
+            },
+            "appResourceGroupName": {
+              "type": "string",
+              "metadata": {
+                "description": "Application resource group name."
+              }
+            },
+            "resourceGroupTags": {
+              "type": "object",
+              "defaultValue": {},
+              "metadata": {
+                "description": "Tags applied to the app resource group."
+              }
+            },
+            "appTags": {
+              "type": "object",
+              "defaultValue": {},
+              "metadata": {
+                "description": "Tags applied to the workload."
+              }
+            },
+            "securityPrincipals": {
+              "type": "object",
+              "defaultValue": {
+                "identityOwnerObjectId": "",
+                "platformOwnerObjectId": "",
+                "applicationOwnerObjectId": ""
+              },
+              "metadata": {
+                "description": "Security principal identifiers required for ownership and RBAC review in this app."
+              }
+            }
+          },
+          "variables": {
+            "normalizedSharedBaseline": "[union(createObject('environmentName', 'dev', 'namePrefix', 'demo', 'location', parameters('location'), 'bootstrapResourceGroupId', '', 'platformResourceGroupId', '', 'keyVaultResourceId', '', 'uamiResourceId', '', 'uamiPrincipalId', '', 'tags', createObject()), parameters('sharedBaseline'))]"
+          },
+          "resources": {
+            "appRg": {
+              "type": "Microsoft.Resources/resourceGroups",
+              "apiVersion": "2024-03-01",
+              "name": "[parameters('appResourceGroupName')]",
+              "location": "[parameters('location')]",
+              "tags": "[parameters('resourceGroupTags')]"
+            },
+            "baselineContract": {
+              "type": "Microsoft.Resources/deployments",
+              "apiVersion": "2025-04-01",
+              "name": "[format('baseline-contract-{0}', parameters('applicationName'))]",
+              "resourceGroup": "[parameters('appResourceGroupName')]",
+              "properties": {
+                "expressionEvaluationOptions": {
+                  "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                  "sharedBaseline": {
+                    "value": "[variables('normalizedSharedBaseline')]"
+                  },
+                  "appSettings": {
+                    "value": {
+                      "applicationName": "[parameters('applicationName')]",
+                      "deploymentScope": "subscription",
+                      "engagementMode": "provider-poc",
+                      "tags": "[parameters('appTags')]",
+                      "securityPrincipals": "[parameters('securityPrincipals')]",
+                      "roleAssignments": [
+                        {
+                          "scopeType": "resourceGroup",
+                          "resourceGroupName": "[parameters('appResourceGroupName')]",
+                          "principalId": "[parameters('securityPrincipals').applicationOwnerObjectId]",
+                          "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "template": {
+                  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                  "languageVersion": "2.1-experimental",
+                  "contentVersion": "1.0.0.0",
+                  "metadata": {
+                    "_EXPERIMENTAL_WARNING": "This template uses ARM features that are experimental. Experimental features should be enabled for testing purposes only, as there are no guarantees about the quality or stability of these features. Do not enable these settings for any production usage, or your production environment may be subject to breaking.",
+                    "_EXPERIMENTAL_FEATURES_ENABLED": [
+                      "Asserts"
+                    ],
+                    "_generator": {
+                      "name": "bicep",
+                      "version": "0.46.1.21595",
+                      "templateHash": "7922747742760644758"
+                    }
+                  },
+                  "parameters": {
+                    "sharedBaseline": {
+                      "type": "object",
+                      "defaultValue": {},
+                      "metadata": {
+                        "description": "Shared platform baseline values passed into the application onboarding layer."
+                      }
+                    },
+                    "appSettings": {
+                      "type": "object",
+                      "defaultValue": {},
+                      "metadata": {
+                        "description": "Application-specific settings that belong to the workload."
+                      }
+                    }
+                  },
+                  "variables": {
+                    "resolvedBaseline": "[union(createObject('environmentName', 'dev', 'namePrefix', 'demo', 'location', resourceGroup().location, 'bootstrapResourceGroupId', '', 'platformResourceGroupId', '', 'keyVaultResourceId', '', 'uamiResourceId', '', 'uamiPrincipalId', '', 'tags', createObject()), parameters('sharedBaseline'))]",
+                    "resolvedAppSettings": "[union(createObject('applicationName', 'app', 'owner', 'application-team', 'deploymentScope', 'resource-group', 'engagementMode', 'provider-poc', 'tags', createObject(), 'securityPrincipals', createObject('identityOwnerObjectId', '', 'platformOwnerObjectId', '', 'applicationOwnerObjectId', ''), 'roleAssignments', createArray()), parameters('appSettings'))]",
+                    "approvedCapabilities": [
+                      "shared-platform",
+                      "managed-identity",
+                      "key-vault",
+                      "private-networking",
+                      "observability",
+                      "tagging",
+                      "rbac"
+                    ],
+                    "requiredInputs": [
+                      "location",
+                      "environmentName",
+                      "namePrefix",
+                      "appResourceGroupName",
+                      "keyVaultResourceId",
+                      "platformResourceGroupId",
+                      "uamiPrincipalId",
+                      "securityPrincipals"
+                    ],
+                    "rbacModel": {
+                      "sharedFoundation": {
+                        "identityOwner": "platform",
+                        "minimumRoles": [
+                          "Key Vault Secrets User"
+                        ],
+                        "scope": "resourceGroup"
+                      },
+                      "platform": {
+                        "identityOwner": "platform",
+                        "minimumRoles": [
+                          "Reader"
+                        ],
+                        "scope": "resourceGroup"
+                      },
+                      "application": {
+                        "identityOwner": "application",
+                        "minimumRoles": [
+                          "Contributor"
+                        ],
+                        "scope": "resourceGroup"
+                      }
+                    }
+                  },
+                  "resources": {},
+                  "outputs": {
+                    "contract": {
+                      "type": "object",
+                      "value": {
+                        "applicationName": "[variables('resolvedAppSettings').applicationName]",
+                        "environmentName": "[variables('resolvedBaseline').environmentName]",
+                        "location": "[variables('resolvedBaseline').location]",
+                        "namePrefix": "[variables('resolvedBaseline').namePrefix]",
+                        "deploymentScope": "[variables('resolvedAppSettings').deploymentScope]",
+                        "engagementMode": "[variables('resolvedAppSettings').engagementMode]",
+                        "sharedBaseline": "[variables('resolvedBaseline')]",
+                        "appSettings": "[variables('resolvedAppSettings')]",
+                        "approvedCapabilities": "[variables('approvedCapabilities')]",
+                        "requiredInputs": "[variables('requiredInputs')]",
+                        "rbacModel": "[variables('rbacModel')]",
+                        "reviewRules": {
+                          "identityOwnership": "Platform-owned shared identity and RBAC decisions must be reviewed with the shared foundation owners.",
+                          "platformOwnership": "Shared network, Key Vault, and private-link changes remain platform-owned and must not be embedded in app deployments.",
+                          "applicationOwnership": "Application-owned resources remain in the app deployment unit and must not change platform ownership boundaries.",
+                          "escalation": "Any change outside approvedCapabilities requires a platform or identity review before deployment.",
+                          "securityPrincipals": "application, platform, and identity owner object IDs must be supplied when RBAC is required for the targeted scope."
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "dependsOn": [
+                "appRg"
+              ]
+            },
+            "ownershipContract": {
+              "type": "Microsoft.Resources/deployments",
+              "apiVersion": "2025-04-01",
+              "name": "[format('ownership-contract-{0}', parameters('applicationName'))]",
+              "resourceGroup": "[parameters('appResourceGroupName')]",
+              "properties": {
+                "expressionEvaluationOptions": {
+                  "scope": "inner"
+                },
+                "mode": "Incremental",
+                "parameters": {
+                  "ownership": {
+                    "value": {
+                      "application": {
+                        "owner": "[parameters('applicationName')]"
+                      }
+                    }
+                  }
+                },
+                "template": {
+                  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                  "languageVersion": "2.1-experimental",
+                  "contentVersion": "1.0.0.0",
+                  "metadata": {
+                    "_EXPERIMENTAL_WARNING": "This template uses ARM features that are experimental. Experimental features should be enabled for testing purposes only, as there are no guarantees about the quality or stability of these features. Do not enable these settings for any production usage, or your production environment may be subject to breaking.",
+                    "_EXPERIMENTAL_FEATURES_ENABLED": [
+                      "Asserts"
+                    ],
+                    "_generator": {
+                      "name": "bicep",
+                      "version": "0.46.1.21595",
+                      "templateHash": "12475247426172808608"
+                    }
+                  },
+                  "parameters": {
+                    "ownership": {
+                      "type": "object",
+                      "defaultValue": {},
+                      "metadata": {
+                        "description": "Ownership metadata for the shared application baseline."
+                      }
+                    }
+                  },
+                  "variables": {
+                    "ownershipBoundary": "[union(createObject('identity', createObject('owner', 'platform', 'minimumRoles', createArray('Key Vault Secrets User'), 'escalation', 'Identity team review required for group and role changes.', 'principals', createObject('ownerGroup', '', 'approverGroup', '')), 'platform', createObject('owner', 'platform', 'minimumRoles', createArray('Reader'), 'escalation', 'Platform team review required for VNet, DNS, and private endpoint changes.', 'principals', createObject('ownerGroup', '', 'approverGroup', '')), 'application', createObject('owner', 'application', 'minimumRoles', createArray('Contributor'), 'escalation', 'Application team owns workload resources and must not alter shared foundation scope.', 'principals', createObject('ownerGroup', '', 'approverGroup', '')), 'reviewFlow', createArray('Application team prepares onboarding definition.', 'Platform owners validate shared service usage.', 'Identity owners validate security principal and RBAC assumptions.')), parameters('ownership'))]"
+                  },
+                  "resources": {},
+                  "outputs": {
+                    "ownershipBoundary": {
+                      "type": "object",
+                      "value": "[variables('ownershipBoundary')]"
+                    }
+                  }
+                }
+              },
+              "dependsOn": [
+                "appRg"
+              ]
+            }
+          },
+          "outputs": {
+            "appResourceGroupId": {
+              "type": "string",
+              "value": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', parameters('appResourceGroupName'))]"
+            },
+            "applicationBaseline": {
+              "type": "object",
+              "value": "[reference('baselineContract').outputs.contract.value]"
+            },
+            "ownershipBoundary": {
+              "type": "object",
+              "value": "[reference('ownershipContract').outputs.ownershipBoundary.value]"
+            },
+            "deploymentScope": {
+              "type": "string",
+              "value": "subscription"
+            },
+            "sharedBaseline": {
+              "type": "object",
+              "value": "[variables('normalizedSharedBaseline')]"
+            }
+          }
+        }
+      }
+    },
+    "fabric": {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "fabric-capacity-alt",
+      "resourceGroup": "[parameters('appResourceGroupName')]",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "capacityName": {
+            "value": "[parameters('capacityName')]"
+          },
+          "skuName": {
+            "value": "[parameters('skuName')]"
+          },
+          "administrators": {
+            "value": "[parameters('administrators')]"
+          },
+          "tags": {
+            "value": "[parameters('tags')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "languageVersion": "2.1-experimental",
+          "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_EXPERIMENTAL_WARNING": "This template uses ARM features that are experimental. Experimental features should be enabled for testing purposes only, as there are no guarantees about the quality or stability of these features. Do not enable these settings for any production usage, or your production environment may be subject to breaking.",
+            "_EXPERIMENTAL_FEATURES_ENABLED": [
+              "Asserts"
+            ],
+            "_generator": {
+              "name": "bicep",
+              "version": "0.46.1.21595",
+              "templateHash": "1348590001187657430"
+            }
+          },
+          "parameters": {
+            "location": {
+              "type": "string",
+              "defaultValue": "[resourceGroup().location]",
+              "metadata": {
+                "description": "Azure location for the Fabric capacity."
+              }
+            },
+            "capacityName": {
+              "type": "string",
+              "metadata": {
+                "description": "Name of the Fabric capacity (must be lowercase alphanumeric, starting with a letter)."
+              }
+            },
+            "skuName": {
+              "type": "string",
+              "metadata": {
+                "description": "SKU name for the Fabric capacity (example: F2, F4, F8, etc)."
+              }
+            },
+            "administrators": {
+              "type": "array",
+              "metadata": {
+                "description": "Fabric capacity administrators (UPNs or object IDs, depending on your tenant configuration)."
+              }
+            },
+            "tags": {
+              "type": "object",
+              "defaultValue": {},
+              "metadata": {
+                "description": "Tags applied to the Fabric capacity."
+              }
+            }
+          },
+          "resources": {
+            "capacity": {
+              "type": "Microsoft.Fabric/capacities",
+              "apiVersion": "2023-11-01",
+              "name": "[parameters('capacityName')]",
+              "location": "[parameters('location')]",
+              "tags": "[parameters('tags')]",
+              "sku": {
+                "name": "[parameters('skuName')]",
+                "tier": "Fabric"
+              },
+              "properties": {
+                "administration": {
+                  "members": "[parameters('administrators')]"
+                }
+              }
+            }
+          },
+          "outputs": {
+            "capacityResourceId": {
+              "type": "string",
+              "value": "[resourceId('Microsoft.Fabric/capacities', parameters('capacityName'))]"
+            },
+            "capacityName": {
+              "type": "string",
+              "value": "[parameters('capacityName')]"
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "appOnboarding"
+      ]
+    }
+  },
+  "outputs": {
+    "appResourceGroupId": {
+      "type": "string",
+      "value": "[reference('appOnboarding').outputs.appResourceGroupId.value]"
+    },
+    "capacityResourceId": {
+      "type": "string",
+      "value": "[reference('fabric').outputs.capacityResourceId.value]"
+    },
+    "capacityName": {
+      "type": "string",
+      "value": "[reference('fabric').outputs.capacityName.value]"
+    },
+    "applicationBaseline": {
+      "type": "object",
+      "value": "[reference('appOnboarding').outputs.applicationBaseline.value]"
+    },
+    "ownershipBoundary": {
+      "type": "object",
+      "value": "[reference('appOnboarding').outputs.ownershipBoundary.value]"
+    }
+  }
+}

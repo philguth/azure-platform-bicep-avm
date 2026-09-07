@@ -18,6 +18,13 @@ param skuName string
 @description('Fabric capacity administrators (UPNs or object IDs, depending on your tenant configuration).')
 param administrators array
 
+@description('Security principal IDs for the second app ownership and review model.')
+param securityPrincipals object = {
+  identityOwnerObjectId: ''
+  platformOwnerObjectId: ''
+  applicationOwnerObjectId: ''
+}
+
 @description('Tags applied to the application resource group.')
 param resourceGroupTags object = {}
 
@@ -25,19 +32,20 @@ param resourceGroupTags object = {}
 param tags object = {}
 
 module appOnboarding '../modules/app-vending.bicep' = {
-  name: 'fabric-app-vending'
+  name: 'fabric-alt-app-vending'
   params: {
     location: location
     sharedBaseline: sharedBaseline
-    applicationName: 'fabric-capacity'
+    applicationName: 'fabric-capacity-alt'
     appResourceGroupName: appResourceGroupName
     resourceGroupTags: resourceGroupTags
     appTags: tags
+    securityPrincipals: securityPrincipals
   }
 }
 
 module fabric './main.bicep' = {
-  name: 'fabric-capacity'
+  name: 'fabric-capacity-alt'
   scope: resourceGroup(appResourceGroupName)
   dependsOn: [
     appOnboarding

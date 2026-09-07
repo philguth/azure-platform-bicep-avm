@@ -76,6 +76,17 @@ module fabricCapacity '../apps/fabric-capacity/vend.bicep' = {
   ]
   params: {
     location: location
+    sharedBaseline: {
+      environmentName: environmentName
+      namePrefix: namePrefix
+      location: location
+      bootstrapResourceGroupId: infra.outputs.bootstrapResourceGroupId
+      platformResourceGroupId: infra.outputs.platformResourceGroupId
+      keyVaultResourceId: infra.outputs.keyVaultResourceId
+      uamiResourceId: infra.outputs.uamiResourceId
+      uamiPrincipalId: infra.outputs.uamiPrincipalId
+      tags: union(resourceGroupTags, appTags)
+    }
     appResourceGroupName: appResourceGroupName
     capacityName: fabricCapacityName
     skuName: fabricSkuName
@@ -90,3 +101,5 @@ output platformResourceGroupId string = infra.outputs.platformResourceGroupId
 output keyVaultResourceId string = infra.outputs.keyVaultResourceId
 output appResourceGroupId string = fabricCapacity.outputs.appResourceGroupId
 output fabricCapacityResourceId string = fabricCapacity.outputs.capacityResourceId
+output applicationBaseline object = fabricCapacity.outputs.applicationBaseline
+output ownershipBoundary object = fabricCapacity.outputs.ownershipBoundary

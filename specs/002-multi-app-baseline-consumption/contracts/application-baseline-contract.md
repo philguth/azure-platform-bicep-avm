@@ -45,6 +45,32 @@ implementation details.
 
 ## Platform Outputs Exposed to Application Recipes
 
+The current design exposes a single shared object, `sharedBaseline`, to the
+application deployment unit. This object bundles the platform-owned facts the
+recipe may consume without re-implementing the shared foundation.
+
+```json
+{
+  "environmentName": "dev",
+  "namePrefix": "sample",
+  "location": "northcentralus",
+  "bootstrapResourceGroupId": "/subscriptions/…/resourceGroups/rg-sample-bootstrap-dev",
+  "platformResourceGroupId": "/subscriptions/…/resourceGroups/rg-sample-platform-dev",
+  "keyVaultResourceId": "/subscriptions/…/resourceGroups/rg-sample-bootstrap-dev/providers/Microsoft.KeyVault/vaults/samplekv123",
+  "uamiResourceId": "/subscriptions/…/resourceGroups/rg-sample-bootstrap-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-deploy-uami",
+  "uamiPrincipalId": "<managed-identity-object-id>",
+  "tags": {
+    "Environment": "dev",
+    "Project": "AzurePlatformLearning"
+  }
+}
+```
+
+This should remain the approved interface because it makes the platform-to-recipe
+hand-off explicit and reviewable. Application recipes may consume these values
+only through the contract and must not assume new platform resources exist without
+asking for them.
+
 - Shared capability identifiers that application recipes may reference without
   redefining the platform baseline
 - Approved network attachment points, connectivity expectations, and naming
@@ -79,10 +105,33 @@ or output contract.
 - Application-specific names, environment labels, and target placement choices
 - Application-owned resource definitions and per-environment parameters
 - Requested shared capabilities selected from the published platform contract
-- Principal identifiers and role-assignment inputs that belong to the
-  application deployment unit
+- Security principal identifiers for the application, platform, and identity
+  owners when RBAC or escalation review is required
+- Role-assignment inputs that belong to the application deployment unit at the
+  intended scope
 - Exception requests when the desired outcome cannot be met through the
   published shared baseline
+
+The app onboarding shape should explicitly accept a `securityPrincipals` block,
+for example:
+
+```json
+{
+  "securityPrincipals": {
+    "identityOwnerObjectId": "<id>",
+    "platformOwnerObjectId": "<id>",
+    "applicationOwnerObjectId": "<id>"
+  },
+  "roleAssignments": [
+    {
+      "scopeType": "resourceGroup",
+      "resourceGroupName": "rg-sample-app-dev",
+      "principalId": "<app-owner-id>",
+      "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+    }
+  ]
+}
+```
 
 ## Current Repository Recipe Input Map
 

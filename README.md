@@ -19,6 +19,15 @@ These phases are intended to make the deployment model easier to understand, eas
 
 See `infra/README.md` for the folder-to-phase mapping inside the infrastructure tree.
 
+## Deployment model
+
+This repository uses declarative Bicep deployments with two independently deployable layers:
+
+- Shared infrastructure: `infra/landingzone/`, `infra/`, `infra/bootstrap/`, and `infra/platform/` define the tenant hierarchy, subscription orchestration, identity, secret-management, and shared connectivity baseline.
+- Application layer: `apps/<app>/vend.bicep` deploys one application onboarding unit into a target subscription, creating application-owned resources while consuming the published shared baseline contract.
+
+Each layer is designed for repeatable desired-state deployment. Re-running a deployment with the same inputs converges on the declared Azure state; application deployments do not recreate or take ownership of shared platform resources. Azure deployments target subscriptions, so an application layer is deployed into a subscription in the target Azure tenant.
+
 ## Bicep MCP
 
 This workspace now includes a repo-scoped MCP configuration at `.vscode/mcp.json` for the Bicep MCP server.

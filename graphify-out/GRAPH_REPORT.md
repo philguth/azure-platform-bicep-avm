@@ -1,16 +1,16 @@
-# Graph Report - azure-platform-bicep-avm  (2026-09-02)
+# Graph Report - azure-platform-bicep-avm  (2026-09-03)
 
 ## Corpus Check
-- 51 files · ~80,179 words
+- 51 files · ~82,612 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1133 nodes · 1332 edges · 111 communities
+- 1150 nodes · 1349 edges · 118 communities
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 27 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `7006e49a`
+- Built from commit: `30c92a68`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,11 +19,11 @@
 - infra/main.json
 - common.sh
 - parameters
-- template
+- outputs
 - builtInRoleNames
 - landingzone/main.json
 - parameters
-- tags
+- description
 - outputs
 - Feature Specification: Standardized Application Onboarding
 - parameters
@@ -126,18 +126,25 @@
 - platformLocation
 - vnet
 - privateEndpointSubnet
+- tags
+- keys
+- privateEndpoints
+- secrets
+- location
+- template
+- resourceId
 
 ## God Nodes (most connected - your core abstractions)
 1. `parameters` - 23 edges
 2. `parameters` - 19 edges
 3. `variables` - 16 edges
 4. `builtInRoleNames` - 16 edges
-5. `parameters` - 15 edges
+5. `Contract: Application Baseline Consumption` - 15 edges
 6. `parameters` - 15 edges
-7. `definitions` - 14 edges
-8. `parameters` - 12 edges
-9. `Tasks: Multi-Application Baseline Consumption` - 12 edges
-10. `parameters` - 11 edges
+7. `parameters` - 15 edges
+8. `definitions` - 14 edges
+9. `Tasks: Multi-Application Baseline Consumption` - 13 edges
+10. `parameters` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Feature Specification Template` --semantically_similar_to--> `Feature Specification: Standardized Application Onboarding`  [INFERRED] [semantically similar]
@@ -159,7 +166,7 @@
 - **Standardized Onboarding Review Artifacts** — specs_001_standardize_app_onboarding_spec_onboarding_request, specs_001_standardize_app_onboarding_spec_baseline_alignment_result, specs_001_standardize_app_onboarding_spec_review_summary [EXTRACTED 1.00]
 - **Speckit Artifact Generation Flow** — specify_workflows_speckit_workflow_document, specify_templates_spec_template_document, specify_templates_plan_template_document, specify_templates_tasks_template_document, specify_templates_checklist_template_document [INFERRED 0.75]
 
-## Communities (111 total, 0 thin omitted)
+## Communities (118 total, 0 thin omitted)
 
 ### Community 0 - "variables"
 Cohesion: 0.04
@@ -177,9 +184,9 @@ Nodes (29): check-prerequisites.sh script, check_dir(), check_file(), find_speci
 Cohesion: 0.07
 Nodes (35): defaultValue, metadata, type, defaultValue, metadata, type, defaultValue, metadata (+27 more)
 
-### Community 4 - "template"
-Cohesion: 0.06
-Nodes (40): copy, items, metadata, nullable, type, name, keys, privateEndpoints (+32 more)
+### Community 4 - "outputs"
+Cohesion: 0.22
+Nodes (9): resourceGroupName, uri, metadata, type, value, outputs, metadata, type (+1 more)
 
 ### Community 5 - "builtInRoleNames"
 Cohesion: 0.11
@@ -193,9 +200,9 @@ Nodes (31): type, value, type, value, type, value, contentVersion, name (+23 mor
 Cohesion: 0.08
 Nodes (31): defaultValue, metadata, type, defaultValue, metadata, defaultValue, metadata, type (+23 more)
 
-### Community 8 - "tags"
-Cohesion: 0.09
-Nodes (27): IaC, Project, metadata, type, defaultValue, metadata, type, defaultValue (+19 more)
+### Community 8 - "description"
+Cohesion: 0.16
+Nodes (14): metadata, type, defaultValue, metadata, type, description, defaultValue, metadata (+6 more)
 
 ### Community 9 - "outputs"
 Cohesion: 0.09
@@ -291,7 +298,7 @@ Nodes (8): publicNetworkAccess, allowedValues, defaultValue, metadata, type, val
 
 ### Community 32 - "Implementation Plan: Multi-Application Baseline Consumption"
 Cohesion: 0.07
-Nodes (25): Content Quality, Feature Readiness, Notes, Requirement Completeness, Specification Quality Checklist: Multi-Application Baseline Consumption, Complexity Tracking, Constitution Check, Documentation (this feature) (+17 more)
+Nodes (26): Content Quality, Feature Readiness, Notes, Requirement Completeness, Specification Quality Checklist: Multi-Application Baseline Consumption, Complexity Tracking, Constitution Check, Documentation (this feature) (+18 more)
 
 ### Community 33 - "powerPlatformSubnet"
 Cohesion: 0.25
@@ -370,8 +377,8 @@ Cohesion: 0.29
 Nodes (7): vnet, apiVersion, location, name, properties, tags, type
 
 ### Community 52 - "Contract: Application Baseline Consumption"
-Cohesion: 0.07
-Nodes (24): Consumer Obligations, Contract: Application Baseline Consumption, Provider Obligations, Purpose, Required Inputs, Review Outcome, Shared Capability Categories, Access Control Model (+16 more)
+Cohesion: 0.05
+Nodes (38): Client Intake View, Client-tenant delivery, Consumer Obligations, Contract: Application Baseline Consumption, Current Repository Platform Output Map, Current Repository Recipe Input Map, Engagement Modes, Interface Rules (+30 more)
 
 ### Community 53 - "resources"
 Cohesion: 0.29
@@ -382,8 +389,8 @@ Cohesion: 0.47
 Nodes (6): maxLength, metadata, type, value, name, name
 
 ### Community 55 - "Tasks: Multi-Application Baseline Consumption"
-Cohesion: 0.09
-Nodes (21): Dependencies & Execution Order, Format: `[ID] [P?] [Story] Description`, Implementation for User Story 1, Implementation for User Story 2, Implementation for User Story 3, Implementation Strategy, Incremental Delivery, MVP First (User Story 1 Only) (+13 more)
+Cohesion: 0.08
+Nodes (23): Dependencies & Execution Order, Format: `[ID] [P?] [Story] Description`, Implementation for User Story 1, Implementation for User Story 2, Implementation for User Story 3, Implementation for User Story 4, Implementation Strategy, Incremental Delivery (+15 more)
 
 ### Community 56 - "Research: Multi-Application Baseline Consumption"
 Cohesion: 0.29
@@ -605,21 +612,49 @@ Nodes (7): kvPrivateDns, kvPrivateEndpoint, vnet, dependsOn, dependsOn, dependsO
 Cohesion: 0.50
 Nodes (4): apiVersion, name, type, privateEndpointSubnet
 
+### Community 111 - "tags"
+Cohesion: 0.29
+Nodes (7): IaC, Project, tags, defaultValue, nullable, type, value
+
+### Community 112 - "keys"
+Cohesion: 0.38
+Nodes (7): copy, items, metadata, nullable, type, keys, keys
+
+### Community 113 - "privateEndpoints"
+Cohesion: 0.38
+Nodes (7): privateEndpoints, privateEndpoints, copy, items, metadata, nullable, type
+
+### Community 114 - "secrets"
+Cohesion: 0.38
+Nodes (7): secrets, secrets, copy, items, metadata, nullable, type
+
+### Community 115 - "location"
+Cohesion: 0.47
+Nodes (6): defaultValue, metadata, type, value, location, location
+
+### Community 116 - "template"
+Cohesion: 0.33
+Nodes (6): name, template, contentVersion, languageVersion, metadata, $schema
+
+### Community 117 - "resourceId"
+Cohesion: 0.50
+Nodes (4): resourceId, metadata, type, value
+
 ## Knowledge Gaps
-- **682 isolated node(s):** `contentVersion`, `name`, `templateHash`, `version`, `type` (+677 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 688 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **697 isolated node(s):** `Purpose`, `Required Inputs`, `Provider-hosted PoC`, `Client-tenant delivery`, `Platform Outputs Exposed to Application Recipes` (+692 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 703 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `template` connect `template` to `resources`, `builtInRoleNames`, `parameters`, `parameters`, `definitions`?**
-  _High betweenness centrality (0.040) - this node is a cross-community bridge._
-- **Why does `parameters` connect `parameters` to `diagnosticSettings`, `enableRbacAuthorization`, `enableSoftDelete`, `enableVaultForDiskEncryption`, `template`, `enableVaultForTemplateDeployment`, `lock`, `networkAcls`, `tags`, `roleAssignments`, `softDeleteRetentionInDays`, `sku`, `parameters`, `name`, `publicNetworkAccess`, `enableVaultForDeployment`, `accessPolicies`?**
-  _High betweenness centrality (0.033) - this node is a cross-community bridge._
-- **Why does `template` connect `parameters` to `infra/main.json`, `outputs`, `variables`, `parameters`, `resources`?**
-  _High betweenness centrality (0.032) - this node is a cross-community bridge._
-- **What connects `contentVersion`, `name`, `templateHash` to the rest of the system?**
-  _682 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `template` connect `template` to `resources`, `outputs`, `builtInRoleNames`, `parameters`, `parameters`, `definitions`?**
+  _High betweenness centrality (0.057) - this node is a cross-community bridge._
+- **Why does `parameters` connect `parameters` to `parameters`, `publicNetworkAccess`, `sku`, `name`, `accessPolicies`, `diagnosticSettings`, `enableRbacAuthorization`, `enableSoftDelete`, `roleAssignments`, `enableVaultForDeployment`, `enableVaultForDiskEncryption`, `enableVaultForTemplateDeployment`, `lock`, `networkAcls`, `softDeleteRetentionInDays`, `tags`, `keys`, `privateEndpoints`, `secrets`, `location`, `template`?**
+  _High betweenness centrality (0.048) - this node is a cross-community bridge._
+- **Why does `resources` connect `resources` to `keyVault_accessPolicies`, `keyVault`, `keyVault_diagnosticSettings`, `keyVault_keys`, `keyVault_lock`, `keyVault_roleAssignments`, `keyVault_secrets`, `template`, `keyVault_privateEndpoints`?**
+  _High betweenness centrality (0.031) - this node is a cross-community bridge._
+- **What connects `Purpose`, `Required Inputs`, `Provider-hosted PoC` to the rest of the system?**
+  _697 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `variables` be split into smaller, more focused modules?**
   _Cohesion score 0.04081632653061224 - nodes in this community are weakly interconnected._
 - **Should `infra/main.json` be split into smaller, more focused modules?**

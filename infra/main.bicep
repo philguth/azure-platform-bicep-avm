@@ -85,3 +85,4 @@ output platformResourceGroupId string = platformResourceGroup.id
 output keyVaultName string = bootstrap.outputs.keyVaultName
 output keyVaultResourceId string = bootstrap.outputs.keyVaultResourceId
 output uamiResourceId string = bootstrap.outputs.uamiResourceId
+output uamiPrincipalId string = bootstrap.outputs.uamiPrincipalId
