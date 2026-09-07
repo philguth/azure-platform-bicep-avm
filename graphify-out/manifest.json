@@ -246,16 +246,16 @@
     "semantic_hash": "06fd89e478bb8e0e668917a5f02f9055"
   },
   "README.md": {
-    "mtime": 1788382281.0140884,
-    "seen": 1788382422.4080944,
-    "ast_hash": "9afac73949c941063f5f16f74d54f4e4",
+    "mtime": 1788802392.606078,
+    "seen": 1788803170.6609485,
+    "ast_hash": "45c8aecb45153e479140248a184fa34a",
     "semantic_hash": ""
   },
   "infra/README.md": {
-    "mtime": 1784314125.154596,
-    "seen": 1787944548.5177772,
-    "ast_hash": "37ccdbef2ee7767c6fba92441e8eeb28",
-    "semantic_hash": "37ccdbef2ee7767c6fba92441e8eeb28"
+    "mtime": 1788802545.725665,
+    "seen": 1788803170.6609554,
+    "ast_hash": "4df70ba1714e8b73636635b15fe65570",
+    "semantic_hash": ""
   },
   "specs/001-standardize-app-onboarding/checklists/requirements.md": {
     "mtime": 1787863226.2462099,
@@ -276,9 +276,9 @@
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/contracts/application-baseline-contract.md": {
-    "mtime": 1788466256.4871495,
-    "seen": 1788466690.6777987,
-    "ast_hash": "d27c67df6635bca5cad39252e2ec1bf2",
+    "mtime": 1788551757.187559,
+    "seen": 1788803170.6609638,
+    "ast_hash": "c4bee3723562389c5a287e1ffd239a9c",
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/contracts/ownership-boundary-contract.md": {
@@ -294,15 +294,15 @@
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/plan.md": {
-    "mtime": 1788385135.5446246,
-    "seen": 1788466690.6778097,
-    "ast_hash": "0d3eacee579b5296a349ab11f74a91ec",
+    "mtime": 1788549615.8750534,
+    "seen": 1788803170.6609702,
+    "ast_hash": "5e5f36388bf17dc32cea42940198dbcc",
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/quickstart.md": {
-    "mtime": 1788466412.598815,
-    "seen": 1788466690.6778126,
-    "ast_hash": "34a05f908fe2ad34e892a7838f48fa27",
+    "mtime": 1788551757.1842558,
+    "seen": 1788803170.660972,
+    "ast_hash": "3cb2c29f1a27c88136c94b8baab0f175",
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/research.md": {
@@ -318,9 +318,45 @@
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/tasks.md": {
-    "mtime": 1788385135.5426095,
-    "seen": 1788466690.6778202,
-    "ast_hash": "a172078099e563af0c97856707835854",
+    "mtime": 1788802563.6087465,
+    "seen": 1788803170.660978,
+    "ast_hash": "8dc00266243c89decab75b87288efecf",
+    "semantic_hash": ""
+  },
+  "apps/fabric-capacity-alt/vend.json": {
+    "mtime": 1788552064.775906,
+    "seen": 1788803170.6608899,
+    "ast_hash": "533c19fde72cc0fd3d0080f640c8630c",
+    "semantic_hash": ""
+  },
+  "apps/fabric-capacity/vend.json": {
+    "mtime": 1788552058.1255527,
+    "seen": 1788803170.6608927,
+    "ast_hash": "cd85503f2f49076bb9e4cb953895c3f7",
+    "semantic_hash": ""
+  },
+  "deploy/main.json": {
+    "mtime": 1788552072.2821999,
+    "seen": 1788803170.660897,
+    "ast_hash": "9c61efce504b4c8d1e572b093328221c",
+    "semantic_hash": ""
+  },
+  "apps/README.md": {
+    "mtime": 1788802916.018053,
+    "seen": 1788803170.66095,
+    "ast_hash": "d94e1aa385fb83f82ca4aee23c046d14",
+    "semantic_hash": ""
+  },
+  "apps/fabric-capacity-alt/README.md": {
+    "mtime": 1788552047.3169243,
+    "seen": 1788803170.660952,
+    "ast_hash": "a4adc358b8137027d1b96deb55b2b920",
+    "semantic_hash": ""
+  },
+  "apps/recipe-template/README.md": {
+    "mtime": 1788796089.0174901,
+    "seen": 1788803170.6609535,
+    "ast_hash": "a7fbb254365376b6999355b1151b1479",
     "semantic_hash": ""
   }
 }

@@ -38,10 +38,10 @@ description: "Task list for feature 002 multi-application baseline consumption"
 - [x] T004 Define the shared application baseline contract in apps/contracts/application-baseline.bicep
 - [x] T005 [P] Define ownership boundary metadata and review rules in apps/contracts/ownership-boundaries.bicep
 - [x] T006 [P] Create a shared subscription-scope onboarding interface in apps/modules/app-vending.bicep
-- [ ] T007 Create shared tagging and baseline parameter conventions in apps/modules/app-defaults.bicep
+- [x] T007 Create shared tagging and baseline parameter conventions in apps/modules/app-defaults.bicep
 - [x] T008 Update deploy/main.bicep to consume the shared application onboarding interface without changing shared platform ownership
 - [x] T009 Define the Microsoft Entra security group and minimum RBAC role model in specs/002-multi-app-baseline-consumption/contracts/ownership-boundary-contract.md
-- [ ] T010 Create a shared scoped RBAC module for subscription and resource-group role assignments in apps/modules/role-assignments.bicep
+- [x] T010 Create a shared scoped RBAC module for subscription and resource-group role assignments in apps/modules/role-assignments.bicep
 - [x] T011 Define provider-hosted PoC versus client-tenant engagement modes in specs/002-multi-app-baseline-consumption/contracts/application-baseline-contract.md
 
 **Checkpoint**: Shared onboarding contract and reusable application scaffolding are ready

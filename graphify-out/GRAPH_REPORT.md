@@ -1,16 +1,16 @@
-# Graph Report - azure-platform-bicep-avm  (2026-09-03)
+# Graph Report - azure-platform-bicep-avm  (2026-09-07)
 
 ## Corpus Check
-- 51 files · ~82,612 words
+- 57 files · ~99,422 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1150 nodes · 1349 edges · 118 communities
-- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 27 edges (avg confidence: 0.81)
+- 1683 nodes · 2025 edges · 169 communities (167 shown, 2 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 27 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `30c92a68`
+- Built from commit: `da1584d3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -23,11 +23,11 @@
 - builtInRoleNames
 - landingzone/main.json
 - parameters
-- description
+- tags
 - outputs
 - Feature Specification: Standardized Application Onboarding
 - parameters
-- platform/main.json
+- metadata
 - parameters
 - variables
 - Extension Hook Lifecycle
@@ -69,7 +69,7 @@
 - vnet
 - Contract: Application Baseline Consumption
 - resources
-- name
+- bootstrap
 - Tasks: Multi-Application Baseline Consumption
 - Research: Multi-Application Baseline Consumption
 - kv
@@ -81,9 +81,9 @@
 - accessPolicies
 - diagnosticSettings
 - enableRbacAuthorization
-- enableSoftDelete
+- parameters
 - keyVault
-- roleAssignments
+- capacity
 - resources
 - environmentName
 - location
@@ -92,7 +92,7 @@
 - Data Model: Multi-Application Baseline Consumption
 - existingKeyVaultResourceId
 - hubAddressSpace
-- location
+- capacity
 - namePrefix
 - powerPlatformSubnetPrefix
 - privateEndpointSubnetPrefix
@@ -113,7 +113,7 @@
 - enableVaultForDeployment
 - enableVaultForDiskEncryption
 - enableVaultForTemplateDeployment
-- lock
+- outputs
 - networkAcls
 - softDeleteRetentionInDays
 - applicationManagementGroup
@@ -122,29 +122,80 @@
 - bootstrapLocation
 - platformManagementGroup
 - platformSubscriptionAlias
-- bootstrapExistingKeyVaultResourceId
-- platformLocation
+- parameters
+- parameters
 - vnet
 - privateEndpointSubnet
-- tags
-- keys
-- privateEndpoints
-- secrets
+- fabric-capacity/vend.json
+- outputs
+- parameters
+- parameters
 - location
 - template
-- resourceId
+- parameters
+- outputs
+- parameters
+- parameters
+- App recipe template for tenant-local POC deployment
+- fabric-capacity-alt/vend.json
+- deploy/main.json
+- outputs
+- value
+- _generator
+- _generator
+- description
+- securityPrincipals
+- variables
+- fabric
+- fabric
+- fabricCapacity
+- platform/main.json
+- sharedBaseline
+- sharedBaseline
+- applicationName
+- appTags
+- location
+- tags
+- bootstrapExistingKeyVaultResourceId
+- bootstrapTags
+- capacityName
+- hubAddressSpace
+- location
+- platformTags
+- powerPlatformSubnetPrefix
+- privateEndpointSubnetPrefix
+- capacityName
+- administrators
+- appResourceGroupName
+- bootstrapResourceGroupName
+- environmentName
+- namePrefix
+- platformResourceGroupName
+- sharedBaseline
+- enableTelemetry
+- bootstrapLocation
+- keyVaultName
+- keyVaultResourceGroupName
+- keyVaultResourceId
+- powerPlatformSubnetPrefix
+- Application onboarding
+- applicationBaseline
+- appResourceGroupId
+- bootstrapResourceGroupId
+- ownershipBoundary
+- fabric-capacity-alt/README.md
 
 ## God Nodes (most connected - your core abstractions)
 1. `parameters` - 23 edges
-2. `parameters` - 19 edges
-3. `variables` - 16 edges
-4. `builtInRoleNames` - 16 edges
-5. `Contract: Application Baseline Consumption` - 15 edges
-6. `parameters` - 15 edges
-7. `parameters` - 15 edges
-8. `definitions` - 14 edges
-9. `Tasks: Multi-Application Baseline Consumption` - 13 edges
-10. `parameters` - 12 edges
+2. `parameters` - 21 edges
+3. `parameters` - 20 edges
+4. `parameters` - 19 edges
+5. `parameters` - 18 edges
+6. `variables` - 16 edges
+7. `builtInRoleNames` - 16 edges
+8. `Contract: Application Baseline Consumption` - 15 edges
+9. `parameters` - 15 edges
+10. `parameters` - 15 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Feature Specification Template` --semantically_similar_to--> `Feature Specification: Standardized Application Onboarding`  [INFERRED] [semantically similar]
@@ -166,11 +217,11 @@
 - **Standardized Onboarding Review Artifacts** — specs_001_standardize_app_onboarding_spec_onboarding_request, specs_001_standardize_app_onboarding_spec_baseline_alignment_result, specs_001_standardize_app_onboarding_spec_review_summary [EXTRACTED 1.00]
 - **Speckit Artifact Generation Flow** — specify_workflows_speckit_workflow_document, specify_templates_spec_template_document, specify_templates_plan_template_document, specify_templates_tasks_template_document, specify_templates_checklist_template_document [INFERRED 0.75]
 
-## Communities (118 total, 0 thin omitted)
+## Communities (169 total, 2 thin omitted)
 
 ### Community 0 - "variables"
-Cohesion: 0.04
-Nodes (48): contentVersion, name, templateHash, version, Asserts, type, value, type (+40 more)
+Cohesion: 0.05
+Nodes (40): contentVersion, type, value, type, value, apiVersion, condition, name (+32 more)
 
 ### Community 1 - "infra/main.json"
 Cohesion: 0.05
@@ -181,12 +232,12 @@ Cohesion: 0.13
 Nodes (29): check-prerequisites.sh script, check_dir(), check_file(), find_specify_root(), format_speckit_command(), get_current_branch(), get_feature_paths(), get_invoke_separator() (+21 more)
 
 ### Community 3 - "parameters"
-Cohesion: 0.07
-Nodes (35): defaultValue, metadata, type, defaultValue, metadata, type, defaultValue, metadata (+27 more)
+Cohesion: 0.20
+Nodes (10): defaultValue, type, defaultValue, type, parameters, location, namePrefix, tags (+2 more)
 
 ### Community 4 - "outputs"
-Cohesion: 0.22
-Nodes (9): resourceGroupName, uri, metadata, type, value, outputs, metadata, type (+1 more)
+Cohesion: 0.06
+Nodes (40): copy, items, metadata, nullable, type, maxLength, metadata, type (+32 more)
 
 ### Community 5 - "builtInRoleNames"
 Cohesion: 0.11
@@ -200,9 +251,9 @@ Nodes (31): type, value, type, value, type, value, contentVersion, name (+23 mor
 Cohesion: 0.08
 Nodes (31): defaultValue, metadata, type, defaultValue, metadata, defaultValue, metadata, type (+23 more)
 
-### Community 8 - "description"
-Cohesion: 0.16
-Nodes (14): metadata, type, defaultValue, metadata, type, description, defaultValue, metadata (+6 more)
+### Community 8 - "tags"
+Cohesion: 0.11
+Nodes (21): IaC, Project, metadata, type, defaultValue, metadata, type, description (+13 more)
 
 ### Community 9 - "outputs"
 Cohesion: 0.09
@@ -213,12 +264,12 @@ Cohesion: 0.10
 Nodes (26): Application Onboarding Phase, Bootstrap Phase, Infrastructure Phases README, Landing Zone Phase, Platform Phase, Subscription Orchestration Phase, Application-Focused Landing-Zone Baseline, Deployment Flow (+18 more)
 
 ### Community 11 - "parameters"
-Cohesion: 0.10
-Nodes (24): defaultValue, metadata, type, metadata, type, defaultValue, metadata, type (+16 more)
-
-### Community 12 - "platform/main.json"
 Cohesion: 0.09
-Nodes (22): asserts, exclusiveKeyVaultReference, validKeyVaultReference, contentVersion, name, templateHash, version, Asserts (+14 more)
+Nodes (28): defaultValue, metadata, type, metadata, type, defaultValue, metadata, type (+20 more)
+
+### Community 12 - "metadata"
+Cohesion: 0.25
+Nodes (8): name, templateHash, version, Asserts, metadata, _EXPERIMENTAL_FEATURES_ENABLED, _EXPERIMENTAL_WARNING, _generator
 
 ### Community 13 - "parameters"
 Cohesion: 0.10
@@ -237,8 +288,8 @@ Cohesion: 0.19
 Nodes (13): exclusiveKeyVaultReference, validKeyVaultReference, properties, scope, properties, expressionEvaluationOptions, mode, parameters (+5 more)
 
 ### Community 17 - "parameters"
-Cohesion: 0.17
-Nodes (12): metadata, type, value, defaultValue, metadata, defaultValue, metadata, type (+4 more)
+Cohesion: 0.12
+Nodes (17): metadata, type, value, defaultValue, metadata, defaultValue, metadata, type (+9 more)
 
 ### Community 18 - "kvPrivateEndpoint"
 Cohesion: 0.17
@@ -253,8 +304,8 @@ Cohesion: 0.18
 Nodes (11): addressPrefixes, addressSpace, privateEndpointVNetPolicies, vnet, apiVersion, location, name, properties (+3 more)
 
 ### Community 21 - "parameters"
-Cohesion: 0.20
-Nodes (10): defaultValue, metadata, type, value, scope, properties, enablePurgeProtection, expressionEvaluationOptions (+2 more)
+Cohesion: 0.13
+Nodes (15): defaultValue, metadata, type, value, defaultValue, metadata, type, value (+7 more)
 
 ### Community 22 - "parameters"
 Cohesion: 0.18
@@ -269,8 +320,8 @@ Cohesion: 0.20
 Nodes (10): kvPrivateDns, kvPrivateEndpoint, dependsOn, apiVersion, dependsOn, location, name, properties (+2 more)
 
 ### Community 25 - "parameters"
-Cohesion: 0.22
-Nodes (9): defaultValue, metadata, type, defaultValue, metadata, type, createMode, enableTelemetry (+1 more)
+Cohesion: 0.14
+Nodes (14): defaultValue, metadata, type, metadata, nullable, $ref, createMode, lock (+6 more)
 
 ### Community 26 - "bootstrap"
 Cohesion: 0.07
@@ -298,7 +349,7 @@ Nodes (8): publicNetworkAccess, allowedValues, defaultValue, metadata, type, val
 
 ### Community 32 - "Implementation Plan: Multi-Application Baseline Consumption"
 Cohesion: 0.07
-Nodes (26): Content Quality, Feature Readiness, Notes, Requirement Completeness, Specification Quality Checklist: Multi-Application Baseline Consumption, Complexity Tracking, Constitution Check, Documentation (this feature) (+18 more)
+Nodes (27): Content Quality, Feature Readiness, Notes, Requirement Completeness, Specification Quality Checklist: Multi-Application Baseline Consumption, Architecture View, Complexity Tracking, Constitution Check (+19 more)
 
 ### Community 33 - "powerPlatformSubnet"
 Cohesion: 0.25
@@ -384,9 +435,9 @@ Nodes (38): Client Intake View, Client-tenant delivery, Consumer Obligations, Co
 Cohesion: 0.29
 Nodes (7): apiVersion, name, properties, type, privateDnsZoneConfigs, resources, kvPeDnsZoneGroup
 
-### Community 54 - "name"
-Cohesion: 0.47
-Nodes (6): maxLength, metadata, type, value, name, name
+### Community 54 - "bootstrap"
+Cohesion: 0.05
+Nodes (44): apiVersion, location, name, properties, type, apiVersion, dependsOn, name (+36 more)
 
 ### Community 55 - "Tasks: Multi-Application Baseline Consumption"
 Cohesion: 0.08
@@ -432,17 +483,17 @@ Nodes (5): items, metadata, nullable, type, diagnosticSettings
 Cohesion: 0.40
 Nodes (5): defaultValue, metadata, type, value, enableRbacAuthorization
 
-### Community 66 - "enableSoftDelete"
-Cohesion: 0.40
-Nodes (5): defaultValue, metadata, type, value, enableSoftDelete
+### Community 66 - "parameters"
+Cohesion: 0.09
+Nodes (31): metadata, type, value, metadata, type, value, metadata, defaultValue (+23 more)
 
 ### Community 67 - "keyVault"
 Cohesion: 0.40
 Nodes (5): dependsOn, dependsOn, dependsOn, dependsOn, keyVault
 
-### Community 68 - "roleAssignments"
-Cohesion: 0.40
-Nodes (5): roleAssignments, items, metadata, nullable, type
+### Community 68 - "capacity"
+Cohesion: 0.07
+Nodes (30): apiVersion, location, name, tags, type, apiVersion, dependsOn, name (+22 more)
 
 ### Community 69 - "resources"
 Cohesion: 0.40
@@ -476,9 +527,9 @@ Nodes (5): defaultValue, metadata, type, value, existingKeyVaultResourceId
 Cohesion: 0.40
 Nodes (5): defaultValue, metadata, type, value, hubAddressSpace
 
-### Community 77 - "location"
-Cohesion: 0.40
-Nodes (5): defaultValue, metadata, type, value, location
+### Community 77 - "capacity"
+Cohesion: 0.07
+Nodes (30): apiVersion, location, name, tags, type, apiVersion, dependsOn, name (+22 more)
 
 ### Community 78 - "namePrefix"
 Cohesion: 0.40
@@ -560,9 +611,9 @@ Nodes (4): defaultValue, metadata, type, enableVaultForDiskEncryption
 Cohesion: 0.50
 Nodes (4): defaultValue, metadata, type, enableVaultForTemplateDeployment
 
-### Community 98 - "lock"
-Cohesion: 0.50
-Nodes (4): metadata, nullable, $ref, lock
+### Community 98 - "outputs"
+Cohesion: 0.12
+Nodes (21): type, value, type, value, type, value, type, value (+13 more)
 
 ### Community 99 - "networkAcls"
 Cohesion: 0.50
@@ -596,13 +647,13 @@ Nodes (4): apiVersion, name, type, platformManagementGroup
 Cohesion: 0.50
 Nodes (4): apiVersion, name, type, platformSubscriptionAlias
 
-### Community 107 - "bootstrapExistingKeyVaultResourceId"
-Cohesion: 0.50
-Nodes (4): defaultValue, metadata, type, bootstrapExistingKeyVaultResourceId
+### Community 107 - "parameters"
+Cohesion: 0.12
+Nodes (20): metadata, type, value, metadata, type, value, metadata, description (+12 more)
 
-### Community 108 - "platformLocation"
-Cohesion: 0.50
-Nodes (4): platformLocation, defaultValue, metadata, type
+### Community 108 - "parameters"
+Cohesion: 0.12
+Nodes (20): defaultValue, metadata, type, metadata, type, metadata, type, metadata (+12 more)
 
 ### Community 109 - "vnet"
 Cohesion: 0.29
@@ -612,51 +663,248 @@ Nodes (7): kvPrivateDns, kvPrivateEndpoint, vnet, dependsOn, dependsOn, dependsO
 Cohesion: 0.50
 Nodes (4): apiVersion, name, type, privateEndpointSubnet
 
-### Community 111 - "tags"
-Cohesion: 0.29
-Nodes (7): IaC, Project, tags, defaultValue, nullable, type, value
+### Community 111 - "fabric-capacity/vend.json"
+Cohesion: 0.12
+Nodes (18): apiVersion, location, name, type, contentVersion, name, templateHash, version (+10 more)
 
-### Community 112 - "keys"
-Cohesion: 0.38
-Nodes (7): copy, items, metadata, nullable, type, keys, keys
+### Community 112 - "outputs"
+Cohesion: 0.14
+Nodes (17): type, value, type, value, type, value, type, value (+9 more)
 
-### Community 113 - "privateEndpoints"
-Cohesion: 0.38
-Nodes (7): privateEndpoints, privateEndpoints, copy, items, metadata, nullable, type
+### Community 113 - "parameters"
+Cohesion: 0.13
+Nodes (15): defaultValue, metadata, type, value, defaultValue, metadata, type, value (+7 more)
 
-### Community 114 - "secrets"
-Cohesion: 0.38
-Nodes (7): secrets, secrets, copy, items, metadata, nullable, type
+### Community 114 - "parameters"
+Cohesion: 0.14
+Nodes (14): defaultValue, metadata, type, bootstrapLocation, platformLocation, tags, defaultValue, metadata (+6 more)
 
 ### Community 115 - "location"
 Cohesion: 0.47
 Nodes (6): defaultValue, metadata, type, value, location, location
 
 ### Community 116 - "template"
-Cohesion: 0.33
-Nodes (6): name, template, contentVersion, languageVersion, metadata, $schema
+Cohesion: 0.14
+Nodes (14): name, templateHash, version, Asserts, metadata, _EXPERIMENTAL_FEATURES_ENABLED, _EXPERIMENTAL_WARNING, _generator (+6 more)
 
-### Community 117 - "resourceId"
+### Community 117 - "parameters"
+Cohesion: 0.18
+Nodes (14): scope, properties, properties, skuName, expressionEvaluationOptions, mode, parameters, template (+6 more)
+
+### Community 118 - "outputs"
+Cohesion: 0.15
+Nodes (13): type, value, type, value, capacityResourceId, keyVaultName, uamiPrincipalId, uamiResourceId (+5 more)
+
+### Community 119 - "parameters"
+Cohesion: 0.21
+Nodes (12): properties, scope, properties, expressionEvaluationOptions, mode, parameters, template, contentVersion (+4 more)
+
+### Community 120 - "parameters"
+Cohesion: 0.21
+Nodes (12): properties, scope, properties, expressionEvaluationOptions, mode, parameters, template, contentVersion (+4 more)
+
+### Community 121 - "App recipe template for tenant-local POC deployment"
+Cohesion: 0.17
+Nodes (11): App recipe template for tenant-local POC deployment, Contract boundary, Deployment pattern for a Foundry / LLM POC, Design intent, Example app input contract, Example `azure.yaml`, Local repo use case, POC guidance (+3 more)
+
+### Community 122 - "fabric-capacity-alt/vend.json"
+Cohesion: 0.20
+Nodes (9): apiVersion, location, name, type, contentVersion, languageVersion, resources, appOnboarding (+1 more)
+
+### Community 123 - "deploy/main.json"
+Cohesion: 0.20
+Nodes (9): contentVersion, apiVersion, location, name, type, languageVersion, resources, infra (+1 more)
+
+### Community 124 - "outputs"
+Cohesion: 0.20
+Nodes (10): type, value, type, value, outputs, fabricCapacityResourceId, keyVaultResourceId, platformResourceGroupId (+2 more)
+
+### Community 125 - "value"
+Cohesion: 0.20
+Nodes (10): value, bootstrapResourceGroupId, environmentName, keyVaultResourceId, location, namePrefix, platformResourceGroupId, tags (+2 more)
+
+### Community 126 - "_generator"
+Cohesion: 0.28
+Nodes (9): name, templateHash, version, Asserts, metadata, _EXPERIMENTAL_FEATURES_ENABLED, _EXPERIMENTAL_WARNING, _generator (+1 more)
+
+### Community 127 - "_generator"
+Cohesion: 0.28
+Nodes (9): name, templateHash, version, Asserts, metadata, _EXPERIMENTAL_FEATURES_ENABLED, _EXPERIMENTAL_WARNING, _generator (+1 more)
+
+### Community 128 - "description"
+Cohesion: 0.22
+Nodes (9): defaultValue, metadata, type, description, hubAddressSpace, privateEndpointSubnetPrefix, defaultValue, metadata (+1 more)
+
+### Community 129 - "securityPrincipals"
+Cohesion: 0.25
+Nodes (8): applicationOwnerObjectId, identityOwnerObjectId, platformOwnerObjectId, securityPrincipals, defaultValue, metadata, type, value
+
+### Community 130 - "variables"
+Cohesion: 0.25
+Nodes (8): variables, hasKeyVaultName, hasKeyVaultResourceGroupName, hasKeyVaultResourceId, kvPrivateEndpointName, peSubnetId, resolvedKeyVaultResourceId, vnetName
+
+### Community 131 - "fabric"
+Cohesion: 0.29
+Nodes (7): apiVersion, dependsOn, name, resourceGroup, type, appOnboarding, fabric
+
+### Community 132 - "fabric"
+Cohesion: 0.29
+Nodes (7): apiVersion, dependsOn, name, resourceGroup, type, appOnboarding, fabric
+
+### Community 133 - "fabricCapacity"
+Cohesion: 0.29
+Nodes (7): apiVersion, dependsOn, location, name, type, fabricCapacity, infra
+
+### Community 134 - "platform/main.json"
+Cohesion: 0.29
+Nodes (6): asserts, exclusiveKeyVaultReference, validKeyVaultReference, contentVersion, languageVersion, $schema
+
+### Community 135 - "sharedBaseline"
+Cohesion: 0.40
+Nodes (6): sharedBaseline, sharedBaseline, defaultValue, metadata, type, value
+
+### Community 136 - "sharedBaseline"
+Cohesion: 0.40
+Nodes (6): sharedBaseline, sharedBaseline, defaultValue, metadata, type, value
+
+### Community 137 - "applicationName"
+Cohesion: 0.40
+Nodes (5): defaultValue, metadata, type, value, applicationName
+
+### Community 138 - "appTags"
+Cohesion: 0.40
+Nodes (5): defaultValue, metadata, type, value, appTags
+
+### Community 139 - "location"
+Cohesion: 0.40
+Nodes (5): defaultValue, metadata, type, value, location
+
+### Community 140 - "tags"
+Cohesion: 0.40
+Nodes (5): tags, defaultValue, metadata, type, value
+
+### Community 141 - "bootstrapExistingKeyVaultResourceId"
+Cohesion: 0.40
+Nodes (5): defaultValue, metadata, type, value, bootstrapExistingKeyVaultResourceId
+
+### Community 142 - "bootstrapTags"
+Cohesion: 0.40
+Nodes (5): defaultValue, metadata, type, value, bootstrapTags
+
+### Community 143 - "capacityName"
 Cohesion: 0.50
-Nodes (4): resourceId, metadata, type, value
+Nodes (5): metadata, type, value, capacityName, capacityName
+
+### Community 144 - "hubAddressSpace"
+Cohesion: 0.40
+Nodes (5): defaultValue, metadata, type, value, hubAddressSpace
+
+### Community 145 - "location"
+Cohesion: 0.40
+Nodes (5): defaultValue, metadata, type, value, location
+
+### Community 146 - "platformTags"
+Cohesion: 0.40
+Nodes (5): platformTags, defaultValue, metadata, type, value
+
+### Community 147 - "powerPlatformSubnetPrefix"
+Cohesion: 0.40
+Nodes (5): powerPlatformSubnetPrefix, defaultValue, metadata, type, value
+
+### Community 148 - "privateEndpointSubnetPrefix"
+Cohesion: 0.40
+Nodes (5): privateEndpointSubnetPrefix, defaultValue, metadata, type, value
+
+### Community 149 - "capacityName"
+Cohesion: 0.67
+Nodes (4): type, value, capacityName, capacityName
+
+### Community 150 - "administrators"
+Cohesion: 0.50
+Nodes (4): metadata, type, value, administrators
+
+### Community 151 - "appResourceGroupName"
+Cohesion: 0.50
+Nodes (4): metadata, type, value, appResourceGroupName
+
+### Community 152 - "bootstrapResourceGroupName"
+Cohesion: 0.50
+Nodes (4): metadata, type, value, bootstrapResourceGroupName
+
+### Community 153 - "environmentName"
+Cohesion: 0.50
+Nodes (4): metadata, type, value, environmentName
+
+### Community 154 - "namePrefix"
+Cohesion: 0.50
+Nodes (4): metadata, type, value, namePrefix
+
+### Community 155 - "platformResourceGroupName"
+Cohesion: 0.50
+Nodes (4): platformResourceGroupName, metadata, type, value
+
+### Community 156 - "sharedBaseline"
+Cohesion: 0.50
+Nodes (4): sharedBaseline, defaultValue, metadata, type
+
+### Community 157 - "enableTelemetry"
+Cohesion: 0.50
+Nodes (4): defaultValue, metadata, type, enableTelemetry
+
+### Community 158 - "bootstrapLocation"
+Cohesion: 0.50
+Nodes (4): defaultValue, metadata, type, bootstrapLocation
+
+### Community 159 - "keyVaultName"
+Cohesion: 0.50
+Nodes (4): defaultValue, metadata, type, keyVaultName
+
+### Community 160 - "keyVaultResourceGroupName"
+Cohesion: 0.50
+Nodes (4): defaultValue, metadata, type, keyVaultResourceGroupName
+
+### Community 161 - "keyVaultResourceId"
+Cohesion: 0.50
+Nodes (4): defaultValue, metadata, type, keyVaultResourceId
+
+### Community 162 - "powerPlatformSubnetPrefix"
+Cohesion: 0.50
+Nodes (4): powerPlatformSubnetPrefix, defaultValue, metadata, type
+
+### Community 164 - "applicationBaseline"
+Cohesion: 0.67
+Nodes (3): type, value, applicationBaseline
+
+### Community 165 - "appResourceGroupId"
+Cohesion: 0.67
+Nodes (3): type, value, appResourceGroupId
+
+### Community 166 - "bootstrapResourceGroupId"
+Cohesion: 0.67
+Nodes (3): type, value, bootstrapResourceGroupId
+
+### Community 167 - "ownershipBoundary"
+Cohesion: 0.67
+Nodes (3): ownershipBoundary, type, value
 
 ## Knowledge Gaps
-- **697 isolated node(s):** `Purpose`, `Required Inputs`, `Provider-hosted PoC`, `Client-tenant delivery`, `Platform Outputs Exposed to Application Recipes` (+692 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 703 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **1016 isolated node(s):** `Application layout`, `Fabric Capacity Alt app onboarding`, `$schema`, `languageVersion`, `contentVersion` (+1011 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 1025 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `template` connect `template` to `resources`, `outputs`, `builtInRoleNames`, `parameters`, `parameters`, `definitions`?**
-  _High betweenness centrality (0.057) - this node is a cross-community bridge._
-- **Why does `parameters` connect `parameters` to `parameters`, `publicNetworkAccess`, `sku`, `name`, `accessPolicies`, `diagnosticSettings`, `enableRbacAuthorization`, `enableSoftDelete`, `roleAssignments`, `enableVaultForDeployment`, `enableVaultForDiskEncryption`, `enableVaultForTemplateDeployment`, `lock`, `networkAcls`, `softDeleteRetentionInDays`, `tags`, `keys`, `privateEndpoints`, `secrets`, `location`, `template`?**
-  _High betweenness centrality (0.048) - this node is a cross-community bridge._
+  _High betweenness centrality (0.022) - this node is a cross-community bridge._
+- **Why does `parameters` connect `parameters` to `diagnosticSettings`, `enableRbacAuthorization`, `enableVaultForDiskEncryption`, `enableVaultForTemplateDeployment`, `outputs`, `networkAcls`, `softDeleteRetentionInDays`, `tags`, `sku`, `location`, `template`, `parameters`, `publicNetworkAccess`, `enableTelemetry`, `enableVaultForDeployment`, `accessPolicies`?**
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
 - **Why does `resources` connect `resources` to `keyVault_accessPolicies`, `keyVault`, `keyVault_diagnosticSettings`, `keyVault_keys`, `keyVault_lock`, `keyVault_roleAssignments`, `keyVault_secrets`, `template`, `keyVault_privateEndpoints`?**
-  _High betweenness centrality (0.031) - this node is a cross-community bridge._
-- **What connects `Purpose`, `Required Inputs`, `Provider-hosted PoC` to the rest of the system?**
-  _697 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
+- **What connects `Application layout`, `Fabric Capacity Alt app onboarding`, `$schema` to the rest of the system?**
+  _1016 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `variables` be split into smaller, more focused modules?**
-  _Cohesion score 0.04081632653061224 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.04878048780487805 - nodes in this community are weakly interconnected._
 - **Should `infra/main.json` be split into smaller, more focused modules?**
   _Cohesion score 0.05121951219512195 - nodes in this community are weakly interconnected._
 - **Should `common.sh` be split into smaller, more focused modules?**

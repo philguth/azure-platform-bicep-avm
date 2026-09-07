@@ -25,17 +25,15 @@ param securityPrincipals object = {
   applicationOwnerObjectId: ''
 }
 
-var normalizedSharedBaseline = union({
-  environmentName: 'dev'
-  namePrefix: 'demo'
-  location: location
-  bootstrapResourceGroupId: ''
-  platformResourceGroupId: ''
-  keyVaultResourceId: ''
-  uamiResourceId: ''
-  uamiPrincipalId: ''
-  tags: {}
-}, sharedBaseline)
+module appDefaults './app-defaults.bicep' = {
+  name: 'app-defaults-${applicationName}'
+  params: {
+    sharedBaseline: sharedBaseline
+    location: location
+  }
+}
+
+var normalizedSharedBaseline = appDefaults.outputs.sharedBaseline
 
 resource appRg 'Microsoft.Resources/resourceGroups@2024-03-01' = {
   name: appResourceGroupName
