@@ -46,6 +46,23 @@ To verify it in VS Code:
 2. Open Copilot Chat in Agent mode.
 3. Use the tools picker and confirm the `Bicep` MCP server is available.
 
+## Bicep module documentation
+
+Bicep `0.47.16` includes the experimental `bicep docs generate` command. This
+repository keeps generated infrastructure documentation separate from the
+hand-authored README files so generation cannot overwrite them.
+
+Run this from the repository root after rebuilding the dev container:
+
+```bash
+bash scripts/generate-bicep-docs.sh
+```
+
+The generated Markdown files are written under `docs/generated/bicep/` for the
+modules in `infra/`. The command compiles the modules first, so external AVM
+modules may be restored during generation. The `docs` command is experimental,
+and its output format may change with future Bicep releases.
+
 ## Graphify workflow
 
 Graphify is useful in this repo, but it is not the only source of truth.
