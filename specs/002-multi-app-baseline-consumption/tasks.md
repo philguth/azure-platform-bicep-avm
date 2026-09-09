@@ -127,7 +127,33 @@ description: "Task list for feature 002 multi-application baseline consumption"
 
 ---
 
-## Phase 7: Polish & Cross-Cutting Concerns
+## Phase 7: User Story 5 - Deploy a tenant-ready application unit
+
+**Goal**: Extend the minimal workload deployment into a governed application
+unit that realizes approved identity, network, observability, cost, and
+lifecycle requirements without taking ownership of shared foundation resources.
+
+**Independent Test**: Deploy one application unit into a non-production tenant,
+inspect its resource inventory and effective controls, and confirm that only
+approved application-owned resources changed.
+
+### Implementation for User Story 5
+
+- [ ] T044 [P] [US5] Extend `apps/contracts/application-baseline.bicep` and `specs/002-multi-app-baseline-consumption/contracts/application-baseline-contract.md` with required tenant-ready identity, network, diagnostics, cost, lifecycle, and exception fields
+- [ ] T045 [P] [US5] Define required and optional client-tenant readiness inputs in `specs/002-multi-app-baseline-consumption/contracts/client-intake-template.md` and `specs/002-multi-app-baseline-consumption/contracts/deployment-runbook.md`
+- [ ] T046 [US5] Implement default and required cost, ownership, environment, and management tags in `apps/modules/app-defaults.bicep` and apply them to the application resource group and workload through `apps/modules/app-vending.bicep`
+- [ ] T047 [US5] Implement application-owned managed identity and least-privilege role assignment options in `apps/modules/app-vending.bicep` and `apps/modules/role-assignments.bicep` without assigning access to shared platform resources by default
+- [ ] T048 [US5] Assess supported Fabric capacity private connectivity and network controls, then document the supported configuration or explicit exception in `apps/fabric-capacity/README.md` and `specs/002-multi-app-baseline-consumption/research.md`
+- [ ] T049 [US5] Add approved application-owned network, private DNS, diagnostics, and monitoring modules under `apps/modules/` only for capabilities confirmed by T048
+- [ ] T050 [US5] Add application budget and cost-reporting inputs or document the required external Cost Management configuration in `apps/modules/app-vending.bicep`, `apps/fabric-capacity/vend.bicep`, and `docs/cost-management.md`
+- [ ] T051 [US5] Extend `scripts/sync-fabric-capacity-params.sh` to populate the new tenant-ready inputs and fail validation when required client values are missing
+- [ ] T052 [US5] Run focused Bicep builds and subscription-scope what-if validation for the tenant-ready Fabric application using `apps/fabric-capacity/vend.bicep` and a generated local parameter file
+- [ ] T053 [US5] Execute one approved non-production tenant-ready application deployment and record resource inventory, RBAC, tags, diagnostics, network results, cost scope, and cleanup evidence in `specs/002-multi-app-baseline-consumption/plan.md`
+- [ ] T054 [US5] Create `docs/marketplace-readiness.md` covering offer-model assumptions, deployment prerequisites, security and operations evidence, cost ownership, support boundaries, lifecycle behavior, and external Microsoft Marketplace certification activities
+
+---
+
+## Phase 8: Polish & Cross-Cutting Concerns
 
 **Purpose**: Finish documentation, consistency, and full-scenario validation
 
@@ -147,7 +173,8 @@ description: "Task list for feature 002 multi-application baseline consumption"
 - **User Story 2 (Phase 4)**: Starts after Foundational and builds on the shared contract from User Story 1
 - **User Story 3 (Phase 5)**: Starts after Foundational and should follow User Story 1 so the ownership model is attached to the implemented contract
 - **User Story 4 (Phase 6)**: Starts after Foundational and should follow User Story 1 so provider and client engagement modes reuse the same contract structure
-- **Polish (Phase 7)**: Depends on the desired user stories being complete
+- **User Story 5 (Phase 7)**: Depends on the shared onboarding contract, ownership model, and application examples from User Stories 1-4. T048 must complete before capability-specific network controls in T049 are implemented.
+- **Polish (Phase 8)**: Depends on the desired user stories being complete
 
 ### User Story Dependencies
 
@@ -155,6 +182,7 @@ description: "Task list for feature 002 multi-application baseline consumption"
 - **User Story 2 (P2)**: Depends on the shared onboarding contract from User Story 1
 - **User Story 3 (P3)**: Depends on the shared onboarding contract from User Story 1 and should align with User Story 2 examples where available
 - **User Story 4 (P3)**: Depends on the shared onboarding contract from User Story 1 and should align with User Stories 2 and 3 so the same structure works for demos and client delivery
+- **User Story 5 (P2)**: Depends on the shared onboarding contract, ownership model, and application examples from User Stories 1-4
 
 ### Parallel Opportunities
 
@@ -165,6 +193,8 @@ description: "Task list for feature 002 multi-application baseline consumption"
 - T021 and T022 can run in parallel once the second sample app shape is agreed
 - T025 and T026 can run in parallel within User Story 3
 - T034 and T035 can run in parallel within User Story 4
+- T044 and T045 can run in parallel within User Story 5
+- T046 and T048 can run in parallel within User Story 5
 - T039 and T040 can run in parallel during Polish
 
 ---
@@ -197,7 +227,8 @@ Task: "Add the companion workload template for the second sample in apps/fabric-
 2. Convert the existing Fabric sample to the shared contract
 3. Add a second sample onboarding unit to prove independent reuse
 4. Add ownership-boundary and future stack guidance across scopes
-5. Run end-to-end quickstart validation and align repo documentation
+5. Add tenant-ready identity, network, observability, and cost controls
+6. Run end-to-end quickstart validation and align repo documentation
 
 ### Parallel Team Strategy
 
@@ -211,4 +242,5 @@ Task: "Add the companion workload template for the second sample in apps/fabric-
 
 - All tasks follow the required checklist format with IDs and file paths
 - Validation is driven by focused Bicep builds and `az deployment ... what-if` checks rather than separate automated test suites
-- User Story 1 is the recommended MVP because User Stories 2, 3, and 4 depend on the shared contract existing first
+- User Story 1 is the recommended MVP because User Stories 2, 3, 4, and 5 depend on the shared contract existing first
+- User Story 5 is the tenant-ready service milestone; Marketplace publisher enrollment, commercial packaging, and Microsoft certification remain external release activities

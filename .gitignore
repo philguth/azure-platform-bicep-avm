@@ -3,6 +3,9 @@
 # Local-only parameter files (do not commit subscription-specific values)
 **/*.local.bicepparam
 
+# Local documentation bundle for reading or PDF export
+docs/print/
+
 # Graphify: keep only canonical shared artifacts at the top level.
 graphify-out/**
 !graphify-out/

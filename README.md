@@ -63,6 +63,44 @@ modules in `infra/`. The command compiles the modules first, so external AVM
 modules may be restored during generation. The `docs` command is experimental,
 and its output format may change with future Bicep releases.
 
+To refresh application parameters from an existing shared infrastructure
+deployment, use the synchronization script. It reads the latest outputs from
+Azure, resolves the managed identity principal ID, and writes a local ignored
+parameter file:
+
+```bash
+bash scripts/sync-fabric-capacity-params.sh \
+	--administrator phil@guthink.com
+```
+
+The generated `apps/fabric-capacity/dev.local.bicepparam` can be used for a
+what-if or deployment:
+
+```bash
+az deployment sub what-if \
+	--name app-fabric-whatif \
+	--location northcentralus \
+	--template-file apps/fabric-capacity/vend.bicep \
+	--parameters apps/fabric-capacity/dev.local.bicepparam
+```
+
+The script does not deploy either layer. It requires the shared deployment to
+already have succeeded and keeps the subscription-specific parameter file out
+of source control.
+
+## Offline documentation bundle
+
+To create one local Markdown document for a full repository read-through, run:
+
+```bash
+bash scripts/bundle-docs.sh
+```
+
+This writes `docs/print/repository-readthrough.md`, including the project
+README, application and infrastructure guidance, specifications, contracts,
+quickstarts, and repository constitution. The output is ignored by Git. Open
+the file in VS Code, use the Markdown preview, and print the preview to PDF.
+
 ## Graphify workflow
 
 Graphify is useful in this repo, but it is not the only source of truth.

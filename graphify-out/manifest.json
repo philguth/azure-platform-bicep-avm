@@ -1,15 +1,15 @@
 {
   ".devcontainer/devcontainer-lock.json": {
-    "mtime": 1784314118.081193,
-    "seen": 1787944548.517735,
-    "ast_hash": "9d10e0ff5a49ac3f44dd9529a542ea77",
-    "semantic_hash": "9d10e0ff5a49ac3f44dd9529a542ea77"
+    "mtime": 1788976204.251562,
+    "seen": 1788978040.0240722,
+    "ast_hash": "cf31c1cb4045a3291011cb8f1932e73b",
+    "semantic_hash": ""
   },
   ".devcontainer/devcontainer.json": {
-    "mtime": 1788292845.5211015,
-    "seen": 1788382445.132834,
-    "ast_hash": "08f58df19b646524a63cb6bfb775ffc5",
-    "semantic_hash": "08f58df19b646524a63cb6bfb775ffc5"
+    "mtime": 1788977545.781996,
+    "seen": 1788978040.024081,
+    "ast_hash": "ed83acaf6f1af72d5d6b6f9930576146",
+    "semantic_hash": ""
   },
   ".specify/init-options.json": {
     "mtime": 1787861569.9332457,
@@ -246,9 +246,9 @@
     "semantic_hash": "06fd89e478bb8e0e668917a5f02f9055"
   },
   "README.md": {
-    "mtime": 1788802392.606078,
-    "seen": 1788803170.6609485,
-    "ast_hash": "45c8aecb45153e479140248a184fa34a",
+    "mtime": 1788977730.2750566,
+    "seen": 1788978040.024193,
+    "ast_hash": "4884106773af49a52ab6c5ba3374364d",
     "semantic_hash": ""
   },
   "infra/README.md": {
@@ -318,15 +318,15 @@
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/tasks.md": {
-    "mtime": 1788804843.0369878,
-    "seen": 1788809207.3577764,
-    "ast_hash": "745d3d9fcf9bbca07e9b0a1cb5f11323",
+    "mtime": 1788810342.1428413,
+    "seen": 1788978040.0242405,
+    "ast_hash": "550ee3541221a5d10ced63e18d68279e",
     "semantic_hash": ""
   },
   "apps/fabric-capacity-alt/vend.json": {
-    "mtime": 1788552064.775906,
-    "seen": 1788803170.6608899,
-    "ast_hash": "533c19fde72cc0fd3d0080f640c8630c",
+    "mtime": 1788810335.2061944,
+    "seen": 1788978040.0241272,
+    "ast_hash": "23b30a9346cae3ed66b6bca2ececa62e",
     "semantic_hash": ""
   },
   "apps/fabric-capacity/vend.json": {
@@ -363,6 +363,60 @@
     "mtime": 1788804676.505017,
     "seen": 1788804723.1567376,
     "ast_hash": "d6ff7ee739b88240affcbfa8fb4aaec6",
+    "semantic_hash": ""
+  },
+  "apps/recipe-template/infra/main.json": {
+    "mtime": 1788810329.4000678,
+    "seen": 1788978040.0241332,
+    "ast_hash": "7e3c33f0972badc057b817494abbdb06",
+    "semantic_hash": ""
+  },
+  "scripts/generate-bicep-docs.sh": {
+    "mtime": 1788977702.7228322,
+    "seen": 1788978040.0241487,
+    "ast_hash": "eaa91d913b532a3f4668c1e5101fda1c",
+    "semantic_hash": ""
+  },
+  "apps/recipe-template/azure.yaml": {
+    "mtime": 1788810306.3374422,
+    "seen": 1788978040.0242012,
+    "ast_hash": "8ea3952ea08c9c62d0d0f4bf93f8eb78",
+    "semantic_hash": ""
+  },
+  "docs/generated/bicep/README.md": {
+    "mtime": 1788977741.838375,
+    "seen": 1788978040.0242052,
+    "ast_hash": "2f9b11d73575a17b4a8f3d129d784748",
+    "semantic_hash": ""
+  },
+  "docs/generated/bicep/bootstrap/README.md": {
+    "mtime": 1788977741.855021,
+    "seen": 1788978040.0242069,
+    "ast_hash": "e8f964a727354e6c06609e6e60b5363c",
+    "semantic_hash": ""
+  },
+  "docs/generated/bicep/landingzone/README.md": {
+    "mtime": 1788977741.866155,
+    "seen": 1788978040.0242083,
+    "ast_hash": "48c40efff0201560120ab0d93f53ee9b",
+    "semantic_hash": ""
+  },
+  "docs/generated/bicep/platform/README.md": {
+    "mtime": 1788977741.8768198,
+    "seen": 1788978040.0242102,
+    "ast_hash": "0bd7b891a9eabbaa00d4b1c5be48b322",
+    "semantic_hash": ""
+  },
+  "specs/002-multi-app-baseline-consumption/contracts/client-intake-template.md": {
+    "mtime": 1788810296.8210042,
+    "seen": 1788978040.0242238,
+    "ast_hash": "1b204711cb7a3effcb0bd2e110c2d35c",
+    "semantic_hash": ""
+  },
+  "specs/002-multi-app-baseline-consumption/contracts/deployment-runbook.md": {
+    "mtime": 1788810303.2889848,
+    "seen": 1788978040.0242255,
+    "ast_hash": "b83e6c603240fe435e006ea1680b3b9d",
     "semantic_hash": ""
   }
 }

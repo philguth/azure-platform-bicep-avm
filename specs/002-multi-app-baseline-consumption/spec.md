@@ -124,6 +124,39 @@ deployment.
 
 ---
 
+### User Story 5 - Deploy a tenant-ready application unit (Priority: P2)
+
+As a platform or solution owner, I want an application deployment to realize
+the approved identity, networking, observability, and cost requirements for the
+target tenant so that a successful deployment is more than just provisioning
+the workload resource.
+
+**Why this priority**: A resource-only deployment proves that the template can
+create a workload, but it does not establish the security and operational
+controls required for a viable customer service offering.
+
+**Independent Test**: Deploy one application unit into a non-production tenant
+and verify that its declared application-owned security, network, diagnostics,
+tagging, and cost controls are present without creating or mutating shared
+foundation resources outside the approved contract.
+
+**Acceptance Scenarios**:
+
+1. **Given** a client-tenant application request includes approved identity,
+network, observability, and cost inputs, **When** the application what-if is
+reviewed, **Then** the planned changes include the required application-owned
+controls and identify any unsupported service capability as an explicit
+exception.
+2. **Given** a tenant-ready application deployment succeeds, **When** the
+deployed resource group and resources are inspected, **Then** ownership and
+cost tags, least-privilege role assignments, diagnostics, and approved network
+integration are present and shared platform resources remain unchanged.
+3. **Given** the application is offered as a reusable service or Marketplace
+candidate, **When** readiness is reviewed, **Then** the repository provides a
+deployment, security, operations, cost, and lifecycle checklist without
+claiming Microsoft Marketplace certification that must be completed outside
+this repository.
+
 ### Edge Cases
 
 - What happens when two applications request overlapping names, address space,
@@ -204,6 +237,29 @@ foundation.
 removes only recipe-owned application resources and never deletes shared
 landing-zone, bootstrap, platform, identity, networking, or Key Vault
 resources.
+- **FR-018**: The application onboarding contract MUST distinguish required
+tenant-ready controls from optional provider-hosted PoC defaults, including
+identity, network, diagnostics, cost, and lifecycle inputs.
+- **FR-019**: An application deployment MUST apply an agreed tag set to the
+application resource group and workload resources, including environment,
+application, owner, management, and cost-allocation metadata where required by
+the target tenant.
+- **FR-020**: An application deployment MUST create or configure only the
+application-owned identity, RBAC, network, private-connectivity, diagnostic,
+and cost resources explicitly approved by the baseline contract.
+- **FR-021**: An application deployment MUST fail validation or surface an
+explicit exception when a required tenant-ready input is missing or when the
+target workload does not support a requested security or network capability.
+- **FR-022**: The application deployment workflow MUST provide a repeatable
+handoff from successful shared-infrastructure outputs to application parameter
+files without requiring manual copying of subscription-specific resource IDs.
+- **FR-023**: The repository MUST provide non-production validation for the
+application what-if, deployment resource inventory, RBAC, tags, diagnostics,
+network integration, and cleanup boundary.
+- **FR-024**: The repository MUST provide a Marketplace-readiness checklist for
+the intended offer model, while treating Microsoft publisher enrollment,
+technical certification, commercial terms, and Marketplace submission as
+external release activities.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -249,6 +305,14 @@ definition without consulting external design notes.
 deployment onboarding definition can be completed from the same contract
 structure without ambiguity about which inputs are provider defaults and which
 require client confirmation or approval.
+- **SC-007**: A tenant-ready application deployment can be validated in a
+non-production tenant with no unapproved changes to shared foundation resources.
+- **SC-008**: At least 95% of required application cost, ownership, identity,
+network, and observability inputs are represented in the generated parameter
+file or an explicit readiness exception before deployment approval.
+- **SC-009**: Reviewers can distinguish repository-controlled deployment
+readiness from external Microsoft Marketplace certification and commercial
+submission requirements.
 
 ## Assumptions
 
@@ -267,3 +331,6 @@ required principals, scopes, and role assignments must still be defined here.
 - The solution provider may use a personal or internal Azure tenant for rapid
 PoC and learning deployments, but client-tenant delivery must still follow the
 same contract categories and governance model.
+- Marketplace readiness is treated as an operational and technical readiness
+boundary in this repository; Microsoft Marketplace publisher validation,
+commercial packaging, and certification remain external activities.
