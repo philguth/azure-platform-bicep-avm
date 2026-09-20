@@ -1,3 +1,4 @@
+Shared contracts: [hook protocol](../speckit-hook-contract.md) and [repository workflow](../speckit-workflow.md).
 ---
 name: "speckit-checklist"
 description: "Generate a custom checklist for the current feature based on user requirements."
@@ -43,6 +44,8 @@ metadata:
 ```text
 $ARGUMENTS
 ```
+
+Shared contracts: [hook protocol](speckit-hook-contract.md) and [repository workflow](speckit-workflow.md).
 
 You **MUST** consider the user input before proceeding (if not empty).
 

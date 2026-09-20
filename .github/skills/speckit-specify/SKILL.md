@@ -1,3 +1,4 @@
+Shared contracts: [hook protocol](../speckit-hook-contract.md) and [repository workflow](../speckit-workflow.md).
 ---
 name: "speckit-specify"
 description: "Create or update the feature specification from a natural language feature description."
@@ -13,6 +14,8 @@ metadata:
 ```text
 $ARGUMENTS
 ```
+
+Shared contracts: [hook protocol](speckit-hook-contract.md) and [repository workflow](speckit-workflow.md).
 
 You **MUST** consider the user input before proceeding (if not empty).
 

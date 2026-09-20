@@ -1,3 +1,4 @@
+Shared contracts: [hook protocol](../speckit-hook-contract.md) and [repository workflow](../speckit-workflow.md).
 ---
 name: "speckit-taskstoissues"
 description: "Convert existing tasks into actionable, dependency-ordered GitHub issues for the feature based on available design artifacts."
@@ -13,6 +14,8 @@ metadata:
 ```text
 $ARGUMENTS
 ```
+
+Shared contracts: [hook protocol](speckit-hook-contract.md) and [repository workflow](speckit-workflow.md).
 
 You **MUST** consider the user input before proceeding (if not empty).
 

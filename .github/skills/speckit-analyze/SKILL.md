@@ -1,3 +1,4 @@
+Shared contracts: [hook protocol](../speckit-hook-contract.md) and [repository workflow](../speckit-workflow.md).
 ---
 name: "speckit-analyze"
 description: "Perform a non-destructive cross-artifact consistency and quality analysis across spec.md, plan.md, and tasks.md after task generation."
@@ -13,6 +14,8 @@ metadata:
 ```text
 $ARGUMENTS
 ```
+
+Shared contracts: [hook protocol](speckit-hook-contract.md) and [repository workflow](speckit-workflow.md).
 
 You **MUST** consider the user input before proceeding (if not empty).
 
@@ -54,7 +57,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 ## Goal
 
-Identify inconsistencies, duplications, ambiguities, and underspecified items across the three core artifacts (`spec.md`, `plan.md`, `tasks.md`) before implementation. This command MUST run only after `/speckit-tasks` has successfully produced a complete `tasks.md`.
+Identify inconsistencies, duplications, ambiguities, and underspecified items across the three core artifacts (`spec.md`, `plan.md`, `tasks.md`) before implementation. When this optional quality gate is selected, it MUST run only after `/speckit-tasks` has successfully produced a complete `tasks.md`.
 
 ## Operating Constraints
 

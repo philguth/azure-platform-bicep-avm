@@ -50,66 +50,11 @@
   },
   "nodes": [
     {
-      "id": "infra_bootstrap_main",
-      "label": "bootstrap/main.json",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "bootstrap/main.json",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1"
-    },
-    {
-      "id": "infra_bootstrap_main_contentversion",
-      "label": "contentVersion",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "contentversion",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L4"
-    },
-    {
-      "id": "infra_bootstrap_main_generator_name",
-      "label": "name",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "name",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L11"
-    },
-    {
-      "id": "infra_bootstrap_main_generator_templatehash",
-      "label": "templateHash",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "templatehash",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L13"
-    },
-    {
-      "id": "infra_bootstrap_main_generator_version",
-      "label": "version",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "version",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L12"
-    },
-    {
       "id": "infra_bootstrap_main_keyvaultname_type",
       "label": "type",
       "_origin": "ast",
       "community": 0,
-      "community_name": "variables",
+      "community_name": "outputs",
       "file_type": "code",
       "norm_label": "type",
       "source_file": "infra/bootstrap/main.json",
@@ -120,7 +65,7 @@
       "label": "value",
       "_origin": "ast",
       "community": 0,
-      "community_name": "variables",
+      "community_name": "outputs",
       "file_type": "code",
       "norm_label": "value",
       "source_file": "infra/bootstrap/main.json",
@@ -131,7 +76,7 @@
       "label": "type",
       "_origin": "ast",
       "community": 0,
-      "community_name": "variables",
+      "community_name": "outputs",
       "file_type": "code",
       "norm_label": "type",
       "source_file": "infra/bootstrap/main.json",
@@ -142,117 +87,18 @@
       "label": "value",
       "_origin": "ast",
       "community": 0,
-      "community_name": "variables",
+      "community_name": "outputs",
       "file_type": "code",
       "norm_label": "value",
       "source_file": "infra/bootstrap/main.json",
       "source_location": "L3243"
     },
     {
-      "id": "infra_bootstrap_main_kv_apiversion",
-      "label": "apiVersion",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "apiversion",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L76"
-    },
-    {
-      "id": "infra_bootstrap_main_kv_condition",
-      "label": "condition",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "condition",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L74"
-    },
-    {
-      "id": "infra_bootstrap_main_kv_name",
-      "label": "name",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "name",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L77"
-    },
-    {
-      "id": "infra_bootstrap_main_kv_type",
-      "label": "type",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "type",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L75"
-    },
-    {
-      "id": "infra_bootstrap_main_languageversion",
-      "label": "languageVersion",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "languageversion",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L3"
-    },
-    {
-      "id": "infra_bootstrap_main_metadata",
-      "label": "metadata",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "metadata",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L5"
-    },
-    {
-      "id": "infra_bootstrap_main_metadata_experimental_features_enabled",
-      "label": "_EXPERIMENTAL_FEATURES_ENABLED",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "_experimental_features_enabled",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L7"
-    },
-    {
-      "id": "infra_bootstrap_main_metadata_experimental_warning",
-      "label": "_EXPERIMENTAL_WARNING",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "_experimental_warning",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L6"
-    },
-    {
-      "id": "infra_bootstrap_main_metadata_generator",
-      "label": "_generator",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "_generator",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L10"
-    },
-    {
       "id": "infra_bootstrap_main_outputs",
       "label": "outputs",
       "_origin": "ast",
       "community": 0,
-      "community_name": "variables",
+      "community_name": "outputs",
       "file_type": "code",
       "norm_label": "outputs",
       "source_file": "infra/bootstrap/main.json",
@@ -263,7 +109,7 @@
       "label": "keyVaultName",
       "_origin": "ast",
       "community": 0,
-      "community_name": "variables",
+      "community_name": "outputs",
       "file_type": "code",
       "norm_label": "keyvaultname",
       "source_file": "infra/bootstrap/main.json",
@@ -274,7 +120,7 @@
       "label": "keyVaultResourceId",
       "_origin": "ast",
       "community": 0,
-      "community_name": "variables",
+      "community_name": "outputs",
       "file_type": "code",
       "norm_label": "keyvaultresourceid",
       "source_file": "infra/bootstrap/main.json",
@@ -285,7 +131,7 @@
       "label": "uamiClientId",
       "_origin": "ast",
       "community": 0,
-      "community_name": "variables",
+      "community_name": "outputs",
       "file_type": "code",
       "norm_label": "uamiclientid",
       "source_file": "infra/bootstrap/main.json",
@@ -296,7 +142,7 @@
       "label": "uamiPrincipalId",
       "_origin": "ast",
       "community": 0,
-      "community_name": "variables",
+      "community_name": "outputs",
       "file_type": "code",
       "norm_label": "uamiprincipalid",
       "source_file": "infra/bootstrap/main.json",
@@ -307,117 +153,18 @@
       "label": "uamiResourceId",
       "_origin": "ast",
       "community": 0,
-      "community_name": "variables",
+      "community_name": "outputs",
       "file_type": "code",
       "norm_label": "uamiresourceid",
       "source_file": "infra/bootstrap/main.json",
       "source_location": "L3233"
     },
     {
-      "id": "infra_bootstrap_main_resources",
-      "label": "resources",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "resources",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L65"
-    },
-    {
-      "id": "infra_bootstrap_main_resources_kv",
-      "label": "kv",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "kv",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L73"
-    },
-    {
-      "id": "infra_bootstrap_main_resources_uami",
-      "label": "uami",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "uami",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L66"
-    },
-    {
-      "id": "infra_bootstrap_main_schema",
-      "label": "$schema",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "$schema",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L2"
-    },
-    {
-      "id": "infra_bootstrap_main_uami_apiversion",
-      "label": "apiVersion",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "apiversion",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L68"
-    },
-    {
-      "id": "infra_bootstrap_main_uami_location",
-      "label": "location",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "location",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L70"
-    },
-    {
-      "id": "infra_bootstrap_main_uami_name",
-      "label": "name",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "name",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L69"
-    },
-    {
-      "id": "infra_bootstrap_main_uami_tags",
-      "label": "tags",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "tags",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L71"
-    },
-    {
-      "id": "infra_bootstrap_main_uami_type",
-      "label": "type",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "type",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L67"
-    },
-    {
       "id": "infra_bootstrap_main_uamiclientid_type",
       "label": "type",
       "_origin": "ast",
       "community": 0,
-      "community_name": "variables",
+      "community_name": "outputs",
       "file_type": "code",
       "norm_label": "type",
       "source_file": "infra/bootstrap/main.json",
@@ -428,7 +175,7 @@
       "label": "value",
       "_origin": "ast",
       "community": 0,
-      "community_name": "variables",
+      "community_name": "outputs",
       "file_type": "code",
       "norm_label": "value",
       "source_file": "infra/bootstrap/main.json",
@@ -439,7 +186,7 @@
       "label": "type",
       "_origin": "ast",
       "community": 0,
-      "community_name": "variables",
+      "community_name": "outputs",
       "file_type": "code",
       "norm_label": "type",
       "source_file": "infra/bootstrap/main.json",
@@ -450,7 +197,7 @@
       "label": "value",
       "_origin": "ast",
       "community": 0,
-      "community_name": "variables",
+      "community_name": "outputs",
       "file_type": "code",
       "norm_label": "value",
       "source_file": "infra/bootstrap/main.json",
@@ -461,7 +208,7 @@
       "label": "type",
       "_origin": "ast",
       "community": 0,
-      "community_name": "variables",
+      "community_name": "outputs",
       "file_type": "code",
       "norm_label": "type",
       "source_file": "infra/bootstrap/main.json",
@@ -472,121 +219,11 @@
       "label": "value",
       "_origin": "ast",
       "community": 0,
-      "community_name": "variables",
+      "community_name": "outputs",
       "file_type": "code",
       "norm_label": "value",
       "source_file": "infra/bootstrap/main.json",
       "source_location": "L3235"
-    },
-    {
-      "id": "infra_bootstrap_main_variables",
-      "label": "variables",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "variables",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L55"
-    },
-    {
-      "id": "infra_bootstrap_main_variables_kvname",
-      "label": "kvName",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "kvname",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L62"
-    },
-    {
-      "id": "infra_bootstrap_main_variables_kvprefix",
-      "label": "kvPrefix",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "kvprefix",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L61"
-    },
-    {
-      "id": "infra_bootstrap_main_variables_kvprefixmaxlength",
-      "label": "kvPrefixMaxLength",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "kvprefixmaxlength",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L59"
-    },
-    {
-      "id": "infra_bootstrap_main_variables_kvprefixsanitized",
-      "label": "kvPrefixSanitized",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "kvprefixsanitized",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L60"
-    },
-    {
-      "id": "infra_bootstrap_main_variables_kvsuffix",
-      "label": "kvSuffix",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "kvsuffix",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L58"
-    },
-    {
-      "id": "infra_bootstrap_main_variables_mergedtags",
-      "label": "mergedTags",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "mergedtags",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L56"
-    },
-    {
-      "id": "infra_bootstrap_main_variables_uaminame",
-      "label": "uamiName",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "uaminame",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L57"
-    },
-    {
-      "id": "infra_bootstrap_main_variables_useexistingkeyvault",
-      "label": "useExistingKeyVault",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "code",
-      "norm_label": "useexistingkeyvault",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L63"
-    },
-    {
-      "id": "infra_bootstrap_main_json_ref_asserts",
-      "label": "Asserts",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "variables",
-      "file_type": "concept",
-      "norm_label": "asserts",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L7"
     },
     {
       "id": "infra_main",
@@ -1216,136 +853,200 @@
       "source_location": "L163"
     },
     {
-      "id": "infra_landingzone_main_applicationmanagementgroupname_defaultvalue",
-      "label": "defaultValue",
+      "id": "infra_bootstrap_main_generator_name",
+      "label": "name",
       "_origin": "ast",
       "community": 102,
-      "community_name": "applicationManagementGroupName",
+      "community_name": "_generator",
       "file_type": "code",
-      "norm_label": "defaultvalue",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L32"
+      "norm_label": "name",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L11"
     },
     {
-      "id": "infra_landingzone_main_applicationmanagementgroupname_metadata",
+      "id": "infra_bootstrap_main_generator_templatehash",
+      "label": "templateHash",
+      "_origin": "ast",
+      "community": 102,
+      "community_name": "_generator",
+      "file_type": "code",
+      "norm_label": "templatehash",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L13"
+    },
+    {
+      "id": "infra_bootstrap_main_generator_version",
+      "label": "version",
+      "_origin": "ast",
+      "community": 102,
+      "community_name": "_generator",
+      "file_type": "code",
+      "norm_label": "version",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "infra_bootstrap_main_metadata_generator",
+      "label": "_generator",
+      "_origin": "ast",
+      "community": 102,
+      "community_name": "_generator",
+      "file_type": "code",
+      "norm_label": "_generator",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "infra_bootstrap_main_metadata_name",
+      "label": "name",
+      "_origin": "ast",
+      "community": 102,
+      "community_name": "_generator",
+      "file_type": "code",
+      "norm_label": "name",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L116"
+    },
+    {
+      "id": "infra_bootstrap_main_template_metadata",
       "label": "metadata",
       "_origin": "ast",
       "community": 102,
-      "community_name": "applicationManagementGroupName",
+      "community_name": "_generator",
       "file_type": "code",
       "norm_label": "metadata",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L33"
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L110"
     },
     {
-      "id": "infra_landingzone_main_applicationmanagementgroupname_type",
-      "label": "type",
-      "_origin": "ast",
-      "community": 102,
-      "community_name": "applicationManagementGroupName",
-      "file_type": "code",
-      "norm_label": "type",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L31"
-    },
-    {
-      "id": "infra_landingzone_main_parameters_applicationmanagementgroupname",
-      "label": "applicationManagementGroupName",
-      "_origin": "ast",
-      "community": 102,
-      "community_name": "applicationManagementGroupName",
-      "file_type": "code",
-      "norm_label": "applicationmanagementgroupname",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L30"
-    },
-    {
-      "id": "infra_landingzone_main_applicationbootstrapresourcegroupname_defaultvalue",
-      "label": "defaultValue",
+      "id": "infra_bootstrap_main_diagnosticsettings_items",
+      "label": "items",
       "_origin": "ast",
       "community": 103,
-      "community_name": "applicationBootstrapResourceGroupName",
+      "community_name": "diagnosticSettings",
       "file_type": "code",
-      "norm_label": "defaultvalue",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L113"
+      "norm_label": "items",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L1292"
     },
     {
-      "id": "infra_landingzone_main_applicationbootstrapresourcegroupname_metadata",
+      "id": "infra_bootstrap_main_diagnosticsettings_metadata",
       "label": "metadata",
       "_origin": "ast",
       "community": 103,
-      "community_name": "applicationBootstrapResourceGroupName",
+      "community_name": "diagnosticSettings",
       "file_type": "code",
       "norm_label": "metadata",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L114"
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L1296"
     },
     {
-      "id": "infra_landingzone_main_applicationbootstrapresourcegroupname_type",
+      "id": "infra_bootstrap_main_diagnosticsettings_nullable",
+      "label": "nullable",
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "diagnosticSettings",
+      "file_type": "code",
+      "norm_label": "nullable",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L1295"
+    },
+    {
+      "id": "infra_bootstrap_main_diagnosticsettings_type",
       "label": "type",
       "_origin": "ast",
       "community": 103,
-      "community_name": "applicationBootstrapResourceGroupName",
+      "community_name": "diagnosticSettings",
       "file_type": "code",
       "norm_label": "type",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L112"
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L1291"
     },
     {
-      "id": "infra_landingzone_main_parameters_applicationbootstrapresourcegroupname",
-      "label": "applicationBootstrapResourceGroupName",
+      "id": "infra_bootstrap_main_parameters_diagnosticsettings",
+      "label": "diagnosticSettings",
       "_origin": "ast",
       "community": 103,
-      "community_name": "applicationBootstrapResourceGroupName",
+      "community_name": "diagnosticSettings",
       "file_type": "code",
-      "norm_label": "applicationbootstrapresourcegroupname",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L111"
+      "norm_label": "diagnosticsettings",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L1290"
     },
     {
-      "id": "infra_landingzone_main_bootstraplocation_defaultvalue",
-      "label": "defaultValue",
+      "id": "scripts_sync_fabric_capacity_params",
+      "label": "sync-fabric-capacity-params.sh",
       "_origin": "ast",
       "community": 104,
-      "community_name": "bootstrapLocation",
+      "community_name": "sync-fabric-capacity-params.sh",
       "file_type": "code",
-      "norm_label": "defaultvalue",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L272"
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "sync-fabric-capacity-params.sh",
+      "source_file": "scripts/sync-fabric-capacity-params.sh",
+      "source_location": "L1"
     },
     {
-      "id": "infra_landingzone_main_bootstraplocation_metadata",
-      "label": "metadata",
+      "id": "scripts_sync_fabric_capacity_params_get_output",
+      "label": "get_output()",
       "_origin": "ast",
       "community": 104,
-      "community_name": "bootstrapLocation",
+      "community_name": "sync-fabric-capacity-params.sh",
       "file_type": "code",
-      "norm_label": "metadata",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L273"
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "get_output()",
+      "source_file": "scripts/sync-fabric-capacity-params.sh",
+      "source_location": "L95"
     },
     {
-      "id": "infra_landingzone_main_bootstraplocation_type",
-      "label": "type",
+      "id": "scripts_sync_fabric_capacity_params_get_parameter",
+      "label": "get_parameter()",
       "_origin": "ast",
       "community": 104,
-      "community_name": "bootstrapLocation",
+      "community_name": "sync-fabric-capacity-params.sh",
       "file_type": "code",
-      "norm_label": "type",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L271"
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "get_parameter()",
+      "source_file": "scripts/sync-fabric-capacity-params.sh",
+      "source_location": "L99"
     },
     {
-      "id": "infra_landingzone_main_parameters_bootstraplocation",
-      "label": "bootstrapLocation",
+      "id": "scripts_sync_fabric_capacity_params_sh__entry",
+      "label": "sync-fabric-capacity-params.sh script",
       "_origin": "ast",
       "community": 104,
-      "community_name": "bootstrapLocation",
+      "community_name": "sync-fabric-capacity-params.sh",
       "file_type": "code",
-      "norm_label": "bootstraplocation",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L270"
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "sync-fabric-capacity-params.sh script",
+      "source_file": "scripts/sync-fabric-capacity-params.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_sync_fabric_capacity_params_usage",
+      "label": "usage()",
+      "_origin": "ast",
+      "community": 104,
+      "community_name": "sync-fabric-capacity-params.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "usage()",
+      "source_file": "scripts/sync-fabric-capacity-params.sh",
+      "source_location": "L12"
     },
     {
       "id": "infra_landingzone_main_platformmanagementgroup_apiversion",
@@ -3163,17 +2864,6 @@
       "source_location": "L17"
     },
     {
-      "id": "infra_bootstrap_main_metadata_name",
-      "label": "name",
-      "_origin": "ast",
-      "community": 116,
-      "community_name": "template",
-      "file_type": "code",
-      "norm_label": "name",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L116"
-    },
-    {
       "id": "infra_bootstrap_main_properties_template",
       "label": "template",
       "_origin": "ast",
@@ -3205,17 +2895,6 @@
       "norm_label": "languageversion",
       "source_file": "infra/bootstrap/main.json",
       "source_location": "L108"
-    },
-    {
-      "id": "infra_bootstrap_main_template_metadata",
-      "label": "metadata",
-      "_origin": "ast",
-      "community": 116,
-      "community_name": "template",
-      "file_type": "code",
-      "norm_label": "metadata",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L110"
     },
     {
       "id": "infra_bootstrap_main_template_schema",
@@ -5309,6 +4988,39 @@
       "source_location": "L323"
     },
     {
+      "id": "infra_landingzone_main_bootstraplocation_defaultvalue",
+      "label": "defaultValue",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "defaultvalue",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L272"
+    },
+    {
+      "id": "infra_landingzone_main_bootstraplocation_metadata",
+      "label": "metadata",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "metadata",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L273"
+    },
+    {
+      "id": "infra_landingzone_main_bootstraplocation_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L271"
+    },
+    {
       "id": "infra_landingzone_main_hubaddressspace_defaultvalue",
       "label": "defaultValue",
       "_origin": "ast",
@@ -5353,6 +5065,17 @@
       "source_location": "L322"
     },
     {
+      "id": "infra_landingzone_main_parameters_bootstraplocation",
+      "label": "bootstrapLocation",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "bootstraplocation",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L270"
+    },
+    {
       "id": "infra_landingzone_main_parameters_hubaddressspace",
       "label": "hubAddressSpace",
       "_origin": "ast",
@@ -5362,17 +5085,6 @@
       "norm_label": "hubaddressspace",
       "source_file": "infra/landingzone/main.json",
       "source_location": "L336"
-    },
-    {
-      "id": "infra_landingzone_main_parameters_platformlocation",
-      "label": "platformLocation",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "platformlocation",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L277"
     },
     {
       "id": "infra_landingzone_main_parameters_powerplatformsubnetprefix",
@@ -5395,39 +5107,6 @@
       "norm_label": "privateendpointsubnetprefix",
       "source_file": "infra/landingzone/main.json",
       "source_location": "L343"
-    },
-    {
-      "id": "infra_landingzone_main_platformlocation_defaultvalue",
-      "label": "defaultValue",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "defaultvalue",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L279"
-    },
-    {
-      "id": "infra_landingzone_main_platformlocation_metadata",
-      "label": "metadata",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "metadata",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L280"
-    },
-    {
-      "id": "infra_landingzone_main_platformlocation_type",
-      "label": "type",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "type",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L278"
     },
     {
       "id": "infra_landingzone_main_powerplatformsubnetprefix_defaultvalue",
@@ -7212,48 +6891,48 @@
       "source_location": "L1212"
     },
     {
-      "id": "infra_bootstrap_main_outputs_uri",
-      "label": "uri",
+      "id": "infra_bootstrap_main_enabletelemetry_defaultvalue",
+      "label": "defaultValue",
       "_origin": "ast",
       "community": 156,
-      "community_name": "uri",
+      "community_name": "enableTelemetry",
       "file_type": "code",
-      "norm_label": "uri",
+      "norm_label": "defaultvalue",
       "source_file": "infra/bootstrap/main.json",
-      "source_location": "L3152"
+      "source_location": "L1302"
     },
     {
-      "id": "infra_bootstrap_main_uri_metadata",
+      "id": "infra_bootstrap_main_enabletelemetry_metadata",
       "label": "metadata",
       "_origin": "ast",
       "community": 156,
-      "community_name": "uri",
+      "community_name": "enableTelemetry",
       "file_type": "code",
       "norm_label": "metadata",
       "source_file": "infra/bootstrap/main.json",
-      "source_location": "L3154"
+      "source_location": "L1303"
     },
     {
-      "id": "infra_bootstrap_main_uri_type",
+      "id": "infra_bootstrap_main_enabletelemetry_type",
       "label": "type",
       "_origin": "ast",
       "community": 156,
-      "community_name": "uri",
+      "community_name": "enableTelemetry",
       "file_type": "code",
       "norm_label": "type",
       "source_file": "infra/bootstrap/main.json",
-      "source_location": "L3153"
+      "source_location": "L1301"
     },
     {
-      "id": "infra_bootstrap_main_uri_value",
-      "label": "value",
+      "id": "infra_bootstrap_main_parameters_enabletelemetry",
+      "label": "enableTelemetry",
       "_origin": "ast",
       "community": 156,
-      "community_name": "uri",
+      "community_name": "enableTelemetry",
       "file_type": "code",
-      "norm_label": "value",
+      "norm_label": "enabletelemetry",
       "source_file": "infra/bootstrap/main.json",
-      "source_location": "L3157"
+      "source_location": "L1300"
     },
     {
       "id": "infra_bootstrap_main_defaultvalue_iac",
@@ -7806,6 +7485,94 @@
       "source_location": "L1"
     },
     {
+      "id": "infra_landingzone_main_applicationsubscriptionid_defaultvalue",
+      "label": "defaultValue",
+      "_origin": "ast",
+      "community": 166,
+      "community_name": "applicationSubscriptionId",
+      "file_type": "code",
+      "norm_label": "defaultvalue",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L71"
+    },
+    {
+      "id": "infra_landingzone_main_applicationsubscriptionid_metadata",
+      "label": "metadata",
+      "_origin": "ast",
+      "community": 166,
+      "community_name": "applicationSubscriptionId",
+      "file_type": "code",
+      "norm_label": "metadata",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L72"
+    },
+    {
+      "id": "infra_landingzone_main_applicationsubscriptionid_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 166,
+      "community_name": "applicationSubscriptionId",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L70"
+    },
+    {
+      "id": "infra_landingzone_main_parameters_applicationsubscriptionid",
+      "label": "applicationSubscriptionId",
+      "_origin": "ast",
+      "community": 166,
+      "community_name": "applicationSubscriptionId",
+      "file_type": "code",
+      "norm_label": "applicationsubscriptionid",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L69"
+    },
+    {
+      "id": "infra_landingzone_main_bootstrapresourcegroupname_metadata",
+      "label": "metadata",
+      "_origin": "ast",
+      "community": 167,
+      "community_name": "bootstrapResourceGroupName",
+      "file_type": "code",
+      "norm_label": "metadata",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L298"
+    },
+    {
+      "id": "infra_landingzone_main_bootstrapresourcegroupname_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 167,
+      "community_name": "bootstrapResourceGroupName",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L297"
+    },
+    {
+      "id": "infra_landingzone_main_bootstrapresourcegroupname_value",
+      "label": "value",
+      "_origin": "ast",
+      "community": 167,
+      "community_name": "bootstrapResourceGroupName",
+      "file_type": "code",
+      "norm_label": "value",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L232"
+    },
+    {
+      "id": "infra_landingzone_main_parameters_bootstrapresourcegroupname",
+      "label": "bootstrapResourceGroupName",
+      "_origin": "ast",
+      "community": 167,
+      "community_name": "bootstrapResourceGroupName",
+      "file_type": "code",
+      "norm_label": "bootstrapresourcegroupname",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L231"
+    },
+    {
       "id": "apps_fabric_capacity_alt_readme",
       "label": "fabric-capacity-alt/README.md",
       "_origin": "ast",
@@ -7828,6 +7595,50 @@
       "norm_label": "fabric capacity alt app onboarding",
       "source_file": "apps/fabric-capacity-alt/README.md",
       "source_location": "L1"
+    },
+    {
+      "id": "infra_landingzone_main_parameters_platformlocation",
+      "label": "platformLocation",
+      "_origin": "ast",
+      "community": 169,
+      "community_name": "platformLocation",
+      "file_type": "code",
+      "norm_label": "platformlocation",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L277"
+    },
+    {
+      "id": "infra_landingzone_main_platformlocation_defaultvalue",
+      "label": "defaultValue",
+      "_origin": "ast",
+      "community": 169,
+      "community_name": "platformLocation",
+      "file_type": "code",
+      "norm_label": "defaultvalue",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L279"
+    },
+    {
+      "id": "infra_landingzone_main_platformlocation_metadata",
+      "label": "metadata",
+      "_origin": "ast",
+      "community": 169,
+      "community_name": "platformLocation",
+      "file_type": "code",
+      "norm_label": "metadata",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L280"
+    },
+    {
+      "id": "infra_landingzone_main_platformlocation_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 169,
+      "community_name": "platformLocation",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L278"
     },
     {
       "id": "infra_main_environmentname_metadata",
@@ -8077,59 +7888,48 @@
       "source_location": "L18"
     },
     {
-      "id": "infra_bootstrap_main_enablesoftdelete_defaultvalue",
+      "id": "infra_landingzone_main_parameters_platformsubscriptionaliasname",
+      "label": "platformSubscriptionAliasName",
+      "_origin": "ast",
+      "community": 171,
+      "community_name": "platformSubscriptionAliasName",
+      "file_type": "code",
+      "norm_label": "platformsubscriptionaliasname",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L48"
+    },
+    {
+      "id": "infra_landingzone_main_platformsubscriptionaliasname_defaultvalue",
       "label": "defaultValue",
       "_origin": "ast",
       "community": 171,
-      "community_name": "enableSoftDelete",
+      "community_name": "platformSubscriptionAliasName",
       "file_type": "code",
       "norm_label": "defaultvalue",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1193"
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L50"
     },
     {
-      "id": "infra_bootstrap_main_enablesoftdelete_metadata",
+      "id": "infra_landingzone_main_platformsubscriptionaliasname_metadata",
       "label": "metadata",
       "_origin": "ast",
       "community": 171,
-      "community_name": "enableSoftDelete",
+      "community_name": "platformSubscriptionAliasName",
       "file_type": "code",
       "norm_label": "metadata",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1194"
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L51"
     },
     {
-      "id": "infra_bootstrap_main_enablesoftdelete_type",
+      "id": "infra_landingzone_main_platformsubscriptionaliasname_type",
       "label": "type",
       "_origin": "ast",
       "community": 171,
-      "community_name": "enableSoftDelete",
+      "community_name": "platformSubscriptionAliasName",
       "file_type": "code",
       "norm_label": "type",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1192"
-    },
-    {
-      "id": "infra_bootstrap_main_enablesoftdelete_value",
-      "label": "value",
-      "_origin": "ast",
-      "community": 171,
-      "community_name": "enableSoftDelete",
-      "file_type": "code",
-      "norm_label": "value",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L97"
-    },
-    {
-      "id": "infra_bootstrap_main_parameters_enablesoftdelete",
-      "label": "enableSoftDelete",
-      "_origin": "ast",
-      "community": 171,
-      "community_name": "enableSoftDelete",
-      "file_type": "code",
-      "norm_label": "enablesoftdelete",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L96"
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L49"
     },
     {
       "id": "infra_bootstrap_main_parameters_roleassignments",
@@ -8187,48 +7987,78 @@
       "source_location": "L1264"
     },
     {
-      "id": "infra_bootstrap_main_lock_metadata",
+      "id": "infra_landingzone_main_parameters_platformsubscriptionid",
+      "label": "platformSubscriptionId",
+      "_origin": "ast",
+      "community": 173,
+      "community_name": "platformSubscriptionId",
+      "file_type": "code",
+      "norm_label": "platformsubscriptionid",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L62"
+    },
+    {
+      "id": "infra_landingzone_main_platformsubscriptionid_defaultvalue",
+      "label": "defaultValue",
+      "_origin": "ast",
+      "community": 173,
+      "community_name": "platformSubscriptionId",
+      "file_type": "code",
+      "norm_label": "defaultvalue",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L64"
+    },
+    {
+      "id": "infra_landingzone_main_platformsubscriptionid_metadata",
       "label": "metadata",
       "_origin": "ast",
       "community": 173,
-      "community_name": "lock",
+      "community_name": "platformSubscriptionId",
       "file_type": "code",
       "norm_label": "metadata",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1259"
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L65"
     },
     {
-      "id": "infra_bootstrap_main_lock_nullable",
-      "label": "nullable",
+      "id": "infra_landingzone_main_platformsubscriptionid_type",
+      "label": "type",
       "_origin": "ast",
       "community": 173,
-      "community_name": "lock",
+      "community_name": "platformSubscriptionId",
       "file_type": "code",
-      "norm_label": "nullable",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1258"
+      "norm_label": "type",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L63"
     },
     {
-      "id": "infra_bootstrap_main_lock_ref",
-      "label": "$ref",
+      "id": "scripts_bundle_docs",
+      "label": "bundle-docs.sh",
       "_origin": "ast",
-      "community": 173,
-      "community_name": "lock",
+      "community": 174,
+      "community_name": "bundle-docs.sh",
       "file_type": "code",
-      "norm_label": "$ref",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1257"
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "bundle-docs.sh",
+      "source_file": "scripts/bundle-docs.sh",
+      "source_location": "L1"
     },
     {
-      "id": "infra_bootstrap_main_parameters_lock",
-      "label": "lock",
+      "id": "scripts_bundle_docs_sh__entry",
+      "label": "bundle-docs.sh script",
       "_origin": "ast",
-      "community": 173,
-      "community_name": "lock",
+      "community": 174,
+      "community_name": "bundle-docs.sh",
       "file_type": "code",
-      "norm_label": "lock",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1256"
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "bundle-docs.sh script",
+      "source_file": "scripts/bundle-docs.sh",
+      "source_location": "L1"
     },
     {
       "id": "infra_platform_main_kvprivateendpoint_apiversion",
@@ -9233,6 +9063,50 @@
       "source_location": "L94"
     },
     {
+      "id": "infra_bootstrap_main_enablesoftdelete_defaultvalue",
+      "label": "defaultValue",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "defaultvalue",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L1193"
+    },
+    {
+      "id": "infra_bootstrap_main_enablesoftdelete_metadata",
+      "label": "metadata",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "metadata",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L1194"
+    },
+    {
+      "id": "infra_bootstrap_main_enablesoftdelete_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L1192"
+    },
+    {
+      "id": "infra_bootstrap_main_enablesoftdelete_value",
+      "label": "value",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "value",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L97"
+    },
+    {
       "id": "infra_bootstrap_main_expressionevaluationoptions_scope",
       "label": "scope",
       "_origin": "ast",
@@ -9275,6 +9149,17 @@
       "norm_label": "enablerbacauthorization",
       "source_file": "infra/bootstrap/main.json",
       "source_location": "L93"
+    },
+    {
+      "id": "infra_bootstrap_main_parameters_enablesoftdelete",
+      "label": "enableSoftDelete",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "enablesoftdelete",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L96"
     },
     {
       "id": "infra_bootstrap_main_properties_expressionevaluationoptions",
@@ -9321,39 +9206,6 @@
       "source_location": "L3917"
     },
     {
-      "id": "infra_landingzone_main_bootstrapresourcegroupname_metadata",
-      "label": "metadata",
-      "_origin": "ast",
-      "community": 22,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "metadata",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L298"
-    },
-    {
-      "id": "infra_landingzone_main_bootstrapresourcegroupname_type",
-      "label": "type",
-      "_origin": "ast",
-      "community": 22,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "type",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L297"
-    },
-    {
-      "id": "infra_landingzone_main_bootstrapresourcegroupname_value",
-      "label": "value",
-      "_origin": "ast",
-      "community": 22,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "value",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L232"
-    },
-    {
       "id": "infra_landingzone_main_expressionevaluationoptions_scope",
       "label": "scope",
       "_origin": "ast",
@@ -9365,15 +9217,59 @@
       "source_location": "L218"
     },
     {
-      "id": "infra_landingzone_main_parameters_bootstrapresourcegroupname",
-      "label": "bootstrapResourceGroupName",
+      "id": "infra_landingzone_main_parameters_platformresourcegroupname",
+      "label": "platformResourceGroupName",
       "_origin": "ast",
       "community": 22,
       "community_name": "parameters",
       "file_type": "code",
-      "norm_label": "bootstrapresourcegroupname",
+      "norm_label": "platformresourcegroupname",
       "source_file": "infra/landingzone/main.json",
-      "source_location": "L231"
+      "source_location": "L104"
+    },
+    {
+      "id": "infra_landingzone_main_platformresourcegroupname_defaultvalue",
+      "label": "defaultValue",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "defaultvalue",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L106"
+    },
+    {
+      "id": "infra_landingzone_main_platformresourcegroupname_metadata",
+      "label": "metadata",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "metadata",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L107"
+    },
+    {
+      "id": "infra_landingzone_main_platformresourcegroupname_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L105"
+    },
+    {
+      "id": "infra_landingzone_main_platformresourcegroupname_value",
+      "label": "value",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "value",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L235"
     },
     {
       "id": "infra_landingzone_main_platformsubscriptiondeployment_properties",
@@ -9750,51 +9646,7 @@
       "source_location": "L3621"
     },
     {
-      "id": "infra_bootstrap_main_diagnosticsettings_items",
-      "label": "items",
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "items",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1292"
-    },
-    {
-      "id": "infra_bootstrap_main_diagnosticsettings_metadata",
-      "label": "metadata",
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "metadata",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1296"
-    },
-    {
-      "id": "infra_bootstrap_main_diagnosticsettings_nullable",
-      "label": "nullable",
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "nullable",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1295"
-    },
-    {
-      "id": "infra_bootstrap_main_diagnosticsettings_type",
-      "label": "type",
-      "_origin": "ast",
-      "community": 25,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "type",
-      "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1291"
-    },
-    {
-      "id": "infra_bootstrap_main_enabletelemetry_defaultvalue",
+      "id": "infra_bootstrap_main_enablevaultfordeployment_defaultvalue",
       "label": "defaultValue",
       "_origin": "ast",
       "community": 25,
@@ -9802,10 +9654,10 @@
       "file_type": "code",
       "norm_label": "defaultvalue",
       "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1302"
+      "source_location": "L1172"
     },
     {
-      "id": "infra_bootstrap_main_enabletelemetry_metadata",
+      "id": "infra_bootstrap_main_enablevaultfordeployment_metadata",
       "label": "metadata",
       "_origin": "ast",
       "community": 25,
@@ -9813,10 +9665,10 @@
       "file_type": "code",
       "norm_label": "metadata",
       "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1303"
+      "source_location": "L1173"
     },
     {
-      "id": "infra_bootstrap_main_enabletelemetry_type",
+      "id": "infra_bootstrap_main_enablevaultfordeployment_type",
       "label": "type",
       "_origin": "ast",
       "community": 25,
@@ -9824,7 +9676,7 @@
       "file_type": "code",
       "norm_label": "type",
       "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1301"
+      "source_location": "L1171"
     },
     {
       "id": "infra_bootstrap_main_enablevaultfordiskencryption_defaultvalue",
@@ -9860,26 +9712,81 @@
       "source_location": "L1185"
     },
     {
-      "id": "infra_bootstrap_main_parameters_diagnosticsettings",
-      "label": "diagnosticSettings",
+      "id": "infra_bootstrap_main_lock_metadata",
+      "label": "metadata",
       "_origin": "ast",
       "community": 25,
       "community_name": "parameters",
       "file_type": "code",
-      "norm_label": "diagnosticsettings",
+      "norm_label": "metadata",
       "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1290"
+      "source_location": "L1259"
     },
     {
-      "id": "infra_bootstrap_main_parameters_enabletelemetry",
-      "label": "enableTelemetry",
+      "id": "infra_bootstrap_main_lock_nullable",
+      "label": "nullable",
       "_origin": "ast",
       "community": 25,
       "community_name": "parameters",
       "file_type": "code",
-      "norm_label": "enabletelemetry",
+      "norm_label": "nullable",
       "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1300"
+      "source_location": "L1258"
+    },
+    {
+      "id": "infra_bootstrap_main_lock_ref",
+      "label": "$ref",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "$ref",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L1257"
+    },
+    {
+      "id": "infra_bootstrap_main_networkacls_metadata",
+      "label": "metadata",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "metadata",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L1240"
+    },
+    {
+      "id": "infra_bootstrap_main_networkacls_nullable",
+      "label": "nullable",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "nullable",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L1239"
+    },
+    {
+      "id": "infra_bootstrap_main_networkacls_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L1238"
+    },
+    {
+      "id": "infra_bootstrap_main_parameters_enablevaultfordeployment",
+      "label": "enableVaultForDeployment",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "enablevaultfordeployment",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L1170"
     },
     {
       "id": "infra_bootstrap_main_parameters_enablevaultfordiskencryption",
@@ -9891,6 +9798,28 @@
       "norm_label": "enablevaultfordiskencryption",
       "source_file": "infra/bootstrap/main.json",
       "source_location": "L1184"
+    },
+    {
+      "id": "infra_bootstrap_main_parameters_lock",
+      "label": "lock",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "lock",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L1256"
+    },
+    {
+      "id": "infra_bootstrap_main_parameters_networkacls",
+      "label": "networkAcls",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "networkacls",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L1237"
     },
     {
       "id": "infra_bootstrap_main_template_parameters",
@@ -10931,7 +10860,7 @@
       "node_kind": "heading",
       "norm_label": "assumptions",
       "source_file": "specs/002-multi-app-baseline-consumption/spec.md",
-      "source_location": "L253"
+      "source_location": "L317"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_spec_edge_cases",
@@ -10943,7 +10872,7 @@
       "node_kind": "heading",
       "norm_label": "edge cases",
       "source_file": "specs/002-multi-app-baseline-consumption/spec.md",
-      "source_location": "L127"
+      "source_location": "L160"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_spec_feature_specification_multi_application_baseline_consumption",
@@ -10967,7 +10896,7 @@
       "node_kind": "heading",
       "norm_label": "functional requirements",
       "source_file": "specs/002-multi-app-baseline-consumption/spec.md",
-      "source_location": "L149"
+      "source_location": "L182"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_spec_key_entities_include_if_feature_involves_data",
@@ -10979,7 +10908,7 @@
       "node_kind": "heading",
       "norm_label": "key entities *(include if feature involves data)*",
       "source_file": "specs/002-multi-app-baseline-consumption/spec.md",
-      "source_location": "L208"
+      "source_location": "L264"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_spec_measurable_outcomes",
@@ -10991,7 +10920,7 @@
       "node_kind": "heading",
       "norm_label": "measurable outcomes",
       "source_file": "specs/002-multi-app-baseline-consumption/spec.md",
-      "source_location": "L231"
+      "source_location": "L287"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_spec_requirements_mandatory",
@@ -11003,7 +10932,7 @@
       "node_kind": "heading",
       "norm_label": "requirements *(mandatory)*",
       "source_file": "specs/002-multi-app-baseline-consumption/spec.md",
-      "source_location": "L147"
+      "source_location": "L180"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_spec_success_criteria_mandatory",
@@ -11015,7 +10944,7 @@
       "node_kind": "heading",
       "norm_label": "success criteria *(mandatory)*",
       "source_file": "specs/002-multi-app-baseline-consumption/spec.md",
-      "source_location": "L229"
+      "source_location": "L285"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_spec_user_scenarios_testing_mandatory",
@@ -11076,6 +11005,18 @@
       "norm_label": "user story 4 - reuse the onboarding model across provider and client tenants (priority: p3)",
       "source_file": "specs/002-multi-app-baseline-consumption/spec.md",
       "source_location": "L96"
+    },
+    {
+      "id": "specs_002_multi_app_baseline_consumption_spec_user_story_5_deploy_a_tenant_ready_application_unit_priority_p2",
+      "label": "User Story 5 - Deploy a tenant-ready application unit (Priority: P2)",
+      "_origin": "ast",
+      "community": 32,
+      "community_name": "Implementation Plan: Multi-Application Baseline Consumption",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "user story 5 - deploy a tenant-ready application unit (priority: p2)",
+      "source_file": "specs/002-multi-app-baseline-consumption/spec.md",
+      "source_location": "L127"
     },
     {
       "id": "infra_main_powerplatformsubnet_apiversion",
@@ -11661,6 +11602,17 @@
       "source_location": "L3131"
     },
     {
+      "id": "infra_bootstrap_main_outputs_uri",
+      "label": "uri",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "outputs",
+      "file_type": "code",
+      "norm_label": "uri",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L3152"
+    },
+    {
       "id": "infra_bootstrap_main_resourcegroupname_metadata",
       "label": "metadata",
       "_origin": "ast",
@@ -11736,6 +11688,39 @@
       "norm_label": "outputs",
       "source_file": "infra/bootstrap/main.json",
       "source_location": "L3130"
+    },
+    {
+      "id": "infra_bootstrap_main_uri_metadata",
+      "label": "metadata",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "outputs",
+      "file_type": "code",
+      "norm_label": "metadata",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L3154"
+    },
+    {
+      "id": "infra_bootstrap_main_uri_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "outputs",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L3153"
+    },
+    {
+      "id": "infra_bootstrap_main_uri_value",
+      "label": "value",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "outputs",
+      "file_type": "code",
+      "norm_label": "value",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L3157"
     },
     {
       "id": "infra_bootstrap_main_keyvault_lock_apiversion",
@@ -13927,7 +13912,7 @@
       "node_kind": "heading",
       "norm_label": "dependencies & execution order",
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L140"
+      "source_location": "L166"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_tasks_format_id_p_story_description",
@@ -13990,6 +13975,18 @@
       "source_location": "L117"
     },
     {
+      "id": "specs_002_multi_app_baseline_consumption_tasks_implementation_for_user_story_5",
+      "label": "Implementation for User Story 5",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "Tasks: Multi-Application Baseline Consumption",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "implementation for user story 5",
+      "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
+      "source_location": "L140"
+    },
+    {
       "id": "specs_002_multi_app_baseline_consumption_tasks_implementation_strategy",
       "label": "Implementation Strategy",
       "_origin": "ast",
@@ -13999,7 +13996,7 @@
       "node_kind": "heading",
       "norm_label": "implementation strategy",
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L184"
+      "source_location": "L214"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_tasks_incremental_delivery",
@@ -14011,7 +14008,7 @@
       "node_kind": "heading",
       "norm_label": "incremental delivery",
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L194"
+      "source_location": "L224"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_tasks_mvp_first_user_story_1_only",
@@ -14023,7 +14020,7 @@
       "node_kind": "heading",
       "norm_label": "mvp first (user story 1 only)",
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L186"
+      "source_location": "L216"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_tasks_notes",
@@ -14035,7 +14032,7 @@
       "node_kind": "heading",
       "norm_label": "notes",
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L210"
+      "source_location": "L241"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_tasks_parallel_example_user_story_2",
@@ -14047,7 +14044,7 @@
       "node_kind": "heading",
       "norm_label": "parallel example: user story 2",
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L172"
+      "source_location": "L202"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_tasks_parallel_opportunities",
@@ -14059,7 +14056,7 @@
       "node_kind": "heading",
       "norm_label": "parallel opportunities",
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L159"
+      "source_location": "L187"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_tasks_parallel_team_strategy",
@@ -14071,7 +14068,7 @@
       "node_kind": "heading",
       "norm_label": "parallel team strategy",
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L202"
+      "source_location": "L233"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_tasks_phase_1_setup_shared_infrastructure",
@@ -14146,16 +14143,28 @@
       "source_location": "L111"
     },
     {
-      "id": "specs_002_multi_app_baseline_consumption_tasks_phase_7_polish_cross_cutting_concerns",
-      "label": "Phase 7: Polish & Cross-Cutting Concerns",
+      "id": "specs_002_multi_app_baseline_consumption_tasks_phase_7_user_story_5_deploy_a_tenant_ready_application_unit",
+      "label": "Phase 7: User Story 5 - Deploy a tenant-ready application unit",
       "_origin": "ast",
       "community": 55,
       "community_name": "Tasks: Multi-Application Baseline Consumption",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "phase 7: polish & cross-cutting concerns",
+      "norm_label": "phase 7: user story 5 - deploy a tenant-ready application unit",
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
       "source_location": "L130"
+    },
+    {
+      "id": "specs_002_multi_app_baseline_consumption_tasks_phase_8_polish_cross_cutting_concerns",
+      "label": "Phase 8: Polish & Cross-Cutting Concerns",
+      "_origin": "ast",
+      "community": 55,
+      "community_name": "Tasks: Multi-Application Baseline Consumption",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "phase 8: polish & cross-cutting concerns",
+      "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
+      "source_location": "L156"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_tasks_phase_dependencies",
@@ -14167,7 +14176,7 @@
       "node_kind": "heading",
       "norm_label": "phase dependencies",
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L142"
+      "source_location": "L168"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_tasks_tasks_multi_application_baseline_consumption",
@@ -14191,7 +14200,7 @@
       "node_kind": "heading",
       "norm_label": "user story dependencies",
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L152"
+      "source_location": "L179"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_research",
@@ -14749,17 +14758,6 @@
       "norm_label": "value",
       "source_file": "infra/landingzone/main.json",
       "source_location": "L7615"
-    },
-    {
-      "id": "infra_landingzone_main_platformsubscriptionaliasname_type",
-      "label": "type",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "landingzone/main.json",
-      "file_type": "code",
-      "norm_label": "type",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L49"
     },
     {
       "id": "infra_landingzone_main_platformsubscriptionaliasname_value",
@@ -16343,6 +16341,72 @@
       "source_location": "L181"
     },
     {
+      "id": "infra_landingzone_main_applicationbootstrapresourcegroupname_defaultvalue",
+      "label": "defaultValue",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "defaultvalue",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L113"
+    },
+    {
+      "id": "infra_landingzone_main_applicationbootstrapresourcegroupname_metadata",
+      "label": "metadata",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "metadata",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L114"
+    },
+    {
+      "id": "infra_landingzone_main_applicationbootstrapresourcegroupname_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L112"
+    },
+    {
+      "id": "infra_landingzone_main_applicationmanagementgroupname_defaultvalue",
+      "label": "defaultValue",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "defaultvalue",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L32"
+    },
+    {
+      "id": "infra_landingzone_main_applicationmanagementgroupname_metadata",
+      "label": "metadata",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "metadata",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L33"
+    },
+    {
+      "id": "infra_landingzone_main_applicationmanagementgroupname_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L31"
+    },
+    {
       "id": "infra_landingzone_main_applicationresourcegroupname_defaultvalue",
       "label": "defaultValue",
       "_origin": "ast",
@@ -16398,39 +16462,6 @@
       "source_location": "L58"
     },
     {
-      "id": "infra_landingzone_main_applicationsubscriptionid_defaultvalue",
-      "label": "defaultValue",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "defaultvalue",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L71"
-    },
-    {
-      "id": "infra_landingzone_main_applicationsubscriptionid_metadata",
-      "label": "metadata",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "metadata",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L72"
-    },
-    {
-      "id": "infra_landingzone_main_applicationsubscriptionid_type",
-      "label": "type",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "type",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L70"
-    },
-    {
       "id": "infra_landingzone_main_billingscope_metadata",
       "label": "metadata",
       "_origin": "ast",
@@ -16475,6 +16506,28 @@
       "source_location": "L16"
     },
     {
+      "id": "infra_landingzone_main_parameters_applicationbootstrapresourcegroupname",
+      "label": "applicationBootstrapResourceGroupName",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "applicationbootstrapresourcegroupname",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L111"
+    },
+    {
+      "id": "infra_landingzone_main_parameters_applicationmanagementgroupname",
+      "label": "applicationManagementGroupName",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "parameters",
+      "file_type": "code",
+      "norm_label": "applicationmanagementgroupname",
+      "source_file": "infra/landingzone/main.json",
+      "source_location": "L30"
+    },
+    {
       "id": "infra_landingzone_main_parameters_applicationresourcegroupname",
       "label": "applicationResourceGroupName",
       "_origin": "ast",
@@ -16495,17 +16548,6 @@
       "norm_label": "applicationsubscriptionaliasname",
       "source_file": "infra/landingzone/main.json",
       "source_location": "L55"
-    },
-    {
-      "id": "infra_landingzone_main_parameters_applicationsubscriptionid",
-      "label": "applicationSubscriptionId",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "applicationsubscriptionid",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L69"
     },
     {
       "id": "infra_landingzone_main_parameters_billingscope",
@@ -16539,28 +16581,6 @@
       "norm_label": "platformmanagementgroupname",
       "source_file": "infra/landingzone/main.json",
       "source_location": "L23"
-    },
-    {
-      "id": "infra_landingzone_main_parameters_platformsubscriptionaliasname",
-      "label": "platformSubscriptionAliasName",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "platformsubscriptionaliasname",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L48"
-    },
-    {
-      "id": "infra_landingzone_main_parameters_platformsubscriptionid",
-      "label": "platformSubscriptionId",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "platformsubscriptionid",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L62"
     },
     {
       "id": "infra_landingzone_main_platformbootstrapresourcegroupname_defaultvalue",
@@ -16627,61 +16647,6 @@
       "norm_label": "type",
       "source_file": "infra/landingzone/main.json",
       "source_location": "L24"
-    },
-    {
-      "id": "infra_landingzone_main_platformsubscriptionaliasname_defaultvalue",
-      "label": "defaultValue",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "defaultvalue",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L50"
-    },
-    {
-      "id": "infra_landingzone_main_platformsubscriptionaliasname_metadata",
-      "label": "metadata",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "metadata",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L51"
-    },
-    {
-      "id": "infra_landingzone_main_platformsubscriptionid_defaultvalue",
-      "label": "defaultValue",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "defaultvalue",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L64"
-    },
-    {
-      "id": "infra_landingzone_main_platformsubscriptionid_metadata",
-      "label": "metadata",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "metadata",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L65"
-    },
-    {
-      "id": "infra_landingzone_main_platformsubscriptionid_type",
-      "label": "type",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "parameters",
-      "file_type": "code",
-      "norm_label": "type",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L63"
     },
     {
       "id": "infra_landingzone_main_environmentname_defaultvalue",
@@ -16849,59 +16814,136 @@
       "source_location": "L83"
     },
     {
-      "id": "infra_landingzone_main_parameters_platformresourcegroupname",
-      "label": "platformResourceGroupName",
+      "id": "infra_bootstrap_main_kv_apiversion",
+      "label": "apiVersion",
       "_origin": "ast",
       "community": 73,
-      "community_name": "platformResourceGroupName",
+      "community_name": "kv",
       "file_type": "code",
-      "norm_label": "platformresourcegroupname",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L104"
+      "norm_label": "apiversion",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L76"
     },
     {
-      "id": "infra_landingzone_main_platformresourcegroupname_defaultvalue",
-      "label": "defaultValue",
+      "id": "infra_bootstrap_main_kv_condition",
+      "label": "condition",
       "_origin": "ast",
       "community": 73,
-      "community_name": "platformResourceGroupName",
+      "community_name": "kv",
       "file_type": "code",
-      "norm_label": "defaultvalue",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L106"
+      "norm_label": "condition",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L74"
     },
     {
-      "id": "infra_landingzone_main_platformresourcegroupname_metadata",
-      "label": "metadata",
+      "id": "infra_bootstrap_main_kv_name",
+      "label": "name",
       "_origin": "ast",
       "community": 73,
-      "community_name": "platformResourceGroupName",
+      "community_name": "kv",
       "file_type": "code",
-      "norm_label": "metadata",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L107"
+      "norm_label": "name",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L77"
     },
     {
-      "id": "infra_landingzone_main_platformresourcegroupname_type",
+      "id": "infra_bootstrap_main_kv_type",
       "label": "type",
       "_origin": "ast",
       "community": 73,
-      "community_name": "platformResourceGroupName",
+      "community_name": "kv",
       "file_type": "code",
       "norm_label": "type",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L105"
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L75"
     },
     {
-      "id": "infra_landingzone_main_platformresourcegroupname_value",
-      "label": "value",
+      "id": "infra_bootstrap_main_resources",
+      "label": "resources",
       "_origin": "ast",
       "community": 73,
-      "community_name": "platformResourceGroupName",
+      "community_name": "kv",
       "file_type": "code",
-      "norm_label": "value",
-      "source_file": "infra/landingzone/main.json",
-      "source_location": "L235"
+      "norm_label": "resources",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L65"
+    },
+    {
+      "id": "infra_bootstrap_main_resources_kv",
+      "label": "kv",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "kv",
+      "file_type": "code",
+      "norm_label": "kv",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L73"
+    },
+    {
+      "id": "infra_bootstrap_main_resources_uami",
+      "label": "uami",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "kv",
+      "file_type": "code",
+      "norm_label": "uami",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L66"
+    },
+    {
+      "id": "infra_bootstrap_main_uami_apiversion",
+      "label": "apiVersion",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "kv",
+      "file_type": "code",
+      "norm_label": "apiversion",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L68"
+    },
+    {
+      "id": "infra_bootstrap_main_uami_location",
+      "label": "location",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "kv",
+      "file_type": "code",
+      "norm_label": "location",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L70"
+    },
+    {
+      "id": "infra_bootstrap_main_uami_name",
+      "label": "name",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "kv",
+      "file_type": "code",
+      "norm_label": "name",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L69"
+    },
+    {
+      "id": "infra_bootstrap_main_uami_tags",
+      "label": "tags",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "kv",
+      "file_type": "code",
+      "norm_label": "tags",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L71"
+    },
+    {
+      "id": "infra_bootstrap_main_uami_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 73,
+      "community_name": "kv",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L67"
     },
     {
       "id": "specs_002_multi_app_baseline_consumption_data_model",
@@ -18659,48 +18701,103 @@
       "source_location": "L346"
     },
     {
-      "id": "infra_bootstrap_main_enablevaultfordeployment_defaultvalue",
-      "label": "defaultValue",
+      "id": "infra_bootstrap_main_variables",
+      "label": "variables",
       "_origin": "ast",
       "community": 95,
-      "community_name": "enableVaultForDeployment",
+      "community_name": "variables",
       "file_type": "code",
-      "norm_label": "defaultvalue",
+      "norm_label": "variables",
       "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1172"
+      "source_location": "L55"
     },
     {
-      "id": "infra_bootstrap_main_enablevaultfordeployment_metadata",
-      "label": "metadata",
+      "id": "infra_bootstrap_main_variables_kvname",
+      "label": "kvName",
       "_origin": "ast",
       "community": 95,
-      "community_name": "enableVaultForDeployment",
+      "community_name": "variables",
       "file_type": "code",
-      "norm_label": "metadata",
+      "norm_label": "kvname",
       "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1173"
+      "source_location": "L62"
     },
     {
-      "id": "infra_bootstrap_main_enablevaultfordeployment_type",
-      "label": "type",
+      "id": "infra_bootstrap_main_variables_kvprefix",
+      "label": "kvPrefix",
       "_origin": "ast",
       "community": 95,
-      "community_name": "enableVaultForDeployment",
+      "community_name": "variables",
       "file_type": "code",
-      "norm_label": "type",
+      "norm_label": "kvprefix",
       "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1171"
+      "source_location": "L61"
     },
     {
-      "id": "infra_bootstrap_main_parameters_enablevaultfordeployment",
-      "label": "enableVaultForDeployment",
+      "id": "infra_bootstrap_main_variables_kvprefixmaxlength",
+      "label": "kvPrefixMaxLength",
       "_origin": "ast",
       "community": 95,
-      "community_name": "enableVaultForDeployment",
+      "community_name": "variables",
       "file_type": "code",
-      "norm_label": "enablevaultfordeployment",
+      "norm_label": "kvprefixmaxlength",
       "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1170"
+      "source_location": "L59"
+    },
+    {
+      "id": "infra_bootstrap_main_variables_kvprefixsanitized",
+      "label": "kvPrefixSanitized",
+      "_origin": "ast",
+      "community": 95,
+      "community_name": "variables",
+      "file_type": "code",
+      "norm_label": "kvprefixsanitized",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L60"
+    },
+    {
+      "id": "infra_bootstrap_main_variables_kvsuffix",
+      "label": "kvSuffix",
+      "_origin": "ast",
+      "community": 95,
+      "community_name": "variables",
+      "file_type": "code",
+      "norm_label": "kvsuffix",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L58"
+    },
+    {
+      "id": "infra_bootstrap_main_variables_mergedtags",
+      "label": "mergedTags",
+      "_origin": "ast",
+      "community": 95,
+      "community_name": "variables",
+      "file_type": "code",
+      "norm_label": "mergedtags",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L56"
+    },
+    {
+      "id": "infra_bootstrap_main_variables_uaminame",
+      "label": "uamiName",
+      "_origin": "ast",
+      "community": 95,
+      "community_name": "variables",
+      "file_type": "code",
+      "norm_label": "uaminame",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L57"
+    },
+    {
+      "id": "infra_bootstrap_main_variables_useexistingkeyvault",
+      "label": "useExistingKeyVault",
+      "_origin": "ast",
+      "community": 95,
+      "community_name": "variables",
+      "file_type": "code",
+      "norm_label": "useexistingkeyvault",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L63"
     },
     {
       "id": "docs_generated_bicep_platform_readme",
@@ -19158,48 +19255,92 @@
       "source_location": "L396"
     },
     {
-      "id": "infra_bootstrap_main_networkacls_metadata",
+      "id": "infra_bootstrap_main",
+      "label": "bootstrap/main.json",
+      "_origin": "ast",
+      "community": 99,
+      "community_name": "bootstrap/main.json",
+      "file_type": "code",
+      "norm_label": "bootstrap/main.json",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "infra_bootstrap_main_contentversion",
+      "label": "contentVersion",
+      "_origin": "ast",
+      "community": 99,
+      "community_name": "bootstrap/main.json",
+      "file_type": "code",
+      "norm_label": "contentversion",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "infra_bootstrap_main_languageversion",
+      "label": "languageVersion",
+      "_origin": "ast",
+      "community": 99,
+      "community_name": "bootstrap/main.json",
+      "file_type": "code",
+      "norm_label": "languageversion",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "infra_bootstrap_main_metadata",
       "label": "metadata",
       "_origin": "ast",
       "community": 99,
-      "community_name": "networkAcls",
+      "community_name": "bootstrap/main.json",
       "file_type": "code",
       "norm_label": "metadata",
       "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1240"
+      "source_location": "L5"
     },
     {
-      "id": "infra_bootstrap_main_networkacls_nullable",
-      "label": "nullable",
+      "id": "infra_bootstrap_main_metadata_experimental_features_enabled",
+      "label": "_EXPERIMENTAL_FEATURES_ENABLED",
       "_origin": "ast",
       "community": 99,
-      "community_name": "networkAcls",
+      "community_name": "bootstrap/main.json",
       "file_type": "code",
-      "norm_label": "nullable",
+      "norm_label": "_experimental_features_enabled",
       "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1239"
+      "source_location": "L7"
     },
     {
-      "id": "infra_bootstrap_main_networkacls_type",
-      "label": "type",
+      "id": "infra_bootstrap_main_metadata_experimental_warning",
+      "label": "_EXPERIMENTAL_WARNING",
       "_origin": "ast",
       "community": 99,
-      "community_name": "networkAcls",
+      "community_name": "bootstrap/main.json",
       "file_type": "code",
-      "norm_label": "type",
+      "norm_label": "_experimental_warning",
       "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1238"
+      "source_location": "L6"
     },
     {
-      "id": "infra_bootstrap_main_parameters_networkacls",
-      "label": "networkAcls",
+      "id": "infra_bootstrap_main_schema",
+      "label": "$schema",
       "_origin": "ast",
       "community": 99,
-      "community_name": "networkAcls",
+      "community_name": "bootstrap/main.json",
       "file_type": "code",
-      "norm_label": "networkacls",
+      "norm_label": "$schema",
       "source_file": "infra/bootstrap/main.json",
-      "source_location": "L1237"
+      "source_location": "L2"
+    },
+    {
+      "id": "infra_bootstrap_main_json_ref_asserts",
+      "label": "Asserts",
+      "_origin": "ast",
+      "community": 99,
+      "community_name": "bootstrap/main.json",
+      "file_type": "concept",
+      "norm_label": "asserts",
+      "source_file": "infra/bootstrap/main.json",
+      "source_location": "L7"
     },
     {
       "id": "_github_skills_speckit_analyze_skill_extension_hook_lifecycle",
@@ -19946,6 +20087,42 @@
     }
   ],
   "links": [
+    {
+      "source": "scripts_sync_fabric_capacity_params_sh__entry",
+      "target": "scripts_sync_fabric_capacity_params_get_output",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/sync-fabric-capacity-params.sh",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_sync_fabric_capacity_params_sh__entry",
+      "target": "scripts_sync_fabric_capacity_params_get_parameter",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/sync-fabric-capacity-params.sh",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_sync_fabric_capacity_params_sh__entry",
+      "target": "scripts_sync_fabric_capacity_params_usage",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/sync-fabric-capacity-params.sh",
+      "source_location": "L54",
+      "weight": 1.0
+    },
     {
       "source": "specify_scripts_bash_check_prerequisites_sh__entry",
       "target": "specify_scripts_bash_common_has_jq",
@@ -40704,6 +40881,17 @@
       "weight": 1.0
     },
     {
+      "source": "scripts_bundle_docs",
+      "target": "scripts_bundle_docs_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/bundle-docs.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "scripts_generate_bicep_docs",
       "target": "scripts_generate_bicep_docs_sh__entry",
       "relation": "contains",
@@ -40711,6 +40899,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/generate-bicep-docs.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_sync_fabric_capacity_params",
+      "target": "scripts_sync_fabric_capacity_params_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/sync-fabric-capacity-params.sh",
       "source_location": "L1",
       "weight": 1.0
     },
@@ -41514,7 +41713,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/002-multi-app-baseline-consumption/spec.md",
-      "source_location": "L147",
+      "source_location": "L180",
       "weight": 1.0
     },
     {
@@ -41525,7 +41724,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/002-multi-app-baseline-consumption/spec.md",
-      "source_location": "L229",
+      "source_location": "L285",
       "weight": 1.0
     },
     {
@@ -41536,7 +41735,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/002-multi-app-baseline-consumption/spec.md",
-      "source_location": "L253",
+      "source_location": "L317",
       "weight": 1.0
     },
     {
@@ -41547,7 +41746,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/002-multi-app-baseline-consumption/spec.md",
-      "source_location": "L149",
+      "source_location": "L182",
       "weight": 1.0
     },
     {
@@ -41558,7 +41757,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/002-multi-app-baseline-consumption/spec.md",
-      "source_location": "L208",
+      "source_location": "L264",
       "weight": 1.0
     },
     {
@@ -41569,12 +41768,12 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/002-multi-app-baseline-consumption/spec.md",
-      "source_location": "L231",
+      "source_location": "L287",
       "weight": 1.0
     },
     {
       "source": "specs_002_multi_app_baseline_consumption_spec_user_scenarios_testing_mandatory",
-      "target": "specs_002_multi_app_baseline_consumption_spec_edge_cases",
+      "target": "specs_002_multi_app_baseline_consumption_spec_user_story_5_deploy_a_tenant_ready_application_unit_priority_p2",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -41592,6 +41791,17 @@
       "confidence_score": 1.0,
       "source_file": "specs/002-multi-app-baseline-consumption/spec.md",
       "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_002_multi_app_baseline_consumption_spec_user_scenarios_testing_mandatory",
+      "target": "specs_002_multi_app_baseline_consumption_spec_edge_cases",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/002-multi-app-baseline-consumption/spec.md",
+      "source_location": "L160",
       "weight": 1.0
     },
     {
@@ -41646,7 +41856,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L142",
+      "source_location": "L168",
       "weight": 1.0
     },
     {
@@ -41657,7 +41867,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L152",
+      "source_location": "L179",
       "weight": 1.0
     },
     {
@@ -41668,7 +41878,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L159",
+      "source_location": "L187",
       "weight": 1.0
     },
     {
@@ -41679,7 +41889,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L186",
+      "source_location": "L216",
       "weight": 1.0
     },
     {
@@ -41690,7 +41900,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L194",
+      "source_location": "L224",
       "weight": 1.0
     },
     {
@@ -41701,7 +41911,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L202",
+      "source_location": "L233",
       "weight": 1.0
     },
     {
@@ -41749,6 +41959,17 @@
       "weight": 1.0
     },
     {
+      "source": "specs_002_multi_app_baseline_consumption_tasks_phase_7_user_story_5_deploy_a_tenant_ready_application_unit",
+      "target": "specs_002_multi_app_baseline_consumption_tasks_implementation_for_user_story_5",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
+      "source_location": "L140",
+      "weight": 1.0
+    },
+    {
       "source": "specs_002_multi_app_baseline_consumption_tasks_tasks_multi_application_baseline_consumption",
       "target": "specs_002_multi_app_baseline_consumption_tasks_phase_6_user_story_4_reuse_the_onboarding_model_across_provider_and_client_tenants_priority_p3",
       "relation": "contains",
@@ -41761,7 +41982,7 @@
     },
     {
       "source": "specs_002_multi_app_baseline_consumption_tasks_tasks_multi_application_baseline_consumption",
-      "target": "specs_002_multi_app_baseline_consumption_tasks_phase_7_polish_cross_cutting_concerns",
+      "target": "specs_002_multi_app_baseline_consumption_tasks_phase_7_user_story_5_deploy_a_tenant_ready_application_unit",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -41772,13 +41993,13 @@
     },
     {
       "source": "specs_002_multi_app_baseline_consumption_tasks_tasks_multi_application_baseline_consumption",
-      "target": "specs_002_multi_app_baseline_consumption_tasks_dependencies_execution_order",
+      "target": "specs_002_multi_app_baseline_consumption_tasks_phase_8_polish_cross_cutting_concerns",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L140",
+      "source_location": "L156",
       "weight": 1.0
     },
     {
@@ -41794,13 +42015,24 @@
     },
     {
       "source": "specs_002_multi_app_baseline_consumption_tasks_tasks_multi_application_baseline_consumption",
+      "target": "specs_002_multi_app_baseline_consumption_tasks_dependencies_execution_order",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
+      "source_location": "L166",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_002_multi_app_baseline_consumption_tasks_tasks_multi_application_baseline_consumption",
       "target": "specs_002_multi_app_baseline_consumption_tasks_parallel_example_user_story_2",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L172",
+      "source_location": "L202",
       "weight": 1.0
     },
     {
@@ -41811,18 +42043,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L184",
-      "weight": 1.0
-    },
-    {
-      "source": "specs_002_multi_app_baseline_consumption_tasks_tasks_multi_application_baseline_consumption",
-      "target": "specs_002_multi_app_baseline_consumption_tasks_notes",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
-      "source_location": "L210",
+      "source_location": "L214",
       "weight": 1.0
     },
     {
@@ -41834,6 +42055,17 @@
       "confidence_score": 1.0,
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
       "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "specs_002_multi_app_baseline_consumption_tasks_tasks_multi_application_baseline_consumption",
+      "target": "specs_002_multi_app_baseline_consumption_tasks_notes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
+      "source_location": "L241",
       "weight": 1.0
     },
     {
@@ -41878,6 +42110,39 @@
       "confidence_score": 1.0,
       "source_file": "specs/002-multi-app-baseline-consumption/tasks.md",
       "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_sync_fabric_capacity_params",
+      "target": "scripts_sync_fabric_capacity_params_usage",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/sync-fabric-capacity-params.sh",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_sync_fabric_capacity_params",
+      "target": "scripts_sync_fabric_capacity_params_get_output",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/sync-fabric-capacity-params.sh",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_sync_fabric_capacity_params",
+      "target": "scripts_sync_fabric_capacity_params_get_parameter",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/sync-fabric-capacity-params.sh",
+      "source_location": "L99",
       "weight": 1.0
     },
     {
@@ -43130,5 +43395,5 @@
       "source_file": ".specify/workflows/speckit/workflow.yml"
     }
   ],
-  "built_at_commit": "2871a48808bea1b1a4b3c600cb0d6a425817a065"
+  "built_at_commit": "51fb0c63a6c92a4718ccbc1f94fcdd9c1937c863"
 }

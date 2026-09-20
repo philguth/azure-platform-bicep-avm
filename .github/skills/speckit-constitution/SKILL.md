@@ -1,3 +1,4 @@
+Shared contracts: [hook protocol](../speckit-hook-contract.md) and [repository workflow](../speckit-workflow.md).
 ---
 name: "speckit-constitution"
 description: "Create or update the project constitution from interactive or provided principle inputs."
@@ -13,6 +14,8 @@ metadata:
 ```text
 $ARGUMENTS
 ```
+
+Shared contracts: [hook protocol](speckit-hook-contract.md) and [repository workflow](speckit-workflow.md).
 
 You **MUST** consider the user input before proceeding (if not empty).
 

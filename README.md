@@ -101,6 +101,13 @@ README, application and infrastructure guidance, specifications, contracts,
 quickstarts, and repository constitution. The output is ignored by Git. Open
 the file in VS Code, use the Markdown preview, and print the preview to PDF.
 
+To export a Markdown file to PDF, install the `yzane.markdown-pdf` extension,
+open the raw Markdown editor (not just the preview), and run **Markdown PDF:
+Export (pdf)** from the command palette. The dev container installs the
+Chromium runtime libraries (`libglib2.0-0t64`, `libnss3`, `libgbm1`, and
+related packages) that this extension's headless browser requires, so export
+works after a rebuild without additional host setup.
+
 ## Graphify workflow
 
 Graphify is useful in this repo, but it is not the only source of truth.

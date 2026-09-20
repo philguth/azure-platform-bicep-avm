@@ -246,9 +246,9 @@
     "semantic_hash": "06fd89e478bb8e0e668917a5f02f9055"
   },
   "README.md": {
-    "mtime": 1788977730.2750566,
-    "seen": 1788978040.024193,
-    "ast_hash": "4884106773af49a52ab6c5ba3374364d",
+    "mtime": 1788984173.204629,
+    "seen": 1788984181.1860566,
+    "ast_hash": "b59bcef16611de358595fc1a38b2f3a0",
     "semantic_hash": ""
   },
   "infra/README.md": {
@@ -312,15 +312,15 @@
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/spec.md": {
-    "mtime": 1788803681.275161,
-    "seen": 1788804723.156762,
-    "ast_hash": "5c5ff0ac46717172c03e899b7ca24bbd",
+    "mtime": 1788983691.9776585,
+    "seen": 1788984181.186114,
+    "ast_hash": "9183487972b2fb543babe158c5a45770",
     "semantic_hash": ""
   },
   "specs/002-multi-app-baseline-consumption/tasks.md": {
-    "mtime": 1788810342.1428413,
-    "seen": 1788978040.0242405,
-    "ast_hash": "550ee3541221a5d10ced63e18d68279e",
+    "mtime": 1788983509.5568755,
+    "seen": 1788984181.1861157,
+    "ast_hash": "26548b2add2eca9acd4c072e41d42c27",
     "semantic_hash": ""
   },
   "apps/fabric-capacity-alt/vend.json": {
@@ -417,6 +417,18 @@
     "mtime": 1788810303.2889848,
     "seen": 1788978040.0242255,
     "ast_hash": "b83e6c603240fe435e006ea1680b3b9d",
+    "semantic_hash": ""
+  },
+  "scripts/bundle-docs.sh": {
+    "mtime": 1788984173.207627,
+    "seen": 1788984181.185998,
+    "ast_hash": "bc449dfe26c9f0434093c9c6319507ed",
+    "semantic_hash": ""
+  },
+  "scripts/sync-fabric-capacity-params.sh": {
+    "mtime": 1788982497.095547,
+    "seen": 1788984181.1860058,
+    "ast_hash": "7c5b5f531839a33938d8ce643494e150",
     "semantic_hash": ""
   }
 }
