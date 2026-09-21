@@ -4,6 +4,9 @@
     "dockerfile": "Dockerfile"
   },
   "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "22"
+    },
     "ghcr.io/devcontainers/features/azure-cli:1": {
       "installBicep": true,
       "bicepVersion": "v0.47.16"
@@ -15,6 +18,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "openai.chatgpt",
         "ms-azuretools.vscode-bicep",
         "github.vscode-github-actions"
       ],
@@ -23,5 +27,12 @@
       }
     }
   },
-  "postCreateCommand": "export PATH=\"$HOME/.local/bin:$PATH\" && bicep --version && dotnet --list-sdks && az version && uv tool install --reinstall graphifyy==0.9.53 && graphify copilot install && command -v graphify && command -v graphify-mcp"
+  "mounts": [
+    "source=${localWorkspaceFolderBasename}-codex-home,target=/home/vscode/.codex,type=volume"
+  ],
+  "runArgs": [
+    "--cap-add=SYS_ADMIN",
+    "--security-opt=seccomp=unconfined"
+  ],
+  "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/.codex && bicep --version && dotnet --list-sdks && az version && bash -lc 'npm install --global @openai/codex@0.154.0 && codex --version' && graphify copilot install && command -v graphify && command -v graphify-mcp"
 }

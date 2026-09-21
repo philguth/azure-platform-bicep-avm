@@ -36,8 +36,10 @@ This workspace now includes a repo-scoped MCP configuration at `.vscode/mcp.json
 - The dev container installs the .NET 10 SDK so `dotnet` and `dnx` are available when the workspace starts.
 - The dev container also declares the Azure CLI feature so deployment and what-if commands work inside the workspace.
 - The dev container post-create step installs the `graphifyy` UV tool so the `graphify` and `graphify-mcp` commands are available after rebuild.
-- The dev container post-create step also runs `graphify copilot install` so the Graphify Copilot skill is restored after container rebuilds and defaults to querying the saved graph output when one already exis- The dev container currently pins `graphifyy==0.9.53`.
-- The dev container pins its core tool versions on purpose so rebuilds stay reproducible instead of drifting with `latest` downloads.
+- The dev container post-create step also runs `graphify copilot install` so the Graphify Copilot skill is restored after container rebuilds and defaults to querying the saved graph output when one already exists.
+- The dev container installs Node.js 22 and pins Codex CLI to `@openai/codex@0.154.0`; after rebuild, run `codex` from an integrated terminal and sign in.
+- The dev container persists Codex configuration in a named Docker volume mounted at `/home/vscode/.codex`.
+- The dev container pins its core tool versions on purpose so rebuilds stay reproducible instead of drifting with `latest` downloads. The dev container currently pins `graphifyy==0.9.53`.
 - After pulling this change, rebuild the dev container once so VS Code can launch the MCP server from this workspace.
 
 To verify it in VS Code:

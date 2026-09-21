@@ -5,6 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         ca-certificates \
+        bubblewrap \
         curl \
         libglib2.0-0t64 \
         libnss3 \
@@ -22,4 +23,5 @@ RUN apt-get update \
         libcairo2 \
         libcups2t64 \
     && curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR=/usr/local/bin sh \
+    && env UV_TOOL_DIR=/opt/uv/tools UV_TOOL_BIN_DIR=/usr/local/bin UV_PYTHON_INSTALL_DIR=/opt/uv/python uv tool install graphifyy==0.9.53 \
     && rm -rf /var/lib/apt/lists/*
