@@ -1,4 +1,3 @@
-Shared contracts: [hook protocol](../speckit-hook-contract.md) and [repository workflow](../speckit-workflow.md).
 ---
 name: "speckit-tasks"
 description: "Generate an actionable, dependency-ordered tasks.md for the feature based on available design artifacts."
@@ -15,7 +14,7 @@ metadata:
 $ARGUMENTS
 ```
 
-Shared contracts: [hook protocol](speckit-hook-contract.md) and [repository workflow](speckit-workflow.md).
+Shared contracts: [hook protocol](../speckit-hook-contract.md) and [repository workflow](../speckit-workflow.md).
 
 You **MUST** consider the user input before proceeding (if not empty).
 

@@ -1,4 +1,3 @@
-Shared contracts: [hook protocol](../speckit-hook-contract.md) and [repository workflow](../speckit-workflow.md).
 ---
 name: "speckit-converge"
 description: "Assess the current codebase against the feature's spec, plan, and tasks, then append any remaining unbuilt work as new tasks to tasks.md so implement can complete it."
@@ -15,7 +14,7 @@ metadata:
 $ARGUMENTS
 ```
 
-Shared contracts: [hook protocol](speckit-hook-contract.md) and [repository workflow](speckit-workflow.md).
+Shared contracts: [hook protocol](../speckit-hook-contract.md) and [repository workflow](../speckit-workflow.md).
 
 You **MUST** consider the user input before proceeding (if not empty).
 

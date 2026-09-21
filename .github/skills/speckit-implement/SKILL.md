@@ -1,4 +1,3 @@
-Shared contracts: [hook protocol](../speckit-hook-contract.md) and [repository workflow](../speckit-workflow.md).
 ---
 name: "speckit-implement"
 description: "Execute the implementation plan by processing and executing all tasks defined in tasks.md"
@@ -15,7 +14,7 @@ metadata:
 $ARGUMENTS
 ```
 
-Shared contracts: [hook protocol](speckit-hook-contract.md) and [repository workflow](speckit-workflow.md).
+Shared contracts: [hook protocol](../speckit-hook-contract.md) and [repository workflow](../speckit-workflow.md).
 
 You **MUST** consider the user input before proceeding (if not empty).
 
