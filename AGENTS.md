@@ -14,7 +14,8 @@ file rather than copies of these rules.
 - When using a Spec Kit command, read its existing instructions under
   `.github/skills/speckit-<command>/SKILL.md` and the
   [hook contract](.github/skills/speckit-hook-contract.md). Use these same files
-  from either agent; do not create separate copies for Codex.
+  from either agent; Codex discovers thin entry points under `.agents/skills/`
+  that delegate to these shared files. Do not duplicate workflow rules.
 - Tool integrations and installed skills can differ between agents. If a required
   skill is unavailable, state that limitation rather than claiming it was used.
 

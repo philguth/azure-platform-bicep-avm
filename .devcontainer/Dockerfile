@@ -24,4 +24,5 @@ RUN apt-get update \
         libcups2t64 \
     && curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR=/usr/local/bin sh \
     && env UV_TOOL_DIR=/opt/uv/tools UV_TOOL_BIN_DIR=/usr/local/bin UV_PYTHON_INSTALL_DIR=/opt/uv/python uv tool install graphifyy==0.9.53 \
+    && env UV_TOOL_DIR=/opt/uv/tools UV_TOOL_BIN_DIR=/usr/local/bin UV_PYTHON_INSTALL_DIR=/opt/uv/python uv tool install specify-cli==1.0.1 \
     && rm -rf /var/lib/apt/lists/*

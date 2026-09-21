@@ -28,6 +28,49 @@ This repository uses declarative Bicep deployments with two independently deploy
 
 Each layer is designed for repeatable desired-state deployment. Re-running a deployment with the same inputs converges on the declared Azure state; application deployments do not recreate or take ownership of shared platform resources. Azure deployments target subscriptions, so an application layer is deployed into a subscription in the target Azure tenant.
 
+## Spec Kit setup
+
+This repo uses [GitHub Spec Kit](https://github.com/github/spec-kit) for
+specification-driven development. The dev container installs Specify CLI
+`1.0.1`, matching the recorded project setup. Rebuild to get the persistent
+installation; it is also installed in the current container.
+
+- Shared agent guidance lives in `AGENTS.md`; engineering principles live in
+  `.specify/memory/constitution.md`.
+- Copilot is the CLI-managed integration. The authoritative skill instructions
+  live under `.github/skills/speckit-*/SKILL.md`.
+- Codex discovers repository-owned entry points in `.agents/skills/` that read
+  those same instructions. Codex is intentionally not a second CLI-managed
+  integration: version 1.0.1 reports that combination as unsafe. Do not run
+  `specify integration install codex --force` over these adapters.
+- The active feature is selected in `.specify/feature.json`. Existing feature
+  work should continue from its current artifacts rather than rerunning init.
+
+Start a fresh agent session after changing skills. Invoke steps in agent chat,
+not the shell: Copilot uses `/speckit-plan`; Codex uses `$speckit-plan`.
+The feature sequence is specify → plan → tasks → implement → converge, with
+constitution established once per project. Review each result and repeat
+implement → converge if work remains. The saved automation workflow includes
+one convergence pass; it does not automatically repeat the cycle.
+See [.github/skills/speckit-workflow.md](.github/skills/speckit-workflow.md)
+for optional quality gates and artifact ownership.
+
+Check the setup from the repository root:
+
+```bash
+specify version
+specify check
+specify integration status --json
+specify workflow info speckit
+bash .specify/scripts/bash/check-prerequisites.sh --json --require-tasks --include-tasks
+```
+
+Integration status reports locally modified Copilot skills because they link
+our shared workflow and hook guidance. Those warnings are expected; missing
+files or invalid paths are not. Review local customizations before integration
+upgrades and preserve the Codex adapters; do not use forced upgrades blindly.
+Bug-fixing and idea-assessment extensions are optional and are not installed.
+
 ## Bicep MCP
 
 This workspace now includes a repo-scoped MCP configuration at `.vscode/mcp.json` for the Bicep MCP server.

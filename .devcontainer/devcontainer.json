@@ -34,5 +34,5 @@
     "--cap-add=SYS_ADMIN",
     "--security-opt=seccomp=unconfined"
   ],
-  "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/.codex && bicep --version && dotnet --list-sdks && az version && bash -lc 'npm install --global @openai/codex@0.154.0 && codex --version' && graphify copilot install && command -v graphify && command -v graphify-mcp"
+  "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/.codex && bicep --version && dotnet --list-sdks && az version && bash -lc 'npm install --global @openai/codex@0.154.0 && codex --version' && graphify copilot install && command -v graphify && command -v graphify-mcp && specify version"
 }

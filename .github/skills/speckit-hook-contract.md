@@ -9,7 +9,7 @@ All Speckit skills use this contract for extension hooks. A skill-specific file 
 3. Read only the relevant phase key under `hooks`, for example `hooks.before_specify`.
 4. Treat hooks with `enabled: false` as disabled. Treat a missing `enabled` field as enabled.
 5. Do not evaluate non-empty `condition` expressions. Leave those to the HookExecutor; skip those hooks in the skill workflow.
-6. Replace dots in command names with hyphens when constructing the invocation. For example, `speckit.git.commit` becomes `/speckit-git-commit`.
+6. Replace dots in command names with hyphens when constructing the invocation. Use the current agent’s syntax: `speckit.git.commit` becomes `/speckit-git-commit` in Copilot or `$speckit-git-commit` in Codex.
 
 ## Execution
 
