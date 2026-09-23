@@ -163,3 +163,49 @@ client-owned tenant.
 ## Complexity Tracking
 
 No constitution violations currently require justification.
+
+## T043 lifecycle validation evidence
+
+### Preflight — 2026-09-21
+
+Status: **Incomplete; no Azure deployment or cleanup executed.**
+
+- The feature requirements checklist has 16 checked items and no unchecked items.
+- `az bicep build --file apps/recipe-template/infra/main.bicep --stdout`
+  succeeds. Bicep reports the repository's enabled experimental Asserts feature.
+- The checked-in recipe is a scaffold, not a complete application: its
+  `azure.yaml` declares an App Service project at `./src`, but that directory
+  is absent. Its Bicep template creates only a resource group; shared baseline
+  and ownership inputs are returned as metadata, without a deployed workload.
+- `azd show --cwd apps/recipe-template --no-prompt` reports no environments.
+- Azure CLI and Azure Developer CLI are installed (`azd` 1.34.1). On the
+  subsequent authentication check, Azure CLI successfully acquired a token
+  for the enabled `Microsoft Partner Network` subscription. Azure Developer
+  CLI still reports that authentication is required.
+
+Required next inputs: the external application recipe path or repository URL,
+confirmation of the non-production target, an authenticated azd session, and
+published shared-baseline values for that environment.
+
+### Evidence required to complete T043
+
+1. Record the recipe revision, tenant, subscription, region, dedicated test
+   environment, and application resource group. Confirm the application group
+   does not already contain unrelated resources.
+2. Inspect the recipe's templates and hooks, then review its what-if. Confirm
+   all planned changes belong to the application and shared resources are
+   references only.
+3. Capture the shared baseline resource inventory and relevant configuration
+   before deployment. Record any pre-existing resource groups associated with
+   the chosen azd environment so cleanup cannot select an unrelated group.
+4. Run `azd up` from the external recipe and retain its result, deployment
+   operations, and application resource inventory. Confirm the deployed
+   workload succeeds and shared foundation resources remain unchanged.
+5. Review the cleanup scope, run `azd down` for the same environment, and
+   retain its result. Verify the application resources are removed and compare
+   the shared baseline inventory and configuration with the pre-run evidence.
+6. Record results here, including failures or residual resources. Mark T043
+   complete only after the live deployment and cleanup checks pass.
+
+An empty-resource-group deployment or a successful local build alone does not
+satisfy the application lifecycle validation.

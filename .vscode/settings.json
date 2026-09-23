@@ -1,4 +1,5 @@
 {
+    "chat.agentHost.devContainer.enabled": true,
     "chat.tools.terminal.autoApprove": {
         "command": true,
         "true": true,
